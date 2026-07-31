@@ -1,0 +1,118 @@
+{%- if product -%}
+  {%- liquid
+    if text == blank
+      assign text = 'Add to cart'
+    endif
+  -%}
+  {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+  {% unless modal %}
+    <script src="{{ 'gaia-product-form.min.js' | asset_url }}" defer="defer"></script>
+  {% endunless %}
+
+  <gaia-product-form
+    class="product-form product-block"
+    data-variantid="{{ product.selected_or_first_available_variant.id }}"
+  >
+    <div class="product-form__error-message-wrapper" role="alert" hidden>
+      {% render 'icon-error' %}
+      <span class="product-form__error-message"></span>
+    </div>
+
+    {%- form 'product',
+      product,
+      data-productid: product.id,
+      id: product_form_id,
+      class: 'form',
+      novalidate: 'novalidate',
+      data-type: 'add-to-cart-form'
+    -%}
+      {%- if variant_selector and product.has_only_default_variant == false -%}
+        {% render 'variant-selects', product: product, section: section, product_form_id: product_form_id %}
+      {%- endif -%}
+
+      {% if extended_warranty_option and quote == false %}
+        {%- render 'extended-warranty',
+          product: product,
+          form_id: product_form_id,
+          label: warranty_label,
+          placeholder_text: warranty_placeholder_text,
+          option_1_text: warranty_option_1_text,
+          option_2_text: warranty_option_2_text
+        -%}
+      {% endif %}
+
+      <input
+        type="hidden"
+        name="id"
+        data-productid="{{ product.id }}"
+        value="{{ product.selected_or_first_available_variant.id }}"
+      >
+
+      {% unless quote == true %}
+        <div class="product-form__buttons form-size-md">
+          {%- if quantity_selector -%}
+            <label
+              class="label visually-hidden"
+              for="Quantity-{{ section.id }}-{{ product.selected_or_first_available_variant.id }}"
+            >
+              {{ 'products.product.quantity.label' | t }}
+            </label>
+            <gaia-quantity-input class="button quantity-size-md">
+              <button class="quantity__button" name="minus" type="button">
+                <span class="visually-hidden">
+                  {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                </span>
+                {% render 'icon-minus' %}
+              </button>
+              <input
+                class="quantity__input"
+                form="{{ product_form_id }}"
+                type="number"
+                name="quantity"
+                id="Quantity-{{ section.id }}-{{ product.selected_or_first_available_variant.id }}"
+                {% if product.metafields.attributes.minimum_purchasable_quantity != blank %}
+                  readonly
+                  min="{{ product.metafields.attributes.minimum_purchasable_quantity }}"
+                  value="{{ product.metafields.attributes.minimum_purchasable_quantity }}"
+                {% else %}
+                  min="1"
+                  value="1"
+                {% endif %}
+              >
+              <button class="quantity__button" name="plus" type="button">
+                <span class="visually-hidden">
+                  {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                </span>
+                {% render 'icon-plus' %}
+              </button>
+            </gaia-quantity-input>
+          {%- endif -%}
+
+          <button
+            type="submit"
+            name="add"
+            class="product-form__submit button button-quaternary  button-quaternary--dark button-lg"
+          >
+            <span class="button-text snug-text">
+              {{ text }}
+            </span>
+          </button>
+
+          {% comment %}
+            <a
+              id="klaviyo-bis-trigger"
+              class="klaviyo-bis-trigger button button-quaternary  button-quaternary--dark button-lg"
+              style="display:none;"
+              href="#"
+              >Notify Me When Available</a
+            >
+          {% endcomment %}
+          {%- if block.settings.show_dynamic_checkout -%}
+            {{ form | payment_button }}
+          {%- endif -%}
+        </div>
+      {% endunless %}
+    {%- endform -%}
+  </gaia-product-form>
+{%- endif -%}

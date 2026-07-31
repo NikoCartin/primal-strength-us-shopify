@@ -1,0 +1,92 @@
+<div
+  class="card__badge card__badge--product {{ settings.badge_position }}"
+  style="display: flex; flex-wrap: wrap; gap: 0.25rem"
+>
+  {% if card_product.template_suffix contains 'customisable' %}
+    <span
+      class="badge badge--bottom-left price__badge-custom active"
+      style="color: #fff!importan; background-color:#000;"
+    >
+      Customisation Available
+    </span>
+  {% endif %}
+  {%- for variant in card_product.variants -%}
+    {%- liquid
+      assign label_text = blank
+      assign label_text_color = blank
+      assign label_background_color = blank
+
+      if variant.metafields.attributes.label_text != blank
+        assign label_text = variant.metafields.attributes.label_text
+      elsif card_product.metafields.attributes.label_text != blank
+        assign label_text = card_product.metafields.attributes.label_text
+      endif
+
+      if label_text == blank
+        continue
+      endif
+
+      if variant.metafields.attributes.label_text_color != blank
+        assign label_text_color = variant.metafields.attributes.label_text_color
+      elsif card_product.metafields.attributes.label_text_color != blank
+        assign label_text_color = card_product.metafields.attributes.label_text_color
+      endif
+
+      if variant.metafields.attributes.label_background_color != blank
+        assign label_background_color = variant.metafields.attributes.label_background_color
+      elsif card_product.metafields.attributes.label_background_color != blank
+        assign label_background_color = card_product.metafields.attributes.label_background_color
+      endif
+
+      if label_text != blank
+        break
+      endif
+    -%}
+  {%- endfor -%}
+
+  {% liquid
+    assign show_sale_tag = true
+    if card_product.tags contains 'packages' or card_product.tags contains 'Packages'
+      assign show_sale_tag = false
+    endif
+  %}
+
+  {%- if card_product.available == false -%}
+    <span
+      id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+      class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+    >
+      {{- 'products.product.sold_out' | t -}}
+    </span>
+  {%- endif -%}
+
+  {%- if card_product.compare_at_price > card_product.price and show_sale_tag == true -%}
+    <span
+      class="price-badge badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}{% if variant.id == product.selected_or_first_available_variant.id %} active{% endif %}"
+    >
+      Sale
+    </span>
+  {%- endif -%}
+
+  {% if label_text != blank %}
+    {% unless label_text == 'Sale' or label_text == 'sale' %}
+      <span
+        class="badge badge--bottom-left price__badge-custom active"
+        style="color: {%- if label_text_color != blank -%}{{ label_text_color }}!important{%- else -%}#fff!important{%- endif -%}; background-color: {%- if label_background_color != blank -%}{{ label_background_color }}{%- else -%}#000{%- endif -%};"
+      >
+        {{ label_text }}
+      </span>
+    {% endunless %}
+  {% endif %}
+
+  {% if featured_badge == true %}
+    {% unless card_product.tags contains 'Essentials' %}
+      <span
+        class="badge badge--bottom-left price__badge-custom active"
+        style="color: #00ff73 !important; background-color: #000 !important;"
+      >
+        Featured
+      </span>
+    {% endunless %}
+  {% endif %}
+</div>

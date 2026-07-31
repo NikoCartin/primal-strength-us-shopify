@@ -1,0 +1,15 @@
+<div
+  class="ca-promotional-widget"
+  style="font-size: 1.2em; margin: 10px 0;"
+  data-widget-type="default-template"
+  data-widget-mode="price-focus"
+  data-widget-item-sku="{{ product.selected_or_first_available_variant.sku }}"
+  data-widget-item-price="
+    {%- if product.compare_at_price > product.price -%}
+      {{ product.price | money_without_currency | remove: ',' }}
+    {%- else -%}
+      {{ product.selected_or_first_available_variant.price | money_without_currency | remove: ',' }}
+    {%- endif -%}
+  "
+  data-widget-financing-page-url="https://us.primalstrength.com/pages/finance"
+></div>
