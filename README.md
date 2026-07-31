@@ -2,6 +2,8 @@
 
 # Primal Strength US — Shopify Theme Customizations
 
+**Live Store:** [us.primalstrength.com](https://us.primalstrength.com)
+
 This repository contains the custom Liquid snippets, JavaScript assets, and email templates developed for the Primal Strength US Shopify storefront (`us.primalstrength.com`). These modifications resolve critical storefront bugs, adapt UK-specific features for the US market, and integrate third-party financing solutions.
 
 ---
