@@ -1,53 +1,77 @@
-# Primal Strength US - Shopify Theme Customizations
+![Primal Strength](banner.jpg)
 
-This repository contains the custom Liquid snippets, JavaScript, and email templates developed for the Primal Strength US Shopify storefront. These modifications resolve critical storefront bugs, adapt UK-specific features for the US market, and integrate third-party financing solutions.
+# Primal Strength US — Shopify Theme Customizations
 
-## 🛠️ Key Fixes & Features
+This repository contains the custom Liquid snippets, JavaScript assets, and email templates developed for the Primal Strength US Shopify storefront (`us.primalstrength.com`). These modifications resolve critical storefront bugs, adapt UK-specific features for the US market, and integrate third-party financing solutions.
 
-### 1. "Sold Out" Button & Inventory Fix
-Resolved an issue where products were incorrectly displaying as "Sold Out" and preventing users from adding items to the cart, despite having inventory in the US distribution center.
+---
+
+## Key Fixes and Features
+
+### 1. Storefront Availability and Add-to-Cart Fix
+
+Resolved an issue where products were incorrectly displaying as "Sold Out" and preventing users from adding items to the cart, despite having inventory available in the US distribution center.
+
+**Root Cause:** Products were stocked in the "USA - BNB DISTRIBUTIONS" location, which was not enabled for online order fulfillment in Shopify Settings. Once the location was enabled, the following code fixes ensured the storefront accurately reflected product availability.
 
 **Files modified:**
-- `snippets/buy-button.liquid`: Removed hardcoded `disabled` and "Out of stock" conditions so the button always reads "Add to Cart".
-- `assets/gaia-product-form.min.js`: Updated the JavaScript validation to check `inventory_policy !== "continue"` to prevent the script from blocking the add-to-cart action.
-- `snippets/card-badges.liquid`: Fixed a broken Liquid condition (`{%- if false -%}`) and restored the dynamic `{%- if card_product.available == false -%}` logic so the "Sold Out" badge only appears when genuinely out of stock.
 
-**Root Cause Resolved:** 
-Products were stocked in "USA - BNB DISTRIBUTIONS", but this location was not enabled for online fulfillment in Shopify Settings. Once enabled, the UI fixes ensured the storefront accurately reflected availability.
+| File | Change |
+|------|--------|
+| `snippets/buy-button.liquid` | Removed hardcoded `disabled` and "Out of stock" conditions so the button consistently renders "Add to Cart" |
+| `assets/gaia-product-form.min.js` | Updated JavaScript validation to check `inventory_policy !== "continue"`, preventing the script from blocking the add-to-cart action |
+| `snippets/card-badges.liquid` | Fixed a broken Liquid condition (`{%- if false -%}`) and restored the dynamic `{%- if card_product.available == false -%}` logic so the "Sold Out" badge only appears when a product is genuinely unavailable |
+
+---
 
 ### 2. ChargeAfter Financing Integration
-Implemented the ChargeAfter promotional widget to display dynamic monthly payment options (e.g., Bread Pay, Katapult) on product pages.
 
-**Files added/modified:**
-- `snippets/charge-after-widget.liquid`: New snippet containing the ChargeAfter SDK initialization script and API key. Included globally via `theme.liquid`.
-- `snippets/financing-widget.liquid`: New snippet containing the `ca-promotional-widget` HTML structure, dynamically passing the product SKU and price to the ChargeAfter API.
-- `snippets/finance.liquid`: Cleaned up the existing UK-centric finance block (removed Klarna and V12 references) and integrated the new US `financing-widget.liquid`.
+Implemented the ChargeAfter promotional widget to display dynamic monthly payment options on product detail pages, consistent with the integration used on `echelonfit.com`.
+
+**Files added:**
+
+| File | Description |
+|------|-------------|
+| `snippets/charge-after-widget.liquid` | Contains the ChargeAfter SDK initialization script. Included globally via `layout/theme.liquid` |
+| `snippets/financing-widget.liquid` | Contains the `ca-promotional-widget` HTML structure, dynamically passing the product SKU and price to the ChargeAfter API |
+
+**Note:** The ChargeAfter integration requires a valid merchant API key authorized for the `us.primalstrength.com` domain. The current API key is scoped to Echelon's merchant account and will not render on the Primal domain until a separate ChargeAfter merchant account is established.
+
+The existing `snippets/finance.liquid` was also refactored to remove UK-specific references (Klarna, V12 Finance) and integrate the new US financing widget.
+
+---
 
 ### 3. Order Confirmation Email Template
+
 Adapted the default Shopify order confirmation email to reflect Primal Strength US shipping policies and contact information.
 
-**Files modified:**
-- `templates/order-confirmation-email.html`: 
-  - Updated dispatch times to 2–3 business days.
-  - Added specific FedEx Ground (5–7 days) and FedEx Freight (10–14 days) expectations based on order weight (150 lbs threshold).
-  - Updated customer service contact information to `support@echelonfit.com` and the Echelon support portal.
+**File modified:** `templates/order-confirmation-email.html`
 
-## 📁 Repository Structure
+Changes include:
+- Updated dispatch time to 2–3 business days
+- Added carrier-specific delivery expectations: FedEx Ground (5–7 business days) for orders under 150 lbs, and FedEx Freight (10–14 business days) for orders over 150 lbs
+- Updated customer service contact to `cs@echelonfit.com` and the Echelon support portal (`support.echelonfit.com/new`)
+
+---
+
+## Repository Structure
 
 ```
 ├── assets/
-│   └── gaia-product-form.min.js      # JS form validation fixes
+│   └── gaia-product-form.min.js       # JavaScript form validation fix
 ├── snippets/
-│   ├── buy-button.liquid             # Add to cart button logic
-│   ├── card-badges.liquid            # Dynamic sold out badges
-│   ├── charge-after-widget.liquid    # ChargeAfter SDK init
-│   └── financing-widget.liquid       # PDP promotional widget
+│   ├── buy-button.liquid              # Add to Cart button logic
+│   ├── card-badges.liquid             # Dynamic Sold Out badge
+│   ├── charge-after-widget.liquid     # ChargeAfter SDK initialization
+│   └── financing-widget.liquid        # PDP promotional financing widget
 ├── templates/
-│   └── order-confirmation-email.html # Customized email template
+│   └── order-confirmation-email.html  # Customized order confirmation email
+├── banner.jpg
 └── README.md
 ```
 
-## 🚀 Deployment
-These files should be copied directly into the corresponding directories of the active Shopify theme (`ux-project/Live`).
+---
 
-*Note: The ChargeAfter integration requires a valid merchant API key authorized for the `us.primalstrength.com` domain to render the promotional widget successfully.*
+## Deployment
+
+All files in this repository correspond directly to their respective paths in the active Shopify theme (`ux-project/Live`). Files should be copied into the matching directories within the Shopify theme code editor.
