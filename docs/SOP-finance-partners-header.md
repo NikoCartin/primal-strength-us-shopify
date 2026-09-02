@@ -1,77 +1,77 @@
-# SOP: Integración de Finance Partners en Primal Strength US
+# SOP: Finance Partners Integration in Primal Strength US
 
-**Versión:** 1.0  
-**Fecha:** 2 de septiembre de 2026  
-**Autor:** Manus AI  
-**Sitio:** [us.primalstrength.com](https://us.primalstrength.com)  
-**Tema:** `primal-strength-us/ux-project - Live` (`142304510051`)
+**Version:** 1.0  
+**Date:** September 2, 2026  
+**Author:** Manus AI  
+**Store:** [us.primalstrength.com](https://us.primalstrength.com)  
+**Theme:** `primal-strength-us/ux-project - Live` (`142304510051`)
 
-## 1. Objetivo
+## 1. Objective
 
-Este procedimiento documenta la instalación del script de Finance Partners en el encabezado global del sitio Primal Strength US. El script se carga en todas las páginas que utilizan el layout principal del tema, de acuerdo con la solicitud recibida por correo de Finance Partners.
+This procedure documents the installation of the Finance Partners script in the global header of the Primal Strength US storefront. Finance Partners provided the script for use on both the Echelon and Primal Strength websites, with landing-page presentation handled according to each corresponding website.
 
-> La pestaña de financiamiento existente no fue modificada. Este cambio se limita a cargar el script de integración dentro del encabezado global.
+> The existing financing tab was not modified. This change is limited to loading the Finance Partners integration script in the global theme header.
 
-## 2. Cambio implementado
+## 2. Implemented Change
 
-El archivo actualizado es:
+The updated theme file is:
 
 ```text
 layout/theme.liquid
 ```
 
-El siguiente elemento fue agregado dentro de la etiqueta `<head>`, después de los scripts globales existentes:
+The following element was added inside the `<head>` element, immediately after the existing global scripts:
 
 ```html
 <script type="text/javascript" src="https://integration.financepartners.com/ascstart.js?acv=92914413-cfea-4160-87af-e38b55aaf816" id="acapital"></script>
 ```
 
-La ubicación en `layout/theme.liquid` permite que el script se incluya en el encabezado del tema y no requiere insertar código individualmente en cada plantilla de página. Shopify documenta que los archivos de layout controlan la estructura HTML general de un tema y que `theme.liquid` es el layout principal del storefront [1].
+Placing the script in `layout/theme.liquid` makes it available in the global theme layout rather than requiring separate insertion into individual page templates. Shopify documents that layout files define the overall HTML structure of a theme and that `theme.liquid` is the primary storefront layout [1].
 
-## 3. Alcance y controles de seguridad
+## 3. Scope and Security Controls
 
-La modificación fue deliberadamente limitada a un solo archivo y a una sola línea de script. No se modificaron plantillas de producto, formularios, snippets, estilos, configuraciones de financiamiento, contenido de la pestaña de financiamiento ni integraciones de Klaviyo.
+The modification was intentionally limited to one theme file and one script element. No product templates, forms, snippets, styles, financing-tab content, pricing content, or Klaviyo integrations were changed.
 
-La credencial de Theme Access se utilizó de manera temporal para el despliegue y se eliminó después de completar la verificación. No se incluyeron credenciales, tokens ni secretos en el repositorio.
+The Theme Access credential was used temporarily for deployment and removed after verification. No credentials, tokens, or secrets were added to the repository.
 
-| Elemento | Resultado |
+| Item | Result |
 |---|---|
-| Archivo modificado | `layout/theme.liquid` |
-| Scripts de Finance Partners agregados | 1 |
-| ID utilizado | `acapital` |
-| Pestaña de financiamiento existente | Sin cambios |
-| Formularios y Klaviyo | Sin cambios |
-| Credenciales en el repositorio | Ninguna |
+| Modified file | `layout/theme.liquid` |
+| Finance Partners scripts added | 1 |
+| Script ID | `acapital` |
+| Existing financing tab | Unchanged |
+| Forms and Klaviyo | Unchanged |
+| Credentials committed to the repository | None |
 
-## 4. Validación previa al despliegue
+## 4. Pre-Deployment Validation
 
-Antes de publicar el cambio se confirmó que la URL completa de Finance Partners aparecía exactamente una vez en el archivo local y que el elemento estaba dentro de `<head>`. El despliegue se realizó únicamente con `layout/theme.liquid`, evitando enviar otros archivos del tema.
+Before publishing, the complete Finance Partners script URL was confirmed to appear exactly once in the local file, and the script element was confirmed to be inside `<head>`. The deployment was restricted to `layout/theme.liquid`, preventing unrelated theme files from being uploaded.
 
-## 5. Verificación posterior al despliegue
+## 5. Post-Deployment Verification
 
-La página pública [us.primalstrength.com](https://us.primalstrength.com) fue consultada después del despliegue. La validación confirmó lo siguiente:
+The public [Primal Strength US storefront](https://us.primalstrength.com) was requested after deployment. The verification confirmed the following:
 
-| Prueba | Resultado |
+| Test | Result |
 |---|---:|
-| URL del script presente en el HTML público | Sí |
-| Script dentro de `<head>` | Sí |
-| Ocurrencias de la URL | 1 |
-| Ocurrencias del ID `acapital` | 1 |
-| Tema live actualizado | Sí |
+| Script URL present in public HTML | Yes |
+| Script located inside `<head>` | Yes |
+| Script URL occurrences | 1 |
+| `acapital` ID occurrences | 1 |
+| Live theme updated | Yes |
 
-La verificación confirma que el script está cargado una sola vez en el encabezado público del sitio.
+These checks confirm that the Finance Partners script is loaded once in the public storefront header.
 
-## 6. Procedimiento de reversión
+## 6. Rollback Procedure
 
-Si Finance Partners solicita retirar la integración, eliminar la línea `<script>` mostrada en la sección 2 de `layout/theme.liquid` y desplegar únicamente ese archivo al tema live. Después, consultar el HTML público y confirmar que la URL de Finance Partners y el ID `acapital` ya no aparecen.
+If Finance Partners requests removal of the integration, delete the script element shown in Section 2 from `layout/theme.liquid` and deploy only that file to the live theme. Then request the public storefront HTML and confirm that the Finance Partners URL and the `acapital` ID no longer appear.
 
-No se debe eliminar ni modificar la pestaña de financiamiento existente como parte de esta reversión, salvo que el responsable del sitio lo solicite por separado.
+Do not remove or modify the existing financing tab as part of this rollback unless the site owner submits a separate request.
 
-## 7. Mantenimiento futuro
+## 7. Future Maintenance
 
-Si Finance Partners entrega una nueva URL, un nuevo parámetro `acv` o un nuevo identificador, sustituir únicamente los atributos correspondientes de la línea de integración, validar que exista una sola ocurrencia y volver a ejecutar la comprobación pública descrita en la sección 5. Cualquier cambio en la pestaña, el copy, los precios o la experiencia visual de financiamiento requiere una solicitud y validación independientes.
+If Finance Partners provides a replacement URL, a new `acv` value, or a new identifier, change only the relevant attributes in the integration element, confirm that exactly one occurrence remains, and repeat the public verification described in Section 5. Any change to the financing tab, copy, pricing, or financing user experience requires a separate request and validation.
 
-## Referencias
+## References
 
 [1]: https://shopify.dev/docs/storefronts/themes/architecture/layouts "Shopify Developer Documentation — Layouts"
 
