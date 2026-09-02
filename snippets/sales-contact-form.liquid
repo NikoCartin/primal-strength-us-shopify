@@ -1,0 +1,102 @@
+<img
+  src="https://cdn.shopify.com/s/files/1/0583/1390/0131/files/nqnsa3wc_800x800.png?v=1785258245"
+  alt="Primal Strength"
+  width="500"
+  height="180"
+  style="max-width: 200px; margin-bottom: 24px; display: block;"
+>
+
+<form
+  id="SalesContactForm"
+  action="https://formspree.io/f/xdaqyvop"
+  method="POST"
+  class="contact__form gym-design__form"
+  novalidate
+>
+  <input type="hidden" name="_subject" value="New Commercial Sales Inquiry - Primal Strength US">
+  <input type="text" name="_gotcha" style="display:none">
+
+  <label for="SalesFormName" class="visually-hidden">Name</label>
+  <input type="text" name="Name" id="SalesFormName" class="field__input input" placeholder="Full Name *" required>
+
+  <label for="SalesFormEmail" class="visually-hidden">Email</label>
+  <input type="email" name="Email" id="SalesFormEmail" class="field__input input" placeholder="Email Address *" spellcheck="false" autocomplete="off" autocapitalize="off" required>
+
+  <label for="SalesFormPhone" class="visually-hidden">Phone</label>
+  <input type="tel" name="Phone" id="SalesFormPhone" class="field__input input" placeholder="Phone Number *" pattern="[0-9\-]*" required>
+
+  <label for="SalesFormCompany" class="visually-hidden">Company/Gym Name</label>
+  <input type="text" name="Company" id="SalesFormCompany" class="field__input input" placeholder="Company / Gym Name *" required>
+
+  <label for="SalesFormGymType" class="visually-hidden">Customer Type</label>
+  <select name="Customer Type" id="SalesFormGymType" class="field__input input" required>
+    <option selected disabled>What type of gym are you buying for? *</option>
+    <option value="Home Gym">Home Gym</option>
+    <option value="Garage Gym">Garage Gym</option>
+    <option value="Commercial Gym">Commercial Gym</option>
+    <option value="Corporate Gym">Corporate Gym</option>
+    <option value="Hotel / Hospitality">Hotel / Hospitality</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <label for="SalesFormMessage" class="visually-hidden">Message</label>
+      <div class="field">
+    <input class="field__input" type="url" id="primal-snippets-sales-contact-form-liquid-1-website" name="website" placeholder="Website (optional)" autocomplete="url">
+    <label class="field__label" for="primal-snippets-sales-contact-form-liquid-1-website">Website</label>
+  </div>
+<div class="field market-segment-field">
+    <label class="field__label" for="SalesContactForm-market-segment">Market Segment</label>
+    <select class="field__input" id="SalesContactForm-market-segment" name="market_segment" required aria-required="true">
+      <option value="">Select a market segment</option>
+      <option value="Clubs">Clubs</option>
+      <option value="Corporate Office">Corporate Office</option>
+      <option value="Education">Education</option>
+      <option value="Enterprise Corporate Wellness">Enterprise Corporate Wellness</option>
+      <option value="Enterprise Fitness">Enterprise Fitness</option>
+      <option value="Federal Government">Federal Government</option>
+      <option value="Fitness">Fitness</option>
+      <option value="Healthcare">Healthcare</option>
+      <option value="Higher Education">Higher Education</option>
+      <option value="Home">Home</option>
+      <option value="Hospitality">Hospitality</option>
+      <option value="International">International</option>
+      <option value="Local Government">Local Government</option>
+      <option value="Multifamily">Multifamily</option>
+      <option value="Recreation">Recreation</option>
+      <option value="Sports">Sports</option>
+      <option value="Sports Performance">Sports Performance</option>
+      <option value="YMCA & Non-Profit">YMCA & Non-Profit</option>
+    </select>
+  </div>
+<textarea rows="5" name="Message" id="SalesFormMessage" class="field__input input" placeholder="Tell us more about your requirements..."></textarea>
+
+  <button type="submit" class="button button-secondary button-secondary--dark background--black">Submit Inquiry</button>
+</form>
+
+<div id="SalesFormSuccess" style="display:none; color:#fff; padding:20px; font-weight:bold; font-size:1.1rem;">
+  ✓ Thank you! Our sales team will be in touch shortly.
+</div>
+
+<script>
+(function( ) {
+  var form = document.getElementById('SalesContactForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch('https://formspree.io/f/xdaqyvop', {
+      method: 'POST',
+      body: new FormData(form ),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(r) {
+      if (r.ok) {
+        form.style.display = 'none';
+        document.getElementById('SalesFormSuccess').style.display = 'block';
+      } else {
+        alert('There was an error submitting your inquiry. Please try again.');
+      }
+    }).catch(function() {
+      alert('There was an error submitting your inquiry. Please try again.');
+    });
+  });
+})();
+</script>

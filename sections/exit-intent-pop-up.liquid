@@ -1,0 +1,258 @@
+{%- if template contains 'product' and section.settings.exit_intent_enable -%}
+  <div class="exit-intent-overlay">
+    {%- render 'load-css', stylesheet: 'exit-intent-overlay' -%}
+    <div class="exit-intent-modal">
+      <button class="close">
+        {% render 'icon-close' %}
+      </button>
+
+      {%- if section.settings.image != blank -%}
+        {% render 'image',
+          image_mobile: section.settings.image,
+          width_mobile: 340,
+          image_tablet: section.settings.image,
+          width_tablet: 615,
+          image_desktop: section.settings.image,
+          width_desktop: 600,
+          class: 'exit-intent-image'
+        %}
+      {%- endif -%}
+
+      <div class="exit-intent-content">
+        {%- if section.settings.heading != blank %}
+          <h2 class="ff-heading h4 fs-heading-base c-heading">{{- section.settings.heading -}}</h2>
+        {%- endif -%}
+
+        {{- section.settings.text -}}
+
+        <form
+          action="https://formspree.io/f/xgeqonll"
+          method="POST"
+          class="newsletter-form"
+          id="exit-intent-form"
+        >
+          <input type="hidden" name="Product" value="{{- product.title -}}">
+
+          <div class="newsletter__input-container">
+            <label for="name" class="visually-hidden">{{ 'templates.contact.form.name' | t }}</label>
+            <input
+              type="text"
+              name="text"
+              id="name"
+              class="input input--round text-input-on-dark-background"
+              placeholder="{{ 'templates.contact.form.name' | t }}"
+              value="{{ customer.name }}"
+              required
+            >
+
+            <label for="phone" class="visually-hidden">{{ 'templates.contact.form.phone' | t }}</label>
+            <input
+              id="phone"
+              type="text"
+              class="input input--round text-input-on-dark-background"
+              name="Phone"
+              value="{{ customer.phone }}"
+              placeholder="{{ 'templates.contact.form.phone' | t }}"
+              autocorrect="off"
+              autocapitalize="off"
+              required
+            >
+
+            <input
+              type="submit"
+              class="btn button button-secondary button-secondary--dark background--black btn--primary btn--full"
+              value="Request callback"
+            >
+
+            <p id="exit-intent-form-status"></p>
+          </div>
+            <div class="field">
+    <input class="field__input" type="url" id="primal-sections-exit-intent-pop-up-liquid-1-website" name="website" placeholder="Website (optional)" autocomplete="url">
+    <label class="field__label" for="primal-sections-exit-intent-pop-up-liquid-1-website">Website</label>
+  </div>
+<div class="field market-segment-field">
+    <label class="field__label" for="exit-intent-form-market-segment">Market Segment</label>
+    <select class="field__input" id="exit-intent-form-market-segment" name="market_segment" required aria-required="true">
+      <option value="">Select a market segment</option>
+      <option value="Clubs">Clubs</option>
+      <option value="Corporate Office">Corporate Office</option>
+      <option value="Education">Education</option>
+      <option value="Enterprise Corporate Wellness">Enterprise Corporate Wellness</option>
+      <option value="Enterprise Fitness">Enterprise Fitness</option>
+      <option value="Federal Government">Federal Government</option>
+      <option value="Fitness">Fitness</option>
+      <option value="Healthcare">Healthcare</option>
+      <option value="Higher Education">Higher Education</option>
+      <option value="Home">Home</option>
+      <option value="Hospitality">Hospitality</option>
+      <option value="International">International</option>
+      <option value="Local Government">Local Government</option>
+      <option value="Multifamily">Multifamily</option>
+      <option value="Recreation">Recreation</option>
+      <option value="Sports">Sports</option>
+      <option value="Sports Performance">Sports Performance</option>
+      <option value="YMCA & Non-Profit">YMCA & Non-Profit</option>
+    </select>
+  </div>
+</form>
+        {% comment %}
+          <div id="exit-intent-form"></div>
+        {% endcomment %}
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var form = document.getElementById("exit-intent-form");
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("exit-intent-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        status.classList.remove('success', 'errors');
+        if (response.ok) {
+          status.classList.add('success');
+          status.innerHTML = "We will be in touch soon!";
+          form.reset();
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Exit Intent Form',
+            eventAction: 'Form Submission',
+            eventValue: 1
+          });
+        } else {
+          response.json().then(data => {
+            status.classList.add('errors');
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit);
+
+    var exitIntentOverlay = document.querySelector('.exit-intent-overlay');
+    var exitIntentOverlayClose = document.querySelector('.exit-intent-overlay .close');
+    var shown = false;
+    {% comment %} var exitIntentFormInitialized = false; {% endcomment %}
+
+    document.addEventListener('mouseout', function(e) {
+      {% if section.settings.show_once == true %}
+        if (getCookie('exitIntentShown') != '') return false;
+      {% endif %}
+
+      if (shown) return false;
+
+      setTimeout(function() {
+        var shouldShowExitIntent =
+          !e.toElement &&
+          !e.relatedTarget &&
+          e.clientY < 10;
+
+        if (shouldShowExitIntent) {
+          shown = true;
+
+          {% comment %} if (!exitIntentFormInitialized && typeof hbspt !== 'undefined') {
+            hbspt.forms.create({
+              region: 'eu1',
+              portalId: '25988075',
+              formId: '1e8e4784-4268-44a3-a260-8af79fe797ff',
+              onFormSubmit: function ($form) {
+                gtag('event', 'exit_intent_form');
+              }
+            });
+            exitIntentFormInitialized = true;
+          } {% endcomment %}
+
+          exitIntentOverlay.classList.add('visible');
+          if(form){
+            form.focus();
+          }
+
+          setCookie('exitIntentShown', true, 30);
+        }
+
+      }, 250);
+    });
+
+    exitIntentOverlay.addEventListener('click', function(e) {
+      if (e.target.classList.contains('exit-intent-overlay')) {
+        exitIntentOverlay.classList.remove('visible');
+      }
+    });
+
+    exitIntentOverlayClose.addEventListener('click', function(e) {
+      exitIntentOverlay.classList.remove('visible');
+    });
+
+    function setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      let expires = "expires="+d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      let name = cname + "=";
+      let ca = document.cookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Exit intent popup",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "exit_intent_enable",
+      "label": "Enable popup",
+      "default": true,
+      "info": "Popup only visible on desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_once",
+      "label": "Only show once",
+      "info": "A cookie will be set and the popup will only be shown once every 30 days. Otherwise popup is shown on each PDP reload"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Header image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ]
+}
+{% endschema %}

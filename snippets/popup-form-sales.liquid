@@ -1,0 +1,207 @@
+{% assign sectionId = 'sales-form--' | append: section.id %}
+<style>
+  #sales-form-status--{{ sectionId }} {
+    position: fixed;
+    z-index: 9;
+    top: 50%;
+    width: 50%;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px;
+    background: #f8f8f8;
+    border: 1px solid #ececec;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 9999999999;
+  }
+
+  @media (max-width: 768px){
+    #sales-form-status--{{ sectionId }} {
+      width: 90vw;
+    }
+  }
+  #sales-form-status--{{ sectionId }} svg {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  #sales-form-status--{{ sectionId }} svg path {
+    color: black;
+  }
+</style>
+
+<img
+  src="https://cdn.shopify.com/s/files/1/0583/1390/0131/files/nqnsa3wc_800x800.png?v=1785258245"
+  alt="Primal Strength"
+  width="300"
+  height="108"
+  loading="lazy"
+  style="margin-bottom: 24px; display: block;"
+>
+
+<span class="anchor" id="sales-form-anchor"></span>
+<form
+  action="https://formspree.io/f/xdaqyvop"
+  method="POST"
+  class="contact__form gym-design__form"
+  id="sales-form--{{ sectionId }}"
+>
+  <input type="hidden" name="_subject" value="New Commercial Sales Inquiry - Primal Strength US">
+  <input type="hidden" name="form_source" value="Sales Popup Form">
+  <input type="text" name="_gotcha" style="display:none">
+
+  <label for="SalesFormName" class="visually-hidden">Name</label>
+  <input
+    type="text"
+    name="Name"
+    id="SalesFormName"
+    class="field__input input"
+    placeholder="Name *"
+    value="{{ customer.name }}"
+    required
+  >
+
+  <label for="SalesFormEmail" class="visually-hidden">Email</label>
+  <input
+    type="email"
+    name="Email"
+    id="SalesFormEmail"
+    class="field__input input"
+    placeholder="Email *"
+    value="{{ customer.email }}"
+    spellcheck="false"
+    autocomplete="off"
+    autocapitalize="off"
+    required
+  >
+
+  <label for="SalesFormPhone" class="visually-hidden">Phone</label>
+  <input
+    type="tel"
+    name="Phone"
+    id="SalesFormPhone"
+    class="field__input input"
+    placeholder="Phone *"
+    value="{{ customer.phone }}"
+    pattern="[0-9\-]*"
+    required
+  >
+
+  <label for="SalesFormCompany" class="visually-hidden">Company/Gym Name</label>
+  <input
+    type="text"
+    name="Company"
+    id="SalesFormCompany"
+    class="field__input input"
+    placeholder="Company/Gym Name *"
+    required
+  >
+
+  <label for="SalesFormGymType" class="visually-hidden">Gym Type</label>
+  <select name="Gym Type" id="SalesFormGymType" class="field__input input" required>
+    <option selected disabled>Gym type *</option>
+    <option value="Home Gym">Home Gym</option>
+    <option value="Garage Gym">Garage Gym</option>
+    <option value="Commercial Gym">Commercial Gym</option>
+    <option value="Corporate Gym">Corporate Gym</option>
+    <option value="Different Type of Gym">Different Type of Gym</option>
+  </select>
+
+  <label for="SalesFormMessage" class="visually-hidden">Additional Information</label>
+      <div class="field">
+    <input class="field__input" type="url" id="primal-snippets-popup-form-sales-liquid-1-website" name="website" placeholder="Website (optional)" autocomplete="url">
+    <label class="field__label" for="primal-snippets-popup-form-sales-liquid-1-website">Website</label>
+  </div>
+<div class="field market-segment-field">
+    <label class="field__label" for="sales-form--{{sectionId}}-market-segment">Market Segment</label>
+    <select class="field__input" id="sales-form--{{sectionId}}-market-segment" name="market_segment" required aria-required="true">
+      <option value="">Select a market segment</option>
+      <option value="Clubs">Clubs</option>
+      <option value="Corporate Office">Corporate Office</option>
+      <option value="Education">Education</option>
+      <option value="Enterprise Corporate Wellness">Enterprise Corporate Wellness</option>
+      <option value="Enterprise Fitness">Enterprise Fitness</option>
+      <option value="Federal Government">Federal Government</option>
+      <option value="Fitness">Fitness</option>
+      <option value="Healthcare">Healthcare</option>
+      <option value="Higher Education">Higher Education</option>
+      <option value="Home">Home</option>
+      <option value="Hospitality">Hospitality</option>
+      <option value="International">International</option>
+      <option value="Local Government">Local Government</option>
+      <option value="Multifamily">Multifamily</option>
+      <option value="Recreation">Recreation</option>
+      <option value="Sports">Sports</option>
+      <option value="Sports Performance">Sports Performance</option>
+      <option value="YMCA & Non-Profit">YMCA & Non-Profit</option>
+    </select>
+  </div>
+<textarea
+    rows="5"
+    name="Additional Information"
+    id="SalesFormMessage"
+    class="field__input input"
+    placeholder="Use this area for additional information"
+  ></textarea>
+
+  <button type="submit" class="button button-secondary button-secondary--dark background--black">Send</button>
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    function addClosingX(status) {
+      status.closest('section') ? status.closest('section').appendChild(status) : document.body.appendChild(status);
+      status.querySelector('svg').addEventListener('click', () => {
+        status.innerHTML = '';
+      });
+      status.querySelector('svg').focus();
+    }
+
+    var form = document.getElementById('sales-form--{{ sectionId }}');
+    if (!form) return;
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.querySelector('#sales-form-status--{{ sectionId }}');
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+        .then((response) => {
+          status.classList.remove('success', 'errors');
+          if (response.ok) {
+            status.classList.add('success');
+            status.innerHTML = `Thanks for your submission. Our sales team will be in touch shortly! {% render 'icon-close' %}`;
+            addClosingX(status);
+            form.reset();
+          } else {
+            response.json().then((data) => {
+              status.classList.add('errors');
+              if (Object.hasOwn(data, 'errors')) {
+                status.innerHTML = data['errors'].map((error) => error['message']).join(', ');
+              } else {
+                status.innerHTML = `Oops! There was a problem submitting your form. Please ensure all fields are completed. {% render 'icon-close' %}`;
+                addClosingX(status);
+              }
+            });
+          }
+        })
+        .catch((error) => {
+          status.innerHTML = `Oops! There was a problem submitting your form {% render 'icon-close' %}`;
+          addClosingX(status);
+        });
+    }
+    form.addEventListener('submit', handleSubmit);
+  });
+</script>
+
+<p id="sales-form-status--{{ sectionId }}" style="margin-top: 10px" class="fs-body-base h4"></p>

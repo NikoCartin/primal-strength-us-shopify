@@ -1,0 +1,169 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_WaX6wX": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "enable_hero_transparency": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "white"
+      }
+    },
+    "image_with_text_new_VmzLqV": {
+      "type": "image-with-text-new",
+      "blocks": {
+        "overline_T8kHXA": {
+          "type": "overline",
+          "settings": {
+            "overline": "Contact US"
+          }
+        },
+        "heading_HXggUX": {
+          "type": "heading",
+          "settings": {
+            "heading": "GET IN TOUCH WITH THE TEAM",
+            "heading_size": "heading-lg"
+          }
+        },
+        "text_YRmdqi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Have a question about PRIMAL equipment, an existing order, or planning a new training space? Our team is here to help.</p><p>Whether you’re building a home gym, fitting out a commercial facility, or need support with product selection, delivery, or aftercare, we provide clear answers and practical solutions.</p><p>Speak to specialists who understand performance environments and the demands of serious training spaces.</p>",
+            "text_style": "body"
+          }
+        },
+        "contact_kEFtAV": {
+          "type": "contact",
+          "settings": {
+            "phone": "855-4-GETFIT",
+            "email": "cs@echelonfit.com"
+          }
+        }
+      },
+      "block_order": [
+        "overline_T8kHXA",
+        "heading_HXggUX",
+        "text_YRmdqi",
+        "contact_kEFtAV"
+      ],
+      "name": "Image / Video with text (New)",
+      "settings": {
+        "image": "shopify://shop_images/Get-In-Touch-Image_118a27c0-667d-402e-bc82-0532c97f54a0_1.jpg",
+        "style": "banner",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "layout_mobile": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "video_url": "",
+        "color_scheme": "white",
+        "mobile_content_alignment": "left",
+        "top_padding": "global-sect-pad-top-md",
+        "bottom_padding": "global-sect-pad-bottom-md",
+        "top_padding_mobile": "global-sect-pad-top-md-mobile",
+        "bottom_padding_mobile": "global-sect-pad-bottom-md-mobile"
+      }
+    },
+    "contact_form_whyk88": {
+      "type": "contact-form",
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "heading": "Contact form",
+        "heading_size": "h1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_series_7gfPFh": {
+      "type": "featured-series",
+      "blocks": {
+        "text_image_KCVhAC": {
+          "type": "text_image",
+          "settings": {
+            "image": "shopify://shop_images/Step-4-Image.webp",
+            "heading": "Customer Support",
+            "text": "<p>PRIMAL delivers ongoing support throughout your ownership journey. Whether you need technical advice, maintenance guidance, or warranty assistance, our team is ready to provide practical solutions. We ensure your equipment continues to perform safely and reliably, so you can focus on training with confidence and peace of mind.</p>",
+            "use_popup_form": true,
+            "button_text": "Contact Support",
+            "button_link": "",
+            "popup_form_snippet": "<div id=\"contact-support-form-success\" style=\"display:none;\" class=\"form-status form-status-list form__message h5\" role=\"status\" aria-live=\"polite\">\n  Thank you for reaching out. Our support team will be in touch shortly.\n</div>\n<form id=\"ContactSupportForm\" action=\"https://formspree.io/f/mdenkadn\" method=\"POST\" class=\"isolate\" novalidate=\"novalidate\">\n  <div class=\"field\">\n    <input class=\"field__input\" type=\"text\" id=\"SupportForm-name\" name=\"name\" placeholder=\"Full Name\" required=\"\" aria-required=\"true\">\n    <label class=\"field__label\" for=\"SupportForm-name\">Full Name *</label>\n  </div>\n  <div class=\"field\">\n    <input class=\"field__input\" type=\"email\" id=\"SupportForm-email\" name=\"email\" placeholder=\"Email Address\" required=\"\" aria-required=\"true\">\n    <label class=\"field__label\" for=\"SupportForm-email\">Email Address *</label>\n  </div>\n  <div class=\"field\">\n    <input class=\"field__input\" type=\"tel\" id=\"SupportForm-phone\" name=\"phone\" placeholder=\"Phone Number\">\n    <label class=\"field__label\" for=\"SupportForm-phone\">Phone Number</label>\n  </div>\n  <div class=\"field\">\n    <input class=\"field__input\" type=\"text\" id=\"SupportForm-order\" name=\"order_number\" placeholder=\"Order Number (if applicable )\">\n    <label class=\"field__label\" for=\"SupportForm-order\">Order Number</label>\n  </div>\n  <div class=\"field\">\n    \n  \n  <div class=\"field\">\n    <input class=\"field__input\" type=\"url\" id=\"primal-templates-page-contact-us-json-1-website\" name=\"website\" placeholder=\"Website (optional)\" autocomplete=\"url\">\n    <label class=\"field__label\" for=\"primal-templates-page-contact-us-json-1-website\">Website</label>\n  </div><div class=\"field market-segment-field\">\n    <label class=\"field__label\" for=\"ContactSupportForm-market-segment\">Market Segment</label>\n    <select class=\"field__input\" id=\"ContactSupportForm-market-segment\" name=\"market_segment\" required aria-required=\"true\">\n      <option value=\"\">Select a market segment</option>\n      <option value=\"Clubs\">Clubs</option>\n      <option value=\"Corporate Office\">Corporate Office</option>\n      <option value=\"Education\">Education</option>\n      <option value=\"Enterprise Corporate Wellness\">Enterprise Corporate Wellness</option>\n      <option value=\"Enterprise Fitness\">Enterprise Fitness</option>\n      <option value=\"Federal Government\">Federal Government</option>\n      <option value=\"Fitness\">Fitness</option>\n      <option value=\"Healthcare\">Healthcare</option>\n      <option value=\"Higher Education\">Higher Education</option>\n      <option value=\"Home\">Home</option>\n      <option value=\"Hospitality\">Hospitality</option>\n      <option value=\"International\">International</option>\n      <option value=\"Local Government\">Local Government</option>\n      <option value=\"Multifamily\">Multifamily</option>\n      <option value=\"Recreation\">Recreation</option>\n      <option value=\"Sports\">Sports</option>\n      <option value=\"Sports Performance\">Sports Performance</option>\n      <option value=\"YMCA & Non-Profit\">YMCA & Non-Profit</option>\n    </select>\n  </div><textarea rows=\"6\" id=\"SupportForm-message\" class=\"text-area field__input\" name=\"message\" placeholder=\"Describe your issue or question...\" required=\"\" aria-required=\"true\"></textarea>\n    <label class=\"form__label field__label\" for=\"SupportForm-message\">Message *</label>\n  </div>\n  <input type=\"hidden\" name=\"_subject\" value=\"New Customer Support Request - Primal Strength US\">\n  <input type=\"hidden\" name=\"form_source\" value=\"Contact Page - Support Form\">\n  <input type=\"text\" name=\"_gotcha\" style=\"display:none\">\n  <div class=\"contact__button\" style=\"margin-top: 24px;\">\n    <button type=\"submit\" class=\"button button-secondary button-secondary--light\">Submit Request</button>\n  </div>\n</form>\n<script>\n  (function() {\n    var form = document.getElementById('ContactSupportForm');\n    if (!form) return;\n    form.addEventListener('submit', function(e) {\n      e.preventDefault();\n      fetch('https://formspree.io/f/mdenkadn', { method: 'POST', body: new FormData(form ), headers: { 'Accept': 'application/json' } })\n        .then(function(r) {\n          if (r.ok) { form.reset(); form.style.display = 'none'; document.getElementById('contact-support-form-success').style.display = 'block'; }\n          else { alert('Error submitting. Please email cs@echelonfit.com'); }\n        }).catch(function() { alert('Error submitting. Please email cs@echelonfit.com'); });\n    });\n  })();\n</script>",
+            "popup_form_heading": "Contact our Support Team"
+          }
+        },
+        "text_image_QazRRV": {
+          "type": "text_image",
+          "settings": {
+            "image": "shopify://shop_images/Sales-_-Advice-Image_6f7ef902-f34f-43a7-973c-5214ff427962.webp",
+            "heading": "Sales & Product Advice",
+            "text": "<p>Our team provides expert guidance to help you choose the right PRIMAL equipment for your space and training goals. From initial consultation to product selection, we offer tailored advice, technical specifications, and practical recommendations, ensuring every purchase delivers the performance, quality, and functionality your gym or home environment requires.</p>",
+            "use_popup_form": true,
+            "button_text": "Contact Sales",
+            "button_link": "",
+            "popup_form_snippet": "<div id=\"contact-sales-form-success\" style=\"display:none;\" class=\"form-status form-status-list form__message h5\" role=\"status\" aria-live=\"polite\">\n  Thank you for your inquiry. Our sales team will be in touch shortly.\n</div>\n<form id=\"ContactSalesForm\" action=\"https://formspree.io/f/xdaqyvop\" method=\"POST\" class=\"isolate\" novalidate=\"novalidate\">\n  <div class=\"field\">\n    <input class=\"field__input\" type=\"text\" id=\"SalesForm-name\" name=\"name\" placeholder=\"Full Name\" required=\"\" aria-required=\"true\">\n    <label class=\"field__label\" for=\"SalesForm-name\">Full Name *</label>\n  </div>\n  <div class=\"field\">\n    <input class=\"field__input\" type=\"email\" id=\"SalesForm-email\" name=\"email\" placeholder=\"Email Address\" required=\"\" aria-required=\"true\">\n    <label class=\"field__label\" for=\"SalesForm-email\">Email Address *</label>\n  </div>\n  <div class=\"field\">\n    <input class=\"field__input\" type=\"tel\" id=\"SalesForm-phone\" name=\"phone\" placeholder=\"Phone Number\">\n    <label class=\"field__label\" for=\"SalesForm-phone\">Phone Number</label>\n  </div>\n  <div class=\"field\">\n    <input class=\"field__input\" type=\"text\" id=\"SalesForm-company\" name=\"company\" placeholder=\"Company / Facility Name\">\n    <label class=\"field__label\" for=\"SalesForm-company\">Company / Facility Name</label>\n  </div>\n  <div class=\"field\">\n    <input class=\"field__input\" type=\"text\" id=\"SalesForm-budget\" name=\"estimated_budget\" placeholder=\"Estimated Budget (e.g. $5,000 )\">\n    <label class=\"field__label\" for=\"SalesForm-budget\">Estimated Budget</label>\n  </div>\n  <div class=\"field\">\n    \n  \n  <div class=\"field\">\n    <input class=\"field__input\" type=\"url\" id=\"primal-templates-page-contact-us-json-2-website\" name=\"website\" placeholder=\"Website (optional)\" autocomplete=\"url\">\n    <label class=\"field__label\" for=\"primal-templates-page-contact-us-json-2-website\">Website</label>\n  </div><div class=\"field market-segment-field\">\n    <label class=\"field__label\" for=\"ContactSalesForm-market-segment\">Market Segment</label>\n    <select class=\"field__input\" id=\"ContactSalesForm-market-segment\" name=\"market_segment\" required aria-required=\"true\">\n      <option value=\"\">Select a market segment</option>\n      <option value=\"Clubs\">Clubs</option>\n      <option value=\"Corporate Office\">Corporate Office</option>\n      <option value=\"Education\">Education</option>\n      <option value=\"Enterprise Corporate Wellness\">Enterprise Corporate Wellness</option>\n      <option value=\"Enterprise Fitness\">Enterprise Fitness</option>\n      <option value=\"Federal Government\">Federal Government</option>\n      <option value=\"Fitness\">Fitness</option>\n      <option value=\"Healthcare\">Healthcare</option>\n      <option value=\"Higher Education\">Higher Education</option>\n      <option value=\"Home\">Home</option>\n      <option value=\"Hospitality\">Hospitality</option>\n      <option value=\"International\">International</option>\n      <option value=\"Local Government\">Local Government</option>\n      <option value=\"Multifamily\">Multifamily</option>\n      <option value=\"Recreation\">Recreation</option>\n      <option value=\"Sports\">Sports</option>\n      <option value=\"Sports Performance\">Sports Performance</option>\n      <option value=\"YMCA & Non-Profit\">YMCA & Non-Profit</option>\n    </select>\n  </div><textarea rows=\"6\" id=\"SalesForm-message\" class=\"text-area field__input\" name=\"message\" placeholder=\"Tell us about your project and requirements...\" required=\"\" aria-required=\"true\"></textarea>\n    <label class=\"form__label field__label\" for=\"SalesForm-message\">Message *</label>\n  </div>\n  <input type=\"hidden\" name=\"_subject\" value=\"New Sales Inquiry - Primal Strength US\">\n  <input type=\"hidden\" name=\"form_source\" value=\"Contact Page - Sales Form\">\n  <input type=\"text\" name=\"_gotcha\" style=\"display:none\">\n  <div class=\"contact__button\" style=\"margin-top: 24px;\">\n    <button type=\"submit\" class=\"button button-secondary button-secondary--light\">Submit Inquiry</button>\n  </div>\n</form>\n<script>\n  (function() {\n    var form = document.getElementById('ContactSalesForm');\n    if (!form) return;\n    form.addEventListener('submit', function(e) {\n      e.preventDefault();\n      fetch('https://formspree.io/f/xdaqyvop', { method: 'POST', body: new FormData(form ), headers: { 'Accept': 'application/json' } })\n        .then(function(r) {\n          if (r.ok) { form.reset(); form.style.display = 'none'; document.getElementById('contact-sales-form-success').style.display = 'block'; }\n          else { alert('Error submitting. Please email commercialsales@echelonfit.com'); }\n        }).catch(function() { alert('Error submitting. Please email commercialsales@echelonfit.com'); });\n    });\n  })();\n</script>",
+            "popup_form_heading": "Contact Our Sales Team"
+          }
+        }
+      },
+      "block_order": [
+        "text_image_KCVhAC",
+        "text_image_QazRRV"
+      ],
+      "name": "Featured Series",
+      "settings": {
+        "overline": "",
+        "heading": "",
+        "body": "",
+        "cta_link": "",
+        "cta_label": "",
+        "section_style": "horizontal",
+        "mobile_layout": "carousel",
+        "top_padding": "global-sect-pad-top-md",
+        "bottom_padding": "global-sect-pad-bottom-md",
+        "top_padding_mobile": "global-sect-pad-top-md-mobile",
+        "bottom_padding_mobile": "global-sect-pad-bottom-md-mobile"
+      }
+    },
+    "faq_kEAggU": {
+      "type": "faq",
+      "name": "FAQs (Advanced)",
+      "settings": {
+        "heading": "Your queries",
+        "overline": "Knowledge library",
+        "button_link": "#",
+        "button_text": "",
+        "use_popup_form": false,
+        "shared_popup_id": "",
+        "faq_anim": false,
+        "enable_faq_schema": true,
+        "anchor": "",
+        "top_padding": "global-sect-pad-top-md",
+        "bottom_padding": "global-sect-pad-bottom-md",
+        "top_padding_mobile": "global-sect-pad-top-md-mobile",
+        "bottom_padding_mobile": "global-sect-pad-bottom-md-mobile"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_WaX6wX",
+    "main",
+    "image_with_text_new_VmzLqV",
+    "contact_form_whyk88",
+    "featured_series_7gfPFh",
+    "faq_kEAggU"
+  ]
+}

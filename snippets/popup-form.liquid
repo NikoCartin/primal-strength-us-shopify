@@ -1,0 +1,326 @@
+{% assign sectionId = 'gym-design-form--' | append: section.id %}
+<style>
+  #gym-design-form-status--{{ sectionId }} {
+    position: fixed;
+    z-index: 9;
+    top: 50%;
+    width: 50%;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px;
+    background: #f8f8f8;
+    border: 1px solid #ececec;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 9999999999;
+  }
+
+  @media (max-width: 768px){
+    #gym-design-form-status--{{ sectionId }} {
+      width: 90vw;
+    }
+  }
+  #gym-design-form-status--{{ sectionId }} svg {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  #gym-design-form-status--{{ sectionId }} svg path {
+    color: black;
+  }
+</style>
+<div id="{{ formId }}" class="popup-form background--{{ formBackground }} flex">
+  {% if formImage != blank %}
+    <div class="image__wrapper {% if formImageMob != blank %} small-hide {% endif %}">
+      {% unless formImage contains '<img' %}
+        {% render 'image', image: formImage, width: 800 %}
+      {% else %}
+        {{ formImage }}
+      {% endunless %}
+    </div>
+  {% endif %}
+  {% if formImageMob != blank %}
+    <div class="image__wrapper {% if formImageMob != blank %} small-up-hide {% endif %}">
+      {% unless formImageMob contains '<img' %}
+        {% render 'image', image: formImageMob, width: 800 %}
+      {% else %}
+        {{ formImageMob }}
+      {% endunless %}
+    </div>
+  {% endif %}
+  <div class="text__wrapper">
+    {% if formSpree == true -%}
+      {% comment %}
+        {% if formHeading != blank %}
+          <h3>{{ formHeading }}</h3>
+        {% endif %}
+        {% if formSubheading != blank %}
+          <p class="text-center">{{ formSubheading }}</p>
+        {% endif %}
+      {% endcomment %}
+      <div class="form__close-btn" data-id="{{ formId }}">
+        {% render 'icon-close' %}
+      </div>
+
+      {% comment %} {% render 'contact-form', formSpree: formSpree, formId: sectionId %} {% endcomment %}
+
+      <span class="anchor" id="gym-design-form-anchor"></span>
+      <form
+        action="https://formspree.io/f/xjvleyzq"
+        method="POST"
+        class="contact__form gym-design__form"
+        id="gym-design-form--{{ sectionId }}"
+      >
+        {%- comment -%}
+          <h2>Request a FREE 3D Gym Design</h2>
+        {%- endcomment -%}
+
+        {% if formHeading != blank %}
+          <h3>{{ formHeading }}</h3>
+        {% endif %}
+        {% if formSubheading != blank %}
+          <p class="text-center">{{ formSubheading }}</p>
+        {% endif %}
+        <div class="form__close-btn" data-id="{{ formId }}">
+          {% render 'icon-close' %}
+        </div>
+        <label for="ContactFormName" class="visually-hidden">Name</label>
+        <input
+          type="text"
+          name="Name"
+          id="ContactFormName"
+          class="field__input input"
+          placeholder="Name"
+          value="{{ customer.name }}"
+          required
+        >
+
+        <label for="ContactFormEmail" class="visually-hidden">Email</label>
+        <input
+          type="email"
+          name="Email"
+          id="ContactFormEmail"
+          class="field__input input"
+          placeholder="Email"
+          value="{{ customer.email }}"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off"
+          required
+        >
+
+        <label for="ContactFormPhone" class="visually-hidden">Phone</label>
+        <input
+          type="tel"
+          name="Phone"
+          id="ContactFormPhone"
+          class="field__input input"
+          placeholder="Phone"
+          value="{{ customer.phone }}"
+          pattern="[0-9\-]*"
+          required
+        >
+
+        <label for="ContactFormCompany" class="visually-hidden">Company/Gym Name</label>
+        <input
+          type="text"
+          name="Company"
+          id="ContactFormCompany"
+          class="field__input input"
+          placeholder="Company/Gym Name"
+          required
+        >
+
+        <label for="ContactFormGym" class="visually-hidden">What sort of gym you looking for?</label>
+        <select name="Gym Type" id="ContactFormGym" class="field__input input" required>
+          <option selected disabled>Gym type</option>
+          <option value="Home Gym">Home Gym</option>
+          <option value="Garage Gym">Garage Gym</option>
+          <option value="Commercial Gym">Commercial Gym</option>
+          <option value="Corporate Gym">Corporate Gym</option>
+          <option value="Different Type of Gym">Different Type of Gym</option>
+        </select>
+
+        <label for="ContactFormMessage" class="visually-hidden">Additional Information</label>
+            <div class="field">
+    <input class="field__input" type="url" id="primal-snippets-popup-form-liquid-1-website" name="website" placeholder="Website (optional)" autocomplete="url">
+    <label class="field__label" for="primal-snippets-popup-form-liquid-1-website">Website</label>
+  </div>
+<div class="field market-segment-field">
+    <label class="field__label" for="gym-design-form--{{sectionId}}-market-segment">Market Segment</label>
+    <select class="field__input" id="gym-design-form--{{sectionId}}-market-segment" name="market_segment" required aria-required="true">
+      <option value="">Select a market segment</option>
+      <option value="Clubs">Clubs</option>
+      <option value="Corporate Office">Corporate Office</option>
+      <option value="Education">Education</option>
+      <option value="Enterprise Corporate Wellness">Enterprise Corporate Wellness</option>
+      <option value="Enterprise Fitness">Enterprise Fitness</option>
+      <option value="Federal Government">Federal Government</option>
+      <option value="Fitness">Fitness</option>
+      <option value="Healthcare">Healthcare</option>
+      <option value="Higher Education">Higher Education</option>
+      <option value="Home">Home</option>
+      <option value="Hospitality">Hospitality</option>
+      <option value="International">International</option>
+      <option value="Local Government">Local Government</option>
+      <option value="Multifamily">Multifamily</option>
+      <option value="Recreation">Recreation</option>
+      <option value="Sports">Sports</option>
+      <option value="Sports Performance">Sports Performance</option>
+      <option value="YMCA & Non-Profit">YMCA & Non-Profit</option>
+    </select>
+  </div>
+<textarea
+          rows="5"
+          name="Additional Information"
+          id="ContactFormMessage"
+          class="field__input input"
+          placeholder="Use this area for additional information"
+        >
+        </textarea>
+
+        <label>Want to add a floor plan?</label>
+        <div class="radio">
+          <input type="radio" name="Floorplan" value="Yes" id="floorplanYes"><label for="floorplanYes">Yes</label>
+          <input type="radio" name="Floorplan" value="No" id="floorplanNo"><label for="floorplanNo">No</label>
+        </div>
+
+        <div {% comment %}style="display:none;"{% endcomment %}>
+          <label style="display:block;margin:10px 0;" for="ContactFormSupplyfloorupload"
+            >If you have a floor plan, please supply this</label
+          >
+          <input
+            type="file"
+            id="ContactFormSupplyfloorupload"
+            name="Floorplan File"
+            size="40"
+
+            class=" input-reset input w-100 field__input-reset input w-100"
+            accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv"
+            aria-invalid="false"
+          >
+        </div>
+        <button type="submit" class="button button-secondary button-secondary--dark background--black">Send</button>
+      </form>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          let haveFloorPlan = document.querySelectorAll("#gym-design-form--{{ sectionId }} [name='Floorplan']");
+          haveFloorPlan.forEach(radio => {
+            radio.addEventListener('change', function (e) {
+              if (e.target.value == 'Yes') {
+                document.querySelector('#gym-design-form--{{ sectionId }} #ContactFormSupplyfloorupload').click();
+              }
+            });
+          });
+
+          //   let inputFile = document.querySelector("#ContactFormSupplyfloorupload");
+          //   inputFile.addEventListener("change", function(e){
+          //   	console.log(e);
+          //   })
+
+          function addClosingX(status) {
+            status.closest('section').appendChild(status);
+            status.querySelector('svg').addEventListener('click', () => {
+              status.innerHTML = '';
+            });
+            status.querySelector('svg').focus();
+          }
+
+          var form = document.getElementById('gym-design-form--{{ sectionId }}');
+          async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.querySelector('#gym-design-form-status--{{ sectionId }}');
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+              method: form.method,
+              body: data,
+              headers: {
+                Accept: 'application/json'
+              }
+            })
+              .then(response => {
+                status.classList.remove('success', 'errors');
+                if (response.ok) {
+                  window.lintrk('track', { conversion_id: 10967410 });
+                  /*ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'Gym Design',
+                    eventAction: 'Form Submission',
+                    eventValue: 1,
+                  });*/
+                  gtag('event', 'gym_design_form_submission');
+                  status.classList.add('success');
+                  status.innerHTML = `Thanks for your submission. We'll be in touch! {% render 'icon-close' %}`;
+                  addClosingX(status);
+                  //         window.location.href = '/pages/gym-design-submission';
+                  form.reset();
+                  fbq('track', 'Lead');
+                } else {
+                  response.json().then(data => {
+                    status.classList.add('errors');
+                    if (Object.hasOwn(data, 'errors')) {
+                      status.innerHTML = data['errors'].map(error => error['message']).join(', ');
+                    } else {
+                      status.innerHTML = `Oops! There was a problem submitting your form. Please ensure all fields are completed. {% render 'icon-close' %}`;
+                      addClosingX(status);
+                    }
+                  });
+                }
+              })
+              .catch(error => {
+                status.innerHTML = `Oops! There was a problem submitting your form {% render 'icon-close' %}`;
+                addClosingX(status);
+              });
+          }
+          form.addEventListener('submit', handleSubmit);
+        });
+      </script>
+
+    {%- else -%}
+      {% if formHeading != blank %}
+        <h3>{{ formHeading }}</h3>
+      {% endif %}
+      {% if formSubheading != blank %}
+        <p class="text-center">{{ formSubheading }}</p>
+      {% endif %}
+      <div class="form__close-btn" data-id="{{ formId }}">
+        {% render 'icon-close' %}
+      </div>
+      <div id="hs-form-container">
+        {{- formData -}}
+      </div>
+    {% endif %}
+  </div>
+  {% if formSpree == true -%}
+    <p id="gym-design-form-status--{{ sectionId }}" style="margin-top: 10px" class="fs-body-base h4"></p>
+  {% endif %}
+</div>
+
+{% comment %} {%- render 'load-js', script: 'check-script-has-loaded.min' -%} {% endcomment %}
+
+<script>
+  //check that the popup form snippet is not already on the page (only load if it is not)
+
+  //initialise popup form
+  document.addEventListener('DOMContentLoaded', () => {
+    const formWrapper = '#{{ formId }}';
+    const buttons = ['.open-popup[data-id="{{ formId }}"]', '.form__close-btn[data-id="{{ formId }}"]'];
+    const body = 'body';
+    new PopupForm(formWrapper, buttons.join(', '), body);
+  });
+</script>
+{% comment %}
+  <script>
+    hbspt.forms.create({
+      portalId: 'your-portal-id',
+      formId: 'your-form-id',
+      target: '#hs-form-container',
+    });
+  </script>
+{% endcomment %}

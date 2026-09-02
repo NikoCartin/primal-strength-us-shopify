@@ -1,0 +1,301 @@
+{%- assign form_id = 'GymDesignForm' -%}
+
+<div class="leasing-form-logo">
+  <img
+    src="https://cdn.shopify.com/s/files/1/0583/1390/0131/files/nqnsa3wc_800x800.png?v=1785258245"
+    alt="Primal Strength"
+    width="300"
+    height="108"
+    loading="lazy"
+  >
+</div>
+
+<div id="{{ form_id }}-success" style="display:none;" class="form-status form__message h5" role="status" aria-live="polite">
+  {%- render 'icon-success' -%}
+  Thank you! Our team will be in touch shortly to discuss your gym design.
+</div>
+
+<form
+  id="{{ form_id }}"
+  action="https://formspree.io/f/xdaqyvop"
+  method="POST"
+  class="isolate"
+  novalidate="novalidate"
+>
+
+  <div class="leasing-grid">
+
+    <div class="field">
+      <input
+        class="field__input"
+        autocomplete="given-name"
+        type="text"
+        id="{{ form_id }}-firstname"
+        name="first_name"
+        placeholder="First name"
+        required
+        aria-required="true"
+      >
+      <label class="field__label" for="{{ form_id }}-firstname">First name <span aria-hidden="true">*</span></label>
+    </div>
+
+    <div class="field">
+      <input
+        class="field__input"
+        autocomplete="family-name"
+        type="text"
+        id="{{ form_id }}-lastname"
+        name="last_name"
+        placeholder="Last name"
+        required
+        aria-required="true"
+      >
+      <label class="field__label" for="{{ form_id }}-lastname">Last name <span aria-hidden="true">*</span></label>
+    </div>
+
+  </div>
+
+  <div class="field">
+    <input
+      class="field__input"
+      autocomplete="email"
+      type="email"
+      id="{{ form_id }}-email"
+      name="email"
+      spellcheck="false"
+      autocapitalize="off"
+      placeholder="Email"
+      required
+      aria-required="true"
+    >
+    <label class="field__label" for="{{ form_id }}-email">Email <span aria-hidden="true">*</span></label>
+  </div>
+
+  <div class="field">
+    <input
+      class="field__input"
+      autocomplete="tel"
+      type="tel"
+      id="{{ form_id }}-phone"
+      name="phone"
+      inputmode="tel"
+      pattern="[0-9\-]*"
+      placeholder="Phone number"
+      required
+      aria-required="true"
+    >
+    <label class="field__label" for="{{ form_id }}-phone">Phone number <span aria-hidden="true">*</span></label>
+  </div>
+
+  <div class="field">
+    <select
+      id="{{ form_id }}-customer-type"
+      name="customer_type"
+      class="field__input select__select"
+      required
+      aria-required="true"
+    >
+      <option value="" disabled selected>What type of gym are you buying for?</option>
+      <option value="Commercial Gym">Commercial Gym</option>
+      <option value="Home Gym">Home Gym</option>
+      <option value="Hotel / Hospitality">Hotel / Hospitality</option>
+      <option value="Corporate / Office">Corporate / Office</option>
+      <option value="Education / School">Education / School</option>
+      <option value="Other">Other</option>
+    </select>
+    <label class="field__label" for="{{ form_id }}-customer-type">Customer Type <span aria-hidden="true">*</span></label>
+  </div>
+
+  <div class="field">
+    <select
+      id="{{ form_id }}-gym-size"
+      name="gym_size"
+      class="field__input select__select"
+      required
+      aria-required="true"
+    >
+      <option value="" disabled selected>Please Select</option>
+      <option value="Under 500 sq ft">Under 500 sq ft</option>
+      <option value="500 - 1,000 sq ft">500 – 1,000 sq ft</option>
+      <option value="1,000 - 2,500 sq ft">1,000 – 2,500 sq ft</option>
+      <option value="2,500 - 5,000 sq ft">2,500 – 5,000 sq ft</option>
+      <option value="5,000 - 10,000 sq ft">5,000 – 10,000 sq ft</option>
+      <option value="Over 10,000 sq ft">Over 10,000 sq ft</option>
+    </select>
+    <label class="field__label" for="{{ form_id }}-gym-size">Size of Gym Space <span aria-hidden="true">*</span></label>
+  </div>
+
+  <div class="field">
+    <select
+      id="{{ form_id }}-budget"
+      name="budget_range"
+      class="field__input select__select"
+      required
+      aria-required="true"
+    >
+      <option value="" disabled selected>Please Select</option>
+      <option value="Under $10,000">Under $10,000</option>
+      <option value="$10,000 - $25,000">$10,000 – $25,000</option>
+      <option value="$25,000 - $50,000">$25,000 – $50,000</option>
+      <option value="$50,000 - $100,000">$50,000 – $100,000</option>
+      <option value="$100,000 - $250,000">$100,000 – $250,000</option>
+      <option value="Over $250,000">Over $250,000</option>
+    </select>
+    <label class="field__label" for="{{ form_id }}-budget">Budget Range <span aria-hidden="true">*</span></label>
+  </div>
+
+  <div class="field">
+    <select
+      id="{{ form_id }}-timeline"
+      name="project_timeline"
+      class="field__input select__select"
+      required
+      aria-required="true"
+    >
+      <option value="" disabled selected>When do you expect your project to be completed?</option>
+      <option value="As soon as possible">As soon as possible</option>
+      <option value="Within 1 month">Within 1 month</option>
+      <option value="1 - 3 months">1 – 3 months</option>
+      <option value="3 - 6 months">3 – 6 months</option>
+      <option value="6 - 12 months">6 – 12 months</option>
+      <option value="Over 12 months">Over 12 months</option>
+    </select>
+    <label class="field__label" for="{{ form_id }}-timeline">Project Timeline <span aria-hidden="true">*</span></label>
+  </div>
+
+  <div class="field">
+        <div class="field">
+    <input class="field__input" type="url" id="primal-snippets-gym-design-form-liquid-1-website" name="website" placeholder="Website (optional)" autocomplete="url">
+    <label class="field__label" for="primal-snippets-gym-design-form-liquid-1-website">Website</label>
+  </div>
+<div class="field market-segment-field">
+    <label class="field__label" for="{{form_id}}-market-segment">Market Segment</label>
+    <select class="field__input" id="{{form_id}}-market-segment" name="market_segment" required aria-required="true">
+      <option value="">Select a market segment</option>
+      <option value="Clubs">Clubs</option>
+      <option value="Corporate Office">Corporate Office</option>
+      <option value="Education">Education</option>
+      <option value="Enterprise Corporate Wellness">Enterprise Corporate Wellness</option>
+      <option value="Enterprise Fitness">Enterprise Fitness</option>
+      <option value="Federal Government">Federal Government</option>
+      <option value="Fitness">Fitness</option>
+      <option value="Healthcare">Healthcare</option>
+      <option value="Higher Education">Higher Education</option>
+      <option value="Home">Home</option>
+      <option value="Hospitality">Hospitality</option>
+      <option value="International">International</option>
+      <option value="Local Government">Local Government</option>
+      <option value="Multifamily">Multifamily</option>
+      <option value="Recreation">Recreation</option>
+      <option value="Sports">Sports</option>
+      <option value="Sports Performance">Sports Performance</option>
+      <option value="YMCA & Non-Profit">YMCA & Non-Profit</option>
+    </select>
+  </div>
+<textarea
+      rows="5"
+      id="{{ form_id }}-message"
+      class="text-area field__input"
+      name="message"
+      placeholder="Message"
+      required
+      aria-required="true"
+    ></textarea>
+    <label class="form__label field__label" for="{{ form_id }}-message">Message <span aria-hidden="true">*</span></label>
+  </div>
+
+  <div class="gym-design-consent" style="margin-top: 20px;">
+    <p class="body-xs" style="font-size: 0.75rem; line-height: 1.5; margin-bottom: 12px;">
+      Primal is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:
+    </p>
+    <label class="gym-design-consent__label" style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem;">
+      <input type="checkbox" name="marketing_consent" value="Yes" style="margin-top: 3px; flex-shrink: 0;">
+      I agree to receive other communications from Primal.
+    </label>
+    <p class="body-xs" style="font-size: 0.75rem; line-height: 1.5; margin-top: 12px;">
+      You may unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy practices, and how we are committed to protecting and respecting your privacy, please review our <a href="/pages/privacy-policy" style="text-decoration: underline;">Privacy Policy</a>.<br><br>
+      By clicking submit below, you consent to allow Primal to store and process the personal information submitted above to provide you the content requested.
+    </p>
+  </div>
+
+  <input type="hidden" name="_subject" value="New Gym Design Request - Primal Strength US">
+  <input type="hidden" name="form_source" value="Gym Design Form">
+  <input type="hidden" name="page_url" value="{{ canonical_url }}">
+  <input type="text" name="_gotcha" style="display:none">
+
+  <div class="contact__button" style="margin-top: 24px;">
+    <button type="submit" class="button button-secondary button-secondary--light">
+      Submit
+    </button>
+  </div>
+
+</form>
+
+<style>
+  .leasing-form-logo {
+    margin-bottom: 24px;
+  }
+  .leasing-form-logo img {
+    display: block;
+    max-width: 300px;
+    height: auto;
+  }
+  .leasing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .leasing-grid .field {
+    margin: 0;
+  }
+  .field select.field__input {
+    appearance: auto;
+    -webkit-appearance: auto;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 749px) {
+    .leasing-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var formId = '{{ form_id }}';
+    var form = document.getElementById(formId);
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      fetch('https://formspree.io/f/xdaqyvop', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            form.style.display = 'none';
+            var success = document.getElementById(formId + '-success');
+            if (success) {
+              success.style.display = 'block';
+              success.focus();
+            }
+          } else {
+            btn.disabled = false;
+            btn.textContent = 'Submit';
+            alert('There was an error submitting the form. Please try again.');
+          }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Submit';
+          alert('There was an error submitting the form. Please try again.');
+        });
+    });
+  })();
+</script>
