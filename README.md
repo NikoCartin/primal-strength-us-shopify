@@ -43,7 +43,22 @@ The existing `snippets/finance.liquid` was also refactored to remove UK-specific
 
 ---
 
-### 3. Order Confirmation Email Template
+### 3. Split Echelon and PRIMAL Logo Links
+
+The Primal header uses one combined inline SVG containing the Echelon and PRIMAL wordmarks. The implementation preserves that visual mark and adds two accessible anchor regions so each brand can be selected independently. The Echelon region opens `https://echelonfit.com/`, while the PRIMAL region remains on the Primal Strength US homepage through Shopify's `routes.root_url`.
+
+The implementation is limited to `sections/header.liquid`. It branches only when `section.settings.logo_svg` is populated, keeps the existing image and text fallback behavior unchanged, and does not use JavaScript for navigation. The `49.7%` and `50.3%` regions are based on the current SVG divider geometry. The CSS includes explicit pointer-event and positioning protections for the theme's transparent-header behavior.
+
+**Documentation:**
+
+- [Technical architecture](docs/TECHNICAL-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md)
+- [Deployment and rollback SOP](docs/SOP-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md)
+- [PDF SOP reference](docs/SOP-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.pdf)
+- [Complete `header.liquid` source](sections/header.liquid)
+
+---
+
+### 4. Order Confirmation Email Template
 
 Adapted the default Shopify order confirmation email to reflect Primal Strength US shipping policies and contact information.
 
@@ -61,6 +76,8 @@ Changes include:
 ```
 ├── assets/
 │   └── gaia-product-form.min.js       # JavaScript form validation fix
+├── sections/
+│   └── header.liquid                  # Split Echelon and PRIMAL logo links
 ├── snippets/
 │   ├── buy-button.liquid              # Add to Cart button logic
 │   ├── card-badges.liquid             # Dynamic Sold Out badge
@@ -68,6 +85,11 @@ Changes include:
 │   └── financing-widget.liquid        # PDP promotional financing widget
 ├── templates/
 │   └── order-confirmation-email.html  # Customized order confirmation email
+├── docs/
+│   ├── TECHNICAL-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md
+│   ├── SOP-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md
+│   ├── SOP-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.pdf
+│   └── CHANGELOG.md
 ├── banner.jpg
 └── README.md
 ```

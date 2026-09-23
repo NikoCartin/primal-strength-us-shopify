@@ -1,9 +1,9 @@
 # SOP: Finance Partners Integration in Primal Strength US
 
-**Version:** 1.0  
-**Date:** September 2, 2026  
-**Author:** Manus AI  
-**Store:** [us.primalstrength.com](https://us.primalstrength.com)  
+**Version:** 1.0
+**Date:** September 2, 2026
+**Author:** Nicolas Cartin Reyes, Lead Developer
+**Store:** [us.primalstrength.com](https://us.primalstrength.com)
 **Theme:** `primal-strength-us/ux-project - Live` (`142304510051`)
 
 ## 1. Objective

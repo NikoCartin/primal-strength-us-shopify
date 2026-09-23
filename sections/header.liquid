@@ -1,0 +1,491 @@
+{% render 'load-css', stylesheet: 'header', preload: true %}
+{% render 'load-css', stylesheet: 'component-search', defer: true %}
+{% render 'load-css', stylesheet: 'component-cart-notification', inline: true %}
+
+<style>
+  .header-logo-image {
+    display: block;
+    width: auto;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .header-logo-svg svg {
+    display: block;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .header-logo-text {
+    display: block;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  @media screen and (max-width: 749px) {
+    .header-logo-image,
+    .header-logo-svg svg {
+      max-width: 160px;
+    }
+  }
+
+  .header-logo--brand-split {
+    position: relative !important;
+    display: inline-block !important;
+    pointer-events: auto !important;
+  }
+
+  .header-logo__brand-link {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    display: block !important;
+    pointer-events: auto !important;
+    z-index: 5 !important;
+  }
+
+  .header-logo__brand-link--echelon {
+    left: 0 !important;
+    right: auto !important;
+    width: 49.7% !important;
+  }
+
+  .header-logo__brand-link--primal {
+    right: 0 !important;
+    left: auto !important;
+    width: 50.3% !important;
+  }
+
+  .header-logo__brand-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+</style>
+
+{%- if settings.predictive_search_enabled -%}
+  {% render 'load-css', stylesheet: 'component-price', inline: true, defer: true %}
+  {% render 'load-css', stylesheet: 'component-loading-overlay', inline: true, defer: true %}
+{%- endif -%}
+
+<svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+  <symbol
+    id="icon-close"
+    width="20"
+    height="21"
+    viewBox="0 0 20 21"
+    fill="none"
+    aria-hidden="true"
+    focusable="false"
+    role="presentation"
+    class="icon icon-close"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M9.99935 3.04175C5.88023 3.04175 2.54102 6.38096 2.54102 10.5001C2.54102 14.6192 5.88023 17.9584 9.99935 17.9584C14.1185 17.9584 17.4577 14.6192 17.4577 10.5001C17.4577 6.38096 14.1185 3.04175 9.99935 3.04175ZM0.791016 10.5001C0.791016 5.41446 4.91373 1.29175 9.99935 1.29175C15.085 1.29175 19.2077 5.41446 19.2077 10.5001C19.2077 15.5857 15.085 19.7084 9.99935 19.7084C4.91373 19.7084 0.791016 15.5857 0.791016 10.5001ZM6.88063 7.38136C7.22234 7.03965 7.77636 7.03965 8.11807 7.38136L9.99935 9.26264L11.8806 7.38136C12.2223 7.03965 12.7764 7.03965 13.1181 7.38136C13.4598 7.72307 13.4598 8.27709 13.1181 8.6188L11.2368 10.5001L13.1181 12.3814C13.4598 12.7231 13.4598 13.2771 13.1181 13.6188C12.7764 13.9605 12.2223 13.9605 11.8806 13.6188L9.99935 11.7375L8.11807 13.6188C7.77636 13.9605 7.22234 13.9605 6.88063 13.6188C6.53892 13.2771 6.53892 12.7231 6.88063 12.3814L8.76191 10.5001L6.88063 8.6188C6.53892 8.27709 6.53892 7.72307 6.88063 7.38136Z"
+      fill="white"
+    />
+  </symbol>
+</svg>
+
+<gaia-header class="header--top transparent-header page-width">
+  <header>
+    <gaia-mobile-menu>
+      <details
+        aria-label="{{ 'sections.header.open_main_menu' | t }}"
+        id="Details-Menu"
+      >
+        <summary
+          class="menu-icon-link"
+          aria-controls="mobile-menu"
+          aria-label="{{ 'sections.header.menu' | t }}"
+          role="button"
+        >
+          {%- render 'icon-hamburger' -%}
+          {%- render 'icon-close' -%}
+        </summary>
+
+        <nav class="mobile-menu">
+          {%- render 'component-mobile-menu', menu: section.settings.menu_left.links -%}
+        </nav>
+      </details>
+    </gaia-mobile-menu>
+
+    {% if section.settings.logo_svg != blank %}
+
+      <div class="header-logo header-logo--brand-split">
+        <div class="header-logo-svg">
+          {{ section.settings.logo_svg }}
+        </div>
+        <a
+          href="https://echelonfit.com/"
+          aria-label="Echelon home"
+          class="header-logo__brand-link header-logo__brand-link--echelon"
+        ></a>
+        <a
+          href="{{ routes.root_url }}"
+          aria-label="Visit Primal Strength US"
+          class="header-logo__brand-link header-logo__brand-link--primal"
+        ></a>
+      </div>
+
+    {% else %}
+
+      <a
+        href="{{ routes.root_url }}"
+        aria-label="{{ shop.name | escape }}"
+        class="header-logo"
+      >
+        {% if section.settings.logo != blank %}
+
+          {{
+            section.settings.logo
+            | image_url: width: 800
+            | image_tag:
+              class: 'header-logo-image',
+              alt: shop.name,
+              widths: '100, 150, 200, 250, 300, 400, 500, 600, 800',
+              loading: 'eager'
+          }}
+
+        {% elsif shop.logo != blank %}
+
+          {% render
+            'image',
+            image: shop.logo,
+            alt: shop.name,
+            class: 'header-logo-image'
+          %}
+
+        {% else %}
+
+          <span class="header-logo-text">
+            {{ shop.name }}
+          </span>
+
+        {% endif %}
+      </a>
+
+    {% endif %}
+
+    {%- if section.settings.menu_left != blank -%}
+      <nav
+        class="header-left"
+        aria-label="{{ 'sections.header.left_main_menu' | t }}"
+      >
+        {%- render 'component-menu', menu: section.settings.menu_left.links -%}
+      </nav>
+    {%- endif -%}
+
+    <nav
+      class="header-right"
+      aria-label="{{ 'sections.header.right_main_menu' | t }}"
+    >
+      <ul class="menu-icons">
+
+        <li class="search">
+          {%- render 'predictive-search' -%}
+        </li>
+
+        {% if section.settings.enable_localisation %}
+          <li class="header-localisation icon-hide-mobile">
+            {% render 'localisation-selector' %}
+          </li>
+        {% endif %}
+
+        <li class="icon-hide-mobile">
+          <a
+            href="{{ routes.account_login_url }}"
+            class="menu-icon-link"
+            aria-label="
+              {% if customer %}
+                {{ 'customer.account.title' | t }}
+              {% else %}
+                {{ 'customer.log_in' | t }}
+              {% endif %}
+            "
+          >
+            {%- render 'icon-account' -%}
+          </a>
+        </li>
+
+        {% if section.settings.wishlist %}
+          <li>
+            <a
+              href="/pages/gym-list"
+              class="swym-wishlist swym-wishlist-access"
+              aria-label="{{ 'customer.my_wishlist' | t }}"
+            >
+              {% render 'icon-wishlist' %}
+            </a>
+
+            <script>
+              (function () {
+                'use strict';
+
+                var el = document.querySelector('.swym-wishlist-access');
+                var pendingUpdate = false;
+
+                function updateDisplay(swat) {
+                  if (!el) return;
+
+                  swat.fetch(function (products) {
+                    el.classList.toggle(
+                      'swym-wishlist--has-items',
+                      products && products.length > 0
+                    );
+                  });
+                }
+
+                function scheduleUpdate(swat) {
+                  if (pendingUpdate) return;
+
+                  pendingUpdate = true;
+
+                  requestAnimationFrame(function () {
+                    updateDisplay(swat);
+                    pendingUpdate = false;
+                  });
+                }
+
+                function initHeaderIcon(swat) {
+                  updateDisplay(swat);
+
+                  if (swat && swat.evtLayer) {
+                    swat.evtLayer.addEventListener(
+                      'sw:addedtowishlist',
+                      function () {
+                        scheduleUpdate(swat);
+                      }
+                    );
+
+                    swat.evtLayer.addEventListener(
+                      'sw:removedfromwishlist',
+                      function () {
+                        scheduleUpdate(swat);
+                      }
+                    );
+                  }
+                }
+
+                window.SwymCallbacks = window.SwymCallbacks || [];
+                window.SwymCallbacks.push(initHeaderIcon);
+              })();
+            </script>
+          </li>
+        {% endif %}
+
+        <li>
+          <a
+            href="{{ routes.cart_url }}"
+            class="header__icon header__icon--cart menu-icon-link"
+            id="cart-icon-bubble"
+            aria-controls="CartDrawer"
+            role="button"
+            aria-haspopup="dialog"
+            aria-labelledby="cart-label"
+          >
+            {%- liquid
+              render 'icon-cart'
+            -%}
+
+            <span id="cart-label" class="visually-hidden">
+              {{- 'sections.header.view_cart' | t }}
+
+              {%- if cart != empty -%}
+                {{ 'sections.header.cart_count' | t: count: cart.item_count }}
+              {% endif -%}
+            </span>
+
+            <span class="visually-hidden">
+              {{ 'templates.cart.cart' | t }}
+            </span>
+
+            {%- if cart != empty -%}
+              <div class="cart-count-bubble">
+
+                {%- if cart.item_count < 100 -%}
+                  <span
+                    aria-hidden="true"
+                    class="visually-hidden"
+                  >
+                    {{ cart.item_count }}
+                  </span>
+                {%- endif -%}
+
+                <span class="visually-hidden">
+                  {{ 'sections.header.cart_count' | t: count: cart.item_count }}
+                </span>
+
+              </div>
+            {%- endif -%}
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </header>
+
+  {%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}
+</gaia-header>
+
+{%- render 'load-js', script: 'cart-notification.min' -%}
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', () => {
+    let header = document.querySelector('gaia-header');
+    let announcement = document.querySelector('.section--announcement-bar');
+
+    function setHeaderHeight() {
+      let headerHeight = header
+        ? header.getBoundingClientRect().height
+        : 0;
+
+      let announcementHeight = 0;
+
+      if (
+        announcement &&
+        announcement.compareDocumentPosition(header) &
+          Node.DOCUMENT_POSITION_FOLLOWING
+      ) {
+        announcementHeight =
+          announcement.getBoundingClientRect().height;
+      }
+
+      document.documentElement.style.setProperty(
+        '--header-height',
+        `${parseInt(headerHeight + announcementHeight)}px`
+      );
+
+      document.documentElement.style.setProperty(
+        '--header-height-no-announcement',
+        `${parseInt(headerHeight)}px`
+      );
+    }
+
+    setHeaderHeight();
+
+    var headerObserver = new ResizeObserver(setHeaderHeight);
+
+    if (header) {
+      headerObserver.observe(header);
+    }
+
+    if (announcement) {
+      var announcementObserver =
+        new ResizeObserver(setHeaderHeight);
+
+      announcementObserver.observe(announcement);
+    }
+  });
+{% endjavascript %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "Primal",
+  "legalName": "Primal Strength",
+  "url": {{ shop.url | json }},
+
+  {% if section.settings.logo %}
+    "logo": {{ section.settings.logo | image_url | prepend: "https:" | json }},
+  {% elsif shop.logo %}
+    "logo": {{ shop.logo | image_url | prepend: "https:" | json }},
+  {% endif %}
+
+  "foundingDate": "2016",
+
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Steven Rinaldi"
+    }
+  ],
+
+  "alternateName": [
+    "Primal Strength"
+  ],
+
+  "foundingLocation": "Glasgow, Scotland",
+
+  "areaServed": "United Kingdom",
+
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ shop.address.address1 | json }},
+    "addressLocality": {{ shop.address.address2 | json }},
+    "addressRegion": {{ shop.address.city | json }},
+    "addressCountry": {{ shop.address.country.name | json }},
+    "postalCode": {{ shop.address.zip | json }}
+  },
+
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "0808 239 0383",
+    "email": "sales@primalstrength.com"
+  },
+
+  "sameAs": [
+    {{ settings.social_facebook_link | json }},
+    {{ settings.social_instagram_link | json }},
+    {{ settings.social_linkedin_link | json }},
+    {{ settings.social_youtube_link | json }}
+  ]
+}
+</script>
+
+{% schema %}
+{
+  "name": "Header & Navigation",
+  "class": "section-header",
+  "tag": "section",
+
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu_left",
+      "label": "Header Menu"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+
+    {
+      "type": "html",
+      "id": "logo_svg",
+      "label": "Logo SVG (fallback)"
+    },
+
+    {
+      "type": "header",
+      "content": "Wishlist"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "wishlist",
+      "label": "Include wishlist icon?",
+      "default": true
+    },
+
+    {
+      "type": "header",
+      "content": "Localisation"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "enable_localisation",
+      "label": "Show localisation nav?"
+    }
+  ]
+}
+{% endschema %}
