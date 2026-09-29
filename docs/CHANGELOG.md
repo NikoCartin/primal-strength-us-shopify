@@ -6,7 +6,7 @@
 
 Added a Quote-template-only visual divider between the variant selector and the Request a Quote panel. The selector receives the scoped `variant-selector-labels--quote` class only when `product.template_suffix == 'quote'`; `assets/main-product.css` applies the existing border and spacing tokens without changing default product pages.
 
-The change was deployed with `--nodelete` to development theme `160888946787` and live theme `142304510051`. QA used the active, multivariant **V2 Modular Half Rack** product. The selector changed variants, the Request a Quote modal opened, the product-details panel contained no add-to-cart form, and the layout was checked at desktop and mobile widths. No product data, template JSON, or unrelated live theme files were changed.
+The change was deployed with `--nodelete` to development theme `160888946787` and live theme `142304510051`. Because the development theme had drifted from live, its existing Quote-only `snippets/buy-button.liquid` guard was also synchronized there for accurate QA; live already contained that guard and was not replaced. QA used the active, multivariant **V2 Modular Half Rack** product. The selector changed variants, the Request a Quote modal opened, the product-details panel contained no add-to-cart form, and the layout was checked at desktop and mobile widths. No product data, template JSON, or unrelated live theme files were changed.
 
 ## 1.4.0, September 29, 2026
 
