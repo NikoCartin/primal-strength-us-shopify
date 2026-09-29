@@ -1,12 +1,20 @@
 # Changelog
 
+## 1.3.0, September 29, 2026
+
+**Author:** Nicolas Cartin Reyes, Lead Developer
+
+Added the same Product Video block to `templates/product.quote.json` in development theme `160888946787` and live theme `142304510051`. The Quote template reuses the existing `main-product` renderer and the same two product metafields. The block is appended after the existing quote and accordion content, so the quote request flow remains unchanged.
+
+The live change was limited to the Quote template file and was deployed with `--nodelete`. Post-release verification confirmed that the live file matched the approved package and that no unrelated theme files were removed or changed.
+
 ## 1.2.0, September 29, 2026
 
 **Author:** Nicolas Cartin Reyes, Lead Developer
 
 Released the Product Video block to the live Primal Strength US theme `142304510051` after restoring the complete pre-release theme snapshot and verifying the final state. The live release contained only `snippets/product-video.liquid`, `sections/main-product.liquid`, and `templates/product.json`.
 
-The deployment used `--nodelete`. A complete post-release pull confirmed that all three approved files matched the deployment package and that no unrelated live files were missing or changed. The product-content workflow is now documented: saving a product video metafield updates the PDP without another theme deployment.
+The deployment used `--nodelete`. A complete post-release pull confirmed that all approved base implementation files matched the deployment package and that no unrelated live files were missing or changed. The product-content workflow is now documented: saving a product video metafield updates the PDP without another theme deployment.
 
 ## 1.1.0, September 29, 2026
 

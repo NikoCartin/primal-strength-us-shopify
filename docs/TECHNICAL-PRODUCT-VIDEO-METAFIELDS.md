@@ -8,11 +8,11 @@
 
 ## Purpose
 
-The Primal Strength US default product template now supports one optional product video block that is controlled by product-level metafields. The same product template can be reused across active and future SKUs without hardcoded product handles, SKUs, titles, or video URLs.
+The Primal Strength US Default product and Quote templates now support one optional product video block controlled by product-level metafields. Both templates reuse the same renderer across active and future SKUs without hardcoded product handles, SKUs, titles, or video URLs.
 
 The block is rendered inside the existing product-information column. It uses the same product block flow as the title, pricing, purchase controls, quote request, payment information, and product accordions. It does not create a separate product template or a product-specific hardcoded section.
 
-The block is deployed to both the unpublished development theme and the live theme. The live release was limited to the three Product Video implementation files, and the unrelated live theme files were preserved.
+The block is deployed to both the unpublished development theme and the live theme. The base renderer release used three implementation files; the Quote-template extension added only `templates/product.quote.json`. The unrelated live theme files were preserved.
 
 ## Data contract
 
@@ -32,7 +32,7 @@ The definitions were created with these descriptions:
 
 ## Rendering flow
 
-The existing `main-product` section handles the block type `product_video` in its product-information loop. The product JSON template includes one `product_video` block after the existing product-information accordions. The block settings provide an optional heading and caption, while the product metafields provide the media.
+The existing `main-product` section handles the block type `product_video` in its product-information loop. Both `templates/product.json` and `templates/product.quote.json` include one `product_video` block after their existing product-information accordions. The block settings provide an optional heading and caption, while the product metafields provide the media.
 
 The renderer is `snippets/product-video.liquid`. Its responsibilities are intentionally narrow:
 
@@ -53,7 +53,7 @@ The renderer does not accept arbitrary iframe HTML. Marketing only needs to prov
 
 ## Product template placement
 
-The block is placed in the existing right-hand product-information column, below the current purchase and accordion content. This placement corresponds to the product-page area identified for the new content and keeps the primary gallery and purchase controls unchanged.
+The block is placed in the existing right-hand product-information column, below the current purchase, quote, and accordion content. This placement keeps the primary gallery, purchase controls, and quote request flow unchanged in both templates.
 
 The product JSON template contains the following block configuration:
 
@@ -67,7 +67,7 @@ The product JSON template contains the following block configuration:
 }
 ```
 
-The section schema exposes the block to the theme editor with a single-instance limit. The media remains product-specific through the metafields, so a new SKU can use the same block without creating a new template.
+The section schema exposes the block to the theme editor with a single-instance limit. The media remains product-specific through the metafields, so a new SKU can use either supported template without creating a new product-specific template.
 
 ## Code contract
 
@@ -113,9 +113,10 @@ The live deployment included only:
 snippets/product-video.liquid
 sections/main-product.liquid
 templates/product.json
+templates/product.quote.json
 ```
 
-The live files were verified against the approved deployment package. A complete pre-release theme pull was compared after deployment with zero unrelated missing or changed files. Future partial pushes must use `--nodelete`.
+The Default and Quote template files were verified against their approved deployment packages. A complete pre-release theme pull was compared after deployment with zero unrelated missing or changed files. Future partial pushes must use `--nodelete`.
 
 ## References
 

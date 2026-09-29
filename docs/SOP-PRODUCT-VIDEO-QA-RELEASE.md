@@ -1,7 +1,7 @@
 # SOP: Product Video Development, QA, and Release
 
 **Author:** Nicolas Cartin Reyes, Lead Developer
-**Version:** 1.1.0
+**Version:** 1.2.0
 **Store:** `primal-strength-us.myshopify.com`
 **Live theme:** `142304510051`
 **Development theme:** `160888946787`
@@ -18,9 +18,10 @@ The implementation is limited to the following Product Video files and the produ
 snippets/product-video.liquid
 sections/main-product.liquid
 templates/product.json
+templates/product.quote.json
 ```
 
-During development, the change must not modify the live theme, checkout, order data, product pricing, inventory, collections, navigation, global layout, or unrelated product blocks. A live release is allowed only after explicit approval and must remain limited to the three scoped Product Video files.
+During development, the change must not modify the live theme, checkout, order data, product pricing, inventory, collections, navigation, global layout, or unrelated product blocks. A live release is allowed only after explicit approval and must remain limited to the four scoped Product Video files.
 
 ## Development workflow
 
@@ -47,7 +48,8 @@ shopify theme push \
   --path /path/to/theme-copy \
   --only snippets/product-video.liquid \
   --only sections/main-product.liquid \
-  --only templates/product.json
+  --only templates/product.json \
+  --only templates/product.quote.json
 ```
 
 Use the current Shopify CLI syntax supported by the installed version. If the CLI requires a single `--only` list, pass the three paths using that version's documented format.
@@ -56,12 +58,13 @@ Never add the live-theme flag to a development deployment. The production theme 
 
 ## Safe live deployment
 
-After approval, keep the deployment package limited to these three files:
+After approval, keep the deployment package limited to these four files:
 
 ```text
 snippets/product-video.liquid
 sections/main-product.liquid
 templates/product.json
+templates/product.quote.json
 ```
 
 Create a complete backup of the live theme before deploying. Then push the small package with `--nodelete`:
@@ -79,9 +82,9 @@ shopify theme push \
   --nodelete
 ```
 
-The CLI may warn that the small package is not a complete theme directory. Continue only after checking that the package contains exactly the three approved files. The `--nodelete` flag is mandatory for a partial package because it prevents unrelated live files from being removed.
+The CLI may warn that the small package is not a complete theme directory. Continue only after checking that the package contains exactly the four approved files. The `--nodelete` flag is mandatory for a partial package because it prevents unrelated live files from being removed.
 
-After the push, pull the live theme again and compare hashes for the three files. Confirm that all other files in the pre-release backup still exist and remain unchanged.
+After the push, pull the live theme again and compare hashes for the four files. Confirm that all other files in the pre-release backup still exist and remain unchanged.
 
 Once the code is live, content editors do not need to deploy the theme for each new video. They only need to save the product metafield described in the Product Video metafield SOP.
 
@@ -133,7 +136,7 @@ Do not release the change until all of the following are true:
 - The hosted video takes precedence when both inputs are populated.
 - Products with no valid media render no video block.
 - No product handle, SKU, or product-specific URL is hardcoded in Liquid.
-- The default product template remains reusable across products.
+- The Default product and Quote templates remain reusable across products.
 - Theme Check reports no Product Video errors.
 - Desktop and mobile previews pass.
 - Only the approved Product Video files changed in the development theme.
@@ -142,9 +145,9 @@ Do not release the change until all of the following are true:
 
 ## Rollback
 
-If the development preview shows a regression, restore the previous versions of the three scoped files in the development theme. Push only those files, then repeat the no-video and existing-product smoke tests. Do not roll back unrelated theme files.
+If the development preview shows a regression, restore the previous versions of the affected scoped files in the development theme. Push only those files, then repeat the no-video and existing-product smoke tests. Do not roll back unrelated theme files.
 
-If a live release is later approved and causes a regression, restore the pre-release copies of the same three files to the live theme. Record the rollback date, reason, theme ID, and verification result.
+If a live release is later approved and causes a regression, restore the pre-release copies of the affected scoped files to the live theme. Record the rollback date, reason, theme ID, and verification result.
 
 ## Release record
 
