@@ -1,7 +1,7 @@
 # SOP: Configure Dynamic Product Videos
 
 **Author:** Nicolas Cartin Reyes, Lead Developer
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Store:** `primal-strength-us.myshopify.com`
 **Audience:** Shopify developers and authorized product-content editors
 
@@ -20,17 +20,28 @@ Use one of these fields on the product record:
 
 If both fields contain values, the uploaded Shopify-hosted video is displayed and the URL is ignored. This allows a hosted file to override an external link without deleting the link.
 
-## Configure a product
+## Configure a product in Shopify Admin
 
-1. Open the intended product in Shopify Admin.
-2. Scroll to **Product metafields**.
-3. To upload a file, use **PDP Product Video** and select the product video from the file picker.
-4. To use an external video, use **PDP Product Video Embed URL** and paste the full YouTube or Vimeo URL.
-5. Save the product.
-6. Open the product in the development-theme preview.
-7. Confirm the video appears in the product-information column below the existing product controls and accordions.
+1. Open **Shopify Admin** and go to **Products**.
+2. Open the product that should receive the video.
+3. In the product's **Online Store** settings, confirm that the product uses the **Default product** template. The live Product Video block is included in that template.
+4. Scroll to **Metafields** or **Product metafields**.
+5. For a Shopify-hosted upload, open **PDP Product Video**, choose **Select file** or **Add file**, and select an approved video file.
+6. For an external video, open **PDP Product Video Embed URL** and paste one complete YouTube or Vimeo URL.
+7. Use only the field required for the product. If both fields are populated, the Shopify-hosted upload takes priority.
+8. Click **Save** on the product record.
+9. Open the storefront product URL. If the live code has not yet been approved, use the development-theme preview URL instead.
+10. Confirm that **See it in action** appears in the product-information column below the existing controls and accordions.
 
 A marketing user does not need to edit Liquid, JSON templates, JavaScript, or CSS to assign a new video.
+
+## How the video reaches the PDP
+
+The Product Video block is already part of the default product template. Saving a product metafield is therefore a content update, not a theme deployment. The video appears automatically on the product page after Shopify saves the metafield and the storefront cache refreshes.
+
+Development deployment is required only when the Liquid renderer, product section, template JSON, or metafield definitions change. Code changes must be tested in the unpublished development theme before a live release.
+
+For a product using a different custom product template, either assign the default product template or create a separate development change that includes the same `product_video` block. Do not add a product handle or SKU condition to the renderer.
 
 ## Recommended URL format
 

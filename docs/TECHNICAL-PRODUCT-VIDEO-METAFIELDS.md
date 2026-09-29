@@ -12,7 +12,7 @@ The Primal Strength US default product template now supports one optional produc
 
 The block is rendered inside the existing product-information column. It uses the same product block flow as the title, pricing, purchase controls, quote request, payment information, and product accordions. It does not create a separate product template or a product-specific hardcoded section.
 
-The block is currently deployed to the development theme only. The live theme remains unchanged by this video implementation.
+The block is deployed to both the unpublished development theme and the live theme. The live release was limited to the three Product Video implementation files, and the unrelated live theme files were preserved.
 
 ## Data contract
 
@@ -105,7 +105,17 @@ Future changes must preserve the following boundaries:
 
 ## Current release status
 
-The metafield definitions exist in the Primal Shopify store. The Product Video block and renderer are deployed to development theme `160888946787` for testing. No video implementation files were pushed to live theme `142304510051` as part of this release.
+The metafield definitions exist in the Primal Shopify store. The Product Video block and renderer are deployed to development theme `160888946787` and live theme `142304510051`.
+
+The live deployment included only:
+
+```text
+snippets/product-video.liquid
+sections/main-product.liquid
+templates/product.json
+```
+
+The live files were verified against the approved deployment package. A complete pre-release theme pull was compared after deployment with zero unrelated missing or changed files. Future partial pushes must use `--nodelete`.
 
 ## References
 

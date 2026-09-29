@@ -45,7 +45,7 @@ The existing `snippets/finance.liquid` was also refactored to remove UK-specific
 
 ### 3. Dynamic Product Video Metafields
 
-Added a reusable Product Video block to the default product template in the development theme. Each product can now use either a Shopify-hosted video upload or a YouTube/Vimeo URL without creating a product-specific template or hardcoded product condition.
+Added a reusable Product Video block to the default product template in the development and live themes. Each product can now use either a Shopify-hosted video upload or a YouTube/Vimeo URL without creating a product-specific template or hardcoded product condition.
 
 The implementation uses these product metafields:
 
@@ -54,7 +54,7 @@ The implementation uses these product metafields:
 | PDP Product Video | `custom.pdp_product_video` | `file_reference`, video files only |
 | PDP Product Video Embed URL | `custom.pdp_product_video_embed` | `url` |
 
-The uploaded Shopify-hosted video takes priority. When neither field contains valid media, the block is omitted completely. The implementation is deployed to the unpublished development theme `160888946787`; the live theme `142304510051` remains unchanged.
+The uploaded Shopify-hosted video takes priority. When neither field contains valid media, the block is omitted completely. The implementation is deployed to development theme `160888946787` and live theme `142304510051`. New product videos are assigned by saving the relevant product metafield; they do not require a theme deployment.
 
 **Documentation:**
 

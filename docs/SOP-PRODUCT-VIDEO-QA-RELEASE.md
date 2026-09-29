@@ -1,7 +1,7 @@
 # SOP: Product Video Development, QA, and Release
 
 **Author:** Nicolas Cartin Reyes, Lead Developer
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Store:** `primal-strength-us.myshopify.com`
 **Live theme:** `142304510051`
 **Development theme:** `160888946787`
@@ -34,6 +34,7 @@ The change must not modify the live theme, checkout, order data, product pricing
 8. Test the storefront preview on desktop and mobile.
 9. Record the result in the release notes.
 10. Request explicit approval before any live-theme deployment.
+11. Keep a complete pre-release pull of the live theme for rollback and comparison.
 
 ## Safe deployment commands
 
@@ -52,6 +53,37 @@ shopify theme push \
 Use the current Shopify CLI syntax supported by the installed version. If the CLI requires a single `--only` list, pass the three paths using that version's documented format.
 
 Never add the live-theme flag to a development deployment. The production theme is `142304510051` and must remain untouched until approval.
+
+## Safe live deployment
+
+After approval, keep the deployment package limited to these three files:
+
+```text
+snippets/product-video.liquid
+sections/main-product.liquid
+templates/product.json
+```
+
+Create a complete backup of the live theme before deploying. Then push the small package with `--nodelete`:
+
+```bash
+shopify theme pull \
+  --store primal-strength-us.myshopify.com \
+  --theme 142304510051 \
+  --path /path/to/live-backup
+
+shopify theme push \
+  --store primal-strength-us.myshopify.com \
+  --theme 142304510051 \
+  --path /path/to/product-video-deploy \
+  --nodelete
+```
+
+The CLI may warn that the small package is not a complete theme directory. Continue only after checking that the package contains exactly the three approved files. The `--nodelete` flag is mandatory for a partial package because it prevents unrelated live files from being removed.
+
+After the push, pull the live theme again and compare hashes for the three files. Confirm that all other files in the pre-release backup still exist and remain unchanged.
+
+Once the code is live, content editors do not need to deploy the theme for each new video. They only need to save the product metafield described in the Product Video metafield SOP.
 
 ## Static checks
 
@@ -105,7 +137,8 @@ Do not release the change until all of the following are true:
 - Theme Check reports no Product Video errors.
 - Desktop and mobile previews pass.
 - Only the approved development-theme files changed.
-- Live theme `142304510051` remains unchanged.
+- Live theme `142304510051` contains the approved Product Video implementation.
+- No unrelated live files were removed or changed.
 
 ## Rollback
 
