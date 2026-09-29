@@ -1,0 +1,114 @@
+{% liquid
+  assign product_video = product.metafields.custom.pdp_product_video.value
+  assign embed_url = product.metafields.custom.pdp_product_video_embed.value | strip
+  assign external_video_type = blank
+  assign external_video_id = blank
+
+  if embed_url != blank
+    if embed_url contains 'youtube.com' or embed_url contains 'youtu.be'
+      assign external_video_type = 'youtube'
+      if embed_url contains 'youtu.be/'
+        assign external_video_id = embed_url | split: 'youtu.be/' | last
+      elsif embed_url contains '/shorts/'
+        assign external_video_id = embed_url | split: '/shorts/' | last
+      elsif embed_url contains '/embed/'
+        assign external_video_id = embed_url | split: '/embed/' | last
+      elsif embed_url contains 'v='
+        assign external_video_id = embed_url | split: 'v=' | last
+      endif
+    elsif embed_url contains 'vimeo.com'
+      assign external_video_type = 'vimeo'
+      if embed_url contains '/video/'
+        assign external_video_id = embed_url | split: '/video/' | last
+      else
+        assign external_video_id = embed_url | split: 'vimeo.com/' | last
+      endif
+    endif
+
+    assign external_video_id = external_video_id | split: '?' | first | split: '&' | first | split: '#' | first | split: '/' | last
+  endif
+
+  assign has_external_video = false
+  if external_video_type != blank and external_video_id != blank
+    assign has_external_video = true
+  endif
+
+  assign external_video_url = blank
+  if external_video_type == 'youtube'
+    assign external_video_url = 'https://www.youtube.com/embed/' | append: external_video_id | append: '?rel=0'
+  elsif external_video_type == 'vimeo'
+    assign external_video_url = 'https://player.vimeo.com/video/' | append: external_video_id | append: '?dnt=1'
+  endif
+%}
+
+{% if product_video != blank or has_external_video %}
+  <div class="product-block product-video-block" {{ block.shopify_attributes }}>
+    {% if block.settings.heading != blank %}
+      <h3 class="product-video-block__heading">{{ block.settings.heading }}</h3>
+    {% endif %}
+
+    <div class="product-video-block__media">
+      {% if product_video != blank %}
+        {% render 'video', video: product_video, width: 900, preload: false, controls: true %}
+      {% elsif has_external_video %}
+        <div class="product-video-block__external">
+          <iframe
+            src="{{ external_video_url }}"
+            title="{{ product.title | escape }} video"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if block.settings.caption != blank %}
+      <div class="product-video-block__caption rte">
+        {{ block.settings.caption }}
+      </div>
+    {% endif %}
+  </div>
+
+  <style>
+    .product-information .product-details .product-video-block {
+      gap: var(--base-xs);
+      flex-direction: column;
+      display: flex;
+    }
+
+    .product-information .product-details .product-video-block__heading {
+      color: var(--heading-fill-dark);
+      margin: 0;
+    }
+
+    .product-information .product-details .product-video-block__media,
+    .product-information .product-details .product-video-block__media .video {
+      width: 100%;
+    }
+
+    .product-information .product-details .product-video-block__media .video,
+    .product-information .product-details .product-video-block__external {
+      overflow: hidden;
+      border-radius: var(--global-border-rad);
+    }
+
+    .product-information .product-details .product-video-block__external {
+      background: var(--primal-chalk);
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .product-information .product-details .product-video-block__external iframe {
+      border: 0;
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    .product-information .product-details .product-video-block__caption {
+      color: var(--body-fill-dark);
+    }
+  </style>
+{% endif %}

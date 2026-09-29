@@ -43,7 +43,29 @@ The existing `snippets/finance.liquid` was also refactored to remove UK-specific
 
 ---
 
-### 3. Split Echelon and PRIMAL Logo Links
+### 3. Dynamic Product Video Metafields
+
+Added a reusable Product Video block to the default product template in the development theme. Each product can now use either a Shopify-hosted video upload or a YouTube/Vimeo URL without creating a product-specific template or hardcoded product condition.
+
+The implementation uses these product metafields:
+
+| Admin label | Namespace and key | Type |
+|------|------|------|
+| PDP Product Video | `custom.pdp_product_video` | `file_reference`, video files only |
+| PDP Product Video Embed URL | `custom.pdp_product_video_embed` | `url` |
+
+The uploaded Shopify-hosted video takes priority. When neither field contains valid media, the block is omitted completely. The implementation is deployed to the unpublished development theme `160888946787`; the live theme `142304510051` remains unchanged.
+
+**Documentation:**
+
+- [Technical architecture](docs/TECHNICAL-PRODUCT-VIDEO-METAFIELDS.md)
+- [Product setup SOP](docs/SOP-PRODUCT-VIDEO-METAFIELDS.md)
+- [Development, QA, and release SOP](docs/SOP-PRODUCT-VIDEO-QA-RELEASE.md)
+- [Liquid renderer reference](snippets/product-video.liquid)
+
+---
+
+### 4. Split Echelon and PRIMAL Logo Links
 
 The Primal header uses one combined inline SVG containing the Echelon and PRIMAL wordmarks. The implementation preserves that visual mark and adds two accessible anchor regions so each brand can be selected independently. The Echelon region opens `https://echelonfit.com/`, while the PRIMAL region remains on the Primal Strength US homepage through Shopify's `routes.root_url`.
 
@@ -58,7 +80,7 @@ The implementation is limited to `sections/header.liquid`. It branches only when
 
 ---
 
-### 4. Order Confirmation Email Template
+### 5. Order Confirmation Email Template
 
 Adapted the default Shopify order confirmation email to reflect Primal Strength US shipping policies and contact information.
 
@@ -82,12 +104,16 @@ Changes include:
 │   ├── buy-button.liquid              # Add to Cart button logic
 │   ├── card-badges.liquid             # Dynamic Sold Out badge
 │   ├── charge-after-widget.liquid     # ChargeAfter SDK initialization
-│   └── financing-widget.liquid        # PDP promotional financing widget
+│   ├── financing-widget.liquid        # PDP promotional financing widget
+│   └── product-video.liquid           # Dynamic hosted or YouTube/Vimeo product video
 ├── templates/
 │   └── order-confirmation-email.html  # Customized order confirmation email
 ├── docs/
 │   ├── TECHNICAL-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md
 │   ├── SOP-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md
+│   ├── TECHNICAL-PRODUCT-VIDEO-METAFIELDS.md
+│   ├── SOP-PRODUCT-VIDEO-METAFIELDS.md
+│   ├── SOP-PRODUCT-VIDEO-QA-RELEASE.md
 │   ├── SOP-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.pdf
 │   └── CHANGELOG.md
 ├── banner.jpg
