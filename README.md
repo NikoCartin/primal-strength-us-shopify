@@ -4,7 +4,24 @@
 
 **Live Store:** [us.primalstrength.com](https://us.primalstrength.com)
 
-This repository contains the custom Liquid snippets, JavaScript assets, and email templates developed for the Primal Strength US Shopify storefront (`us.primalstrength.com`). These modifications resolve critical storefront bugs, adapt UK-specific features for the US market, and integrate third-party financing solutions.
+This repository contains the custom Liquid snippets, JavaScript assets, and email templates developed for the Primal Strength US Shopify storefront (`us.primalstrength.com`). These modifications resolve critical storefront bugs, protect quote-only commerce flows, support reusable product templates, adapt UK-specific features for the US market, and integrate third-party financing solutions.
+
+**Maintainer:** Nicolas Cartin Reyes, Lead Developer
+
+## Current Production Highlights
+
+| Area | Current result | Scope |
+|---|---|---|
+| **Dynamic Product Video** | Products can show either a Shopify-hosted video or a YouTube/Vimeo URL. The block is hidden when no valid media is assigned. | Default product and Quote templates; live theme `142304510051` and development theme `160888946787` |
+| **Quote-only commerce protection** | Quote products retain **Request a Quote** while hidden purchase forms and unintended cart paths are removed. Quote-template products were removed from Point of Sale so they cannot be sold through that channel accidentally. | `snippets/buy-button.liquid`, `snippets/quote-bulk-order.liquid`, and Shopify channel configuration |
+| **Collection merchandising priority** | In-stock products using the Default product template were promoted to the top of every collection. Automatic collection sorting was converted to manual ordering so the merchandising priority remains deterministic. | Shopify collection configuration and product ordering; no unrelated theme code |
+| **Inventory and Add to Cart reliability** | Corrected availability checks for the USA distribution location, product forms, and collection Sold Out badges. | Liquid, JavaScript, and inventory-location configuration |
+| **Financing integrations** | ChargeAfter and Finance Partners work is documented for the US storefront, with financing code kept separate from product and quote flows. | Financing snippets and documented global integration procedures |
+| **Brand navigation** | The combined Echelon and PRIMAL logo remains visually unchanged while each brand region is independently clickable and keyboard accessible. | `sections/header.liquid` |
+
+The repository tracks theme source and technical documentation. Store-level Admin changes, such as channel publication and collection ordering, are identified separately so they are not mistaken for theme-code changes.
+
+**Latest release:** [Product Video support for the Quote template](https://github.com/NikoCartin/primal-strength-us-shopify/commit/2c513a71d0cca4a795a9a717be2f2a4c06811adc)
 
 ---
 

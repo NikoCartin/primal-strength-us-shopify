@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0, September 29, 2026
+
+**Author:** Nicolas Cartin Reyes, Lead Developer
+
+Refreshed the repository README with the most relevant production developments, including dynamic Product Video support for Default and Quote templates, quote-only commerce protection, collection merchandising priority, inventory and Add to Cart reliability, financing integrations, and split Echelon/PRIMAL logo navigation. The README now distinguishes theme-code changes from Shopify Admin configuration changes.
+
 ## 1.3.0, September 29, 2026
 
 **Author:** Nicolas Cartin Reyes, Lead Developer
