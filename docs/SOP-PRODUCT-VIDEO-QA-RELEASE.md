@@ -20,7 +20,7 @@ sections/main-product.liquid
 templates/product.json
 ```
 
-The change must not modify the live theme, checkout, order data, product pricing, inventory, collections, navigation, global layout, or unrelated product blocks.
+During development, the change must not modify the live theme, checkout, order data, product pricing, inventory, collections, navigation, global layout, or unrelated product blocks. A live release is allowed only after explicit approval and must remain limited to the three scoped Product Video files.
 
 ## Development workflow
 
@@ -136,7 +136,7 @@ Do not release the change until all of the following are true:
 - The default product template remains reusable across products.
 - Theme Check reports no Product Video errors.
 - Desktop and mobile previews pass.
-- Only the approved development-theme files changed.
+- Only the approved Product Video files changed in the development theme.
 - Live theme `142304510051` contains the approved Product Video implementation.
 - No unrelated live files were removed or changed.
 

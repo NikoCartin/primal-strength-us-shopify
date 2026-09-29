@@ -91,7 +91,7 @@ After saving a field, verify the following in the unpublished development previe
 
 ### The block does not appear
 
-Confirm that the product was saved with the correct namespace and key. The supported fields are `custom.pdp_product_video` and `custom.pdp_product_video_embed`. Check that the product is being viewed through the development theme preview rather than the live theme.
+Confirm that the product was saved with the correct namespace and key. The supported fields are `custom.pdp_product_video` and `custom.pdp_product_video_embed`. If the code is still under development, check the development-theme preview. After an approved live release, check the public product URL.
 
 ### A URL does not render
 
