@@ -1,0 +1,118 @@
+{% comment %}
+  Government / GSA purchasing information for Primal Strength.
+  Contract holder: Millennium Health & Fitness, Inc. (not Echelon / Primal).
+  Copy follows the language approved by Lauren Foundos (Oct 2026). Do not add
+  "GSA-approved", "government-endorsed" or "all Primal products available on GSA".
+{% endcomment %}
+<div class="gsa-page color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width gsa-page__inner">
+    <p class="gsa-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h1 class="gsa-title">{{ section.settings.heading }}</h1>
+    <div class="gsa-intro rte">{{ section.settings.intro }}</div>
+
+    <div class="gsa-grid">
+      <div class="gsa-card">
+        <h2 class="gsa-card__title">Contract details</h2>
+        <dl class="gsa-dl">
+          <dt>Contract holder</dt><dd>{{ section.settings.holder }}</dd>
+          <dt>GSA MAS Contract</dt><dd>{{ section.settings.contract_number }}</dd>
+          {%- if section.settings.uei != blank -%}<dt>UEI</dt><dd>{{ section.settings.uei }}</dd>{%- endif -%}
+          <dt>Category (SIN)</dt><dd>{{ section.settings.sin }}</dd>
+          <dt>Current contract period</dt><dd>{{ section.settings.period }}</dd>
+        </dl>
+        {%- if section.settings.terms_url != blank -%}
+          <a class="gsa-link" href="{{ section.settings.terms_url }}" target="_blank" rel="noopener">View contract terms on GSA Advantage<span class="visually-hidden"> (opens in a new tab)</span></a>
+        {%- endif -%}
+      </div>
+
+      <div class="gsa-card">
+        <h2 class="gsa-card__title">How to purchase</h2>
+        <ol class="gsa-steps">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'step' -%}
+              <li {{ block.shopify_attributes }}><strong>{{ block.settings.title }}</strong><span>{{ block.settings.text }}</span></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ol>
+      </div>
+    </div>
+
+    <div class="gsa-card gsa-contact">
+      <h2 class="gsa-card__title">Government purchasing contact</h2>
+      <p class="gsa-contact__org">{{ section.settings.holder }}</p>
+      {%- if section.settings.contact_name != blank -%}
+        <p>{{ section.settings.contact_name }}{% if section.settings.contact_title != blank %}, {{ section.settings.contact_title }}{% endif %}</p>
+      {%- endif -%}
+      <div class="gsa-contact__ctas">
+        {%- if section.settings.contact_email != blank -%}
+          <a class="gsa-btn gsa-btn--primary" href="mailto:{{ section.settings.contact_email }}?subject={{ 'GSA inquiry - Primal Strength - GS-03F-021CA' | url_encode }}">Email {{ section.settings.contact_email }}</a>
+        {%- endif -%}
+        {%- if section.settings.contact_phone != blank -%}
+          <a class="gsa-btn" href="tel:{{ section.settings.contact_phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">Call {{ section.settings.contact_phone }}</a>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.contact_address != blank -%}<p class="gsa-small">{{ section.settings.contact_address }}</p>{%- endif -%}
+    </div>
+
+    <div class="gsa-note rte">{{ section.settings.disclaimer }}</div>
+  </div>
+</div>
+
+<style>
+  .gsa-page__inner{padding:56px 20px 64px;max-width:1100px;margin:0 auto}
+  .gsa-eyebrow{font-size:1.3rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px;opacity:.75}
+  .gsa-title{margin:0 0 16px}
+  .gsa-intro{max-width:760px;font-size:1.7rem;margin-bottom:36px}
+  .gsa-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:24px}
+  @media (min-width:750px){.gsa-grid{grid-template-columns:1fr 1fr}}
+  .gsa-card{border:1px solid #d9d9d9;background:#fafafa;border-radius:8px;padding:28px}
+  .gsa-card__title{font-size:2rem;margin:0 0 16px}
+  .gsa-dl{display:grid;grid-template-columns:max-content 1fr;gap:10px 20px;margin:0 0 18px}
+  .gsa-dl dt{font-weight:700}
+  .gsa-dl dd{margin:0}
+  .gsa-link{text-decoration:underline;text-underline-offset:3px;color:rgb(var(--color-foreground))}
+  .gsa-steps{margin:0;padding-left:20px;display:grid;gap:14px}
+  .gsa-steps li span{display:block;margin-top:2px}
+  .gsa-contact{margin-bottom:24px}
+  .gsa-contact p{margin:0 0 8px}
+  .gsa-contact__org{font-weight:700;font-size:1.7rem}
+  .gsa-contact .gsa-small{font-size:1.4rem}
+  .gsa-contact__ctas{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+  .gsa-btn{display:inline-flex;align-items:center;min-height:44px;padding:10px 20px;border:2px solid #111;border-radius:4px;font-weight:700;text-decoration:none;color:#111;background:#fff;word-break:break-word}.gsa-btn--primary{background:#111;color:#fff}.gsa-btn:hover{opacity:.85}.gsa-btn:focus-visible{outline:3px solid #0175ad;outline-offset:2px}
+  .gsa-small,.gsa-note{font-size:1.3rem;opacity:.8}
+  .gsa-note{max-width:820px}
+  @media (max-width:749px){.gsa-dl{grid-template-columns:1fr;gap:2px}.gsa-dl dd{margin-bottom:10px}.gsa-card{padding:20px}}
+</style>
+
+{% schema %}
+{
+  "name": "GSA purchasing",
+  "tag": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "background-1" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Government purchasing" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Buying Primal Strength through GSA" },
+    { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>For government purchasing inquiries about Primal Strength equipment, contact Millennium Health & Fitness, Inc., GSA MAS Contract GS-03F-021CA. Availability under the contract is subject to confirmation for each product.</p>" },
+    { "type": "text", "id": "holder", "label": "Contract holder", "default": "Millennium Health & Fitness, Inc." },
+    { "type": "text", "id": "contract_number", "label": "Contract number", "default": "GS-03F-021CA" },
+    { "type": "text", "id": "uei", "label": "UEI (optional)", "default": "L52JKQYM8QA8" },
+    { "type": "text", "id": "sin", "label": "SIN", "default": "339920S – Fitness Equipment, Outdoor Gear and Related Items" },
+    { "type": "text", "id": "period", "label": "Contract period", "default": "Through December 23, 2029" },
+    { "type": "url", "id": "terms_url", "label": "Contract terms URL" },
+    { "type": "header", "content": "Contact" },
+    { "type": "text", "id": "contact_name", "label": "Contact name" },
+    { "type": "text", "id": "contact_title", "label": "Contact title" },
+    { "type": "text", "id": "contact_email", "label": "Contact email" },
+    { "type": "text", "id": "contact_phone", "label": "Contact phone" },
+    { "type": "text", "id": "contact_address", "label": "Address" },
+    { "type": "richtext", "id": "disclaimer", "label": "Disclaimer", "default": "<p>GSA purchases of Primal Strength equipment are handled by Millennium Health & Fitness, Inc. Echelon and Primal Strength are not the GSA contract holder. Availability under the contract is subject to confirmation for each product.</p>" }
+  ],
+  "blocks": [
+    { "type": "step", "name": "Step", "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Step" },
+      { "type": "textarea", "id": "text", "label": "Text" }
+    ] }
+  ],
+  "presets": [{ "name": "GSA purchasing" }]
+}
+{% endschema %}

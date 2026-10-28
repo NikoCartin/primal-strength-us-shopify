@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.6.0, October 27, 2026
+
+**Author:** Nicolas Cartin Reyes, Lead Developer
+
+Added a dedicated GSA Government Purchasing landing page for the Primal Strength US storefront. The release contains `sections/gsa-government-purchasing.liquid` and `templates/page.gsa.json`, plus technical architecture and deployment documentation.
+
+The section renders configurable contract details, three ordered purchase steps, GSA Advantage contract terms, and contact actions. The associated Shopify page is published at `/pages/gsa` with an empty page body and the `gsa` template suffix. The page was intentionally not added to storefront navigation.
+
+The production push was limited to the two approved theme files using `--only`, `--nodelete`, and `--allow-live`. Desktop and mobile QA confirmed the approved public content, external-link attributes, email and phone actions, responsive two-column desktop behavior, and single-column mobile behavior. No unrelated theme files or navigation settings were changed.
+
 ## 1.5.0, September 29, 2026
 
 **Author:** Nicolas Cartin Reyes, Lead Developer

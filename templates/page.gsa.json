@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "gsa": {
+      "type": "gsa-government-purchasing",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Choose your Primal Strength equipment", "text": "Browse the Primal Strength range and note the products you need." } },
+        "s2": { "type": "step", "settings": { "title": "Contact Millennium Health & Fitness", "text": "Ask for a quote and reference GSA MAS Contract GS-03F-021CA. Millennium will confirm which products are available under the contract." } },
+        "s3": { "type": "step", "settings": { "title": "Place your order", "text": "Millennium Health & Fitness, Inc. processes the order under its GSA contract terms." } }
+      },
+      "block_order": ["s1", "s2", "s3"],
+      "settings": {
+        "terms_url": "https://www.gsaadvantage.gov/ref_text/GS03F021CA/GS03F021CA_online.htm",
+        "contact_name": "Jim Quintero",
+        "contact_title": "Director, Strategic Partnership & Contract Management",
+        "contact_email": "JQuintero@millenniumhealthandfitness.com",
+        "contact_phone": "(480) 758-5115",
+        "contact_address": "71677 Riverside Drive, Covington, LA 70433"
+      }
+    }
+  },
+  "order": ["gsa"]
+}

@@ -1,6 +1,6 @@
 ![Primal Strength](banner.jpg)
 
-# Primal Strength US — Shopify Theme Customizations
+# Primal Strength US - Shopify Theme Customizations
 
 **Live Store:** [us.primalstrength.com](https://us.primalstrength.com)
 
@@ -12,6 +12,7 @@ This repository contains the custom Liquid snippets, JavaScript assets, and emai
 
 | Area | Current result | Scope |
 |---|---|---|
+| **GSA government purchasing** | Dedicated public page with configurable contract details, purchase steps, contact actions, disclaimer, and responsive layout. | `sections/gsa-government-purchasing.liquid`, `templates/page.gsa.json`, and `/pages/gsa` |
 | **Dynamic Product Video** | Products can show either a Shopify-hosted video or a YouTube/Vimeo URL. The block is hidden when no valid media is assigned. | Default product and Quote templates; live theme `142304510051` and development theme `160888946787` |
 | **Quote-only commerce protection** | Quote products retain **Request a Quote** while hidden purchase forms and unintended cart paths are removed. Quote-template products were removed from Point of Sale so they cannot be sold through that channel accidentally. | `snippets/buy-button.liquid`, `snippets/quote-bulk-order.liquid`, and Shopify channel configuration |
 | **Collection merchandising priority** | In-stock products using the Default product template were promoted to the top of every collection. Automatic collection sorting was converted to manual ordering so the merchandising priority remains deterministic. | Shopify collection configuration and product ordering; no unrelated theme code |
@@ -21,7 +22,7 @@ This repository contains the custom Liquid snippets, JavaScript assets, and emai
 
 The repository tracks theme source and technical documentation. Store-level Admin changes, such as channel publication and collection ordering, are identified separately so they are not mistaken for theme-code changes.
 
-**Latest release:** [Product Video support for the Quote template](https://github.com/NikoCartin/primal-strength-us-shopify/commit/2c513a71d0cca4a795a9a717be2f2a4c06811adc)
+**Latest release:** [GSA Government Purchasing landing page](docs/TECHNICAL-GSA-GOVERNMENT-PURCHASING.md)
 
 ---
 
@@ -97,7 +98,27 @@ The implementation is limited to `sections/header.liquid`. It branches only when
 
 ---
 
-### 5. Order Confirmation Email Template
+### 5. GSA Government Purchasing Landing Page
+Implemented a dedicated government purchasing page at [`/pages/gsa`](https://us.primalstrength.com/pages/gsa) using the `gsa` page template. The page record has an empty body and the template renders all content through a dedicated Liquid section.
+
+**Files added:**
+
+| File | Description |
+|---|---|
+| `sections/gsa-government-purchasing.liquid` | Configurable GSA layout with contract details, purchase steps, contact actions, responsive styling, and accessible external-link behavior. |
+| `templates/page.gsa.json` | Section instance, ordered purchase steps, external contract URL, and contact configuration. |
+
+The production deployment was intentionally scoped to those two theme files with `--only`, `--nodelete`, and `--allow-live`. The published page uses handle `gsa`, template suffix `gsa`, and no navigation link. Desktop and mobile QA confirmed the contract link, mailto and telephone actions, two-column desktop layout, and single-column mobile layout.
+
+**Documentation:**
+
+- [Technical architecture and deployment guide](docs/TECHNICAL-GSA-GOVERNMENT-PURCHASING.md)
+- [GSA section source](sections/gsa-government-purchasing.liquid)
+- [GSA page template](templates/page.gsa.json)
+
+---
+
+### 6. Order Confirmation Email Template
 
 Adapted the default Shopify order confirmation email to reflect Primal Strength US shipping policies and contact information.
 
@@ -116,6 +137,7 @@ Changes include:
 ├── assets/
 │   └── gaia-product-form.min.js       # JavaScript form validation fix
 ├── sections/
+│   ├── gsa-government-purchasing.liquid # GSA purchasing page section
 │   └── header.liquid                  # Split Echelon and PRIMAL logo links
 ├── snippets/
 │   ├── buy-button.liquid              # Add to Cart button logic
@@ -124,8 +146,10 @@ Changes include:
 │   ├── financing-widget.liquid        # PDP promotional financing widget
 │   └── product-video.liquid           # Dynamic hosted or YouTube/Vimeo product video
 ├── templates/
-│   └── order-confirmation-email.html  # Customized order confirmation email
+│   ├── order-confirmation-email.html  # Customized order confirmation email
+│   └── page.gsa.json                  # GSA page template configuration
 ├── docs/
+│   ├── TECHNICAL-GSA-GOVERNMENT-PURCHASING.md
 │   ├── TECHNICAL-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md
 │   ├── SOP-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md
 │   ├── TECHNICAL-PRODUCT-VIDEO-METAFIELDS.md
