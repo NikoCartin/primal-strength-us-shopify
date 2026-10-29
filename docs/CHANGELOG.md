@@ -1,8 +1,12 @@
 # Changelog
 
+## 1.7.2, October 29, 2026
+
+Added `Accessibility` to the live `ux-footer-menu` under Legal, immediately after CCPA Privacy Policy, linked to `/pages/accessibility-statement`. Desktop and 390px mobile verification confirmed the footer link renders, is keyboard focusable, and opens the published statement page. The separate mobile footer-width remediation remains unpublished.
+
 ## 1.7.1, October 29, 2026
 
-Published the Accessibility Statement page at /pages/accessibility-statement with `templates/page.accessibility-statement.json` and `sections/main-accessibility-statement.liquid`. Live axe-core 4.10.3 QA: 0 violations on desktop and mobile. The footer Legal link is still pending.
+Published the Accessibility Statement page at /pages/accessibility-statement with `templates/page.accessibility-statement.json` and `sections/main-accessibility-statement.liquid`. Live axe-core 4.10.3 QA: 0 violations on desktop and mobile. The footer Legal link was added in 1.7.2.
 
 ## 1.7.0, October 29, 2026
 
