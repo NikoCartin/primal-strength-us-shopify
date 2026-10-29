@@ -175,6 +175,7 @@ Changes include:
 │   ├── pagination.liquid              # Included in the ADA release
 │   └── product-video.liquid           # Dynamic hosted or YouTube/Vimeo product video
 ├── templates/
+│   ├── page.accessibility-statement.json # Accessibility statement template
 │   ├── order-confirmation-email.html  # Customized order confirmation email
 │   └── page.gsa.json                  # GSA page template configuration
 ├── docs/
