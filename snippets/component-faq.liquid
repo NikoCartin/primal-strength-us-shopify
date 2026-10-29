@@ -1,0 +1,29 @@
+<details
+  id="Details-FAQ-{{ section.id }}-{{ currentCategory | handleize }}-{{ question | handleize }}"
+  {% unless template contains 'faq' or show_faq_onload %}
+    class="active"
+  {% endunless %}
+  {% if faq_order != blank %}
+    style="order: {{ faq_order }};"
+  {% endif %}
+  data-category="{{ currentCategory | replace: '&', '' | replace: '-', '' | replace: ' ', '' | downcase }}"
+  {% for current_faq_category in faq_categories %}
+    {% if current_faq_category.category_name == currentCategory %}
+      data-label="{{current_faq_category.category_label}}"
+    {% endif %}
+  {% endfor %}
+>
+  <summary>
+    <span class="heading-sm">{{ question }}</span>
+    {% render 'icon-plus' %}
+    {% render 'icon-minus' %}
+  </summary>
+  <div>
+    <div
+      class="faq-answer body-md"
+    >
+      {% comment %} {{ answer | metafield_tag }} {% endcomment %}
+      {{ answer | metafield_tag }}
+    </div>
+  </div>
+</details>

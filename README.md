@@ -12,6 +12,7 @@ This repository contains the custom Liquid snippets, JavaScript assets, and emai
 
 | Area | Current result | Scope |
 |---|---|---|
+| **ADA / WCAG 2.2 AA** | 0 automated WCAG 2.2 AA violations on 9 key routes (desktop and mobile), plus an accessibility options launcher. | 11 theme files; see [technical record](docs/TECHNICAL-ADA-WCAG22.md) |
 | **GSA government purchasing** | Dedicated public page with configurable contract details, purchase steps, contact actions, disclaimer, and responsive layout. | `sections/gsa-government-purchasing.liquid`, `templates/page.gsa.json`, and `/pages/gsa` |
 | **Dynamic Product Video** | Products can show either a Shopify-hosted video or a YouTube/Vimeo URL. The block is hidden when no valid media is assigned. | Default product and Quote templates; live theme `142304510051` and development theme `160888946787` |
 | **Quote-only commerce protection** | Quote products retain **Request a Quote** while hidden purchase forms and unintended cart paths are removed. Quote-template products were removed from Point of Sale so they cannot be sold through that channel accidentally. | `snippets/buy-button.liquid`, `snippets/quote-bulk-order.liquid`, and Shopify channel configuration |
@@ -22,7 +23,7 @@ This repository contains the custom Liquid snippets, JavaScript assets, and emai
 
 The repository tracks theme source and technical documentation. Store-level Admin changes, such as channel publication and collection ordering, are identified separately so they are not mistaken for theme-code changes.
 
-**Latest release:** [GSA Government Purchasing landing page](docs/TECHNICAL-GSA-GOVERNMENT-PURCHASING.md)
+**Latest release:** [ADA / WCAG 2.2 AA remediation](docs/TECHNICAL-ADA-WCAG22.md)
 
 ---
 
@@ -118,7 +119,22 @@ The production deployment was intentionally scoped to those two theme files with
 
 ---
 
-### 6. Order Confirmation Email Template
+### 6. ADA / WCAG 2.2 AA Remediation
+
+Fixed every automated WCAG 2.2 AA failure on the key storefront routes and added an accessibility options launcher (text size, high contrast, underline links, readable font, reduce motion). Fixes cover the HappyFox chat iframe title, nested interactive elements in the video poster and Contact FAQ, the collection sort dropdown roles, compare-at price contrast, and 24px touch targets for gallery dots and Contact links.
+
+Released to live on October 29, 2026 with a scoped push of 11 files, after a full backup theme. Live QA with axe-core 4.10.3 returned 0 violations on 18 of 18 route and viewport checks. The accessibility statement page and its footer link are not published yet.
+
+In `layout/theme.liquid`, third-party identifiers are replaced with placeholders in this repository.
+
+**Documentation:**
+
+- [Technical record, checksums and rollback](docs/TECHNICAL-ADA-WCAG22.md)
+- [Live deployment QA report (PDF)](docs/QA-ADA-WCAG22-LIVE-DEPLOYMENT.pdf)
+
+---
+
+### 7. Order Confirmation Email Template
 
 Adapted the default Shopify order confirmation email to reflect Primal Strength US shipping policies and contact information.
 
@@ -135,20 +151,34 @@ Changes include:
 
 ```
 ├── assets/
-│   └── gaia-product-form.min.js       # JavaScript form validation fix
+│   ├── accessibility-launcher.js      # Accessibility options panel behavior
+│   ├── component-image-with-text.css  # ADA fixes (video poster, contact targets)
+│   ├── gaia-product-form.min.js       # JavaScript form validation fix
+│   ├── global.css                     # ADA contrast fixes
+│   └── main-product.css               # ADA contrast and target-size fixes
+├── layout/
+│   └── theme.liquid                   # Launcher render, HappyFox iframe title (IDs redacted)
 ├── sections/
+│   ├── faq.liquid                     # ADA: native details/summary FAQ
 │   ├── gsa-government-purchasing.liquid # GSA purchasing page section
+│   ├── image-with-text-new.liquid     # ADA: video poster button
 │   └── header.liquid                  # Split Echelon and PRIMAL logo links
 ├── snippets/
+│   ├── accessibility-launcher.liquid  # Accessibility options launcher
 │   ├── buy-button.liquid              # Add to Cart button logic
 │   ├── card-badges.liquid             # Dynamic Sold Out badge
 │   ├── charge-after-widget.liquid     # ChargeAfter SDK initialization
+│   ├── component-faq.liquid           # ADA: unique FAQ ids
+│   ├── facets.liquid                  # ADA: sort dropdown roles
 │   ├── financing-widget.liquid        # PDP promotional financing widget
+│   ├── pagination.liquid              # ADA: pagination targets
 │   └── product-video.liquid           # Dynamic hosted or YouTube/Vimeo product video
 ├── templates/
 │   ├── order-confirmation-email.html  # Customized order confirmation email
 │   └── page.gsa.json                  # GSA page template configuration
 ├── docs/
+│   ├── TECHNICAL-ADA-WCAG22.md
+│   ├── QA-ADA-WCAG22-LIVE-DEPLOYMENT.pdf
 │   ├── TECHNICAL-GSA-GOVERNMENT-PURCHASING.md
 │   ├── TECHNICAL-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md
 │   ├── SOP-SPLIT-ECHELON-PRIMAL-LOGO-LINKS.md

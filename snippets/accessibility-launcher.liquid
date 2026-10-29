@@ -1,0 +1,355 @@
+{%- comment -%}
+  Primal Strength US accessibility options.
+  This convenience panel supports user preferences and does not replace accessible theme code.
+{%- endcomment -%}
+
+<div class="primal-a11y" data-primal-a11y>
+  <button
+    class="primal-a11y__launcher"
+    type="button"
+    aria-expanded="false"
+    aria-controls="primal-a11y-panel"
+    aria-label="Open accessibility options"
+    data-primal-a11y-open
+  >
+    <svg class="primal-a11y__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="4" r="2.2"></circle>
+      <path d="M5 8.5h14M12 8.5v11M8 20l4-5 4 5M8.5 9.5l-2 7M15.5 9.5l2 7"></path>
+    </svg>
+    <span class="primal-a11y__launcher-label">Accessibility</span>
+  </button>
+
+  <section
+    class="primal-a11y__panel"
+    id="primal-a11y-panel"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="primal-a11y-title"
+    hidden
+    data-primal-a11y-panel
+  >
+    <div class="primal-a11y__header">
+      <h2 id="primal-a11y-title">Accessibility options</h2>
+      <button type="button" class="primal-a11y__close" aria-label="Close accessibility options" data-primal-a11y-close>
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <p class="primal-a11y__intro">Adjust this page to support your browsing needs.</p>
+    <div class="primal-a11y__controls">
+      <button type="button" data-primal-a11y-action="increase-text" aria-pressed="false">Increase text size</button>
+      <button type="button" data-primal-a11y-action="decrease-text">Reset text size</button>
+      <button type="button" data-primal-a11y-action="contrast" aria-pressed="false">Increase contrast</button>
+      <button type="button" data-primal-a11y-action="links" aria-pressed="false">Underline links</button>
+      <button type="button" data-primal-a11y-action="motion" aria-pressed="false">Reduce motion</button>
+    </div>
+    <div class="primal-a11y__footer">
+      <button type="button" class="primal-a11y__reset" data-primal-a11y-reset>Reset options</button>
+      <a href="{{ pages['accessibility-statement'].url | default: '/pages/accessibility-statement' }}">Accessibility statement</a>
+    </div>
+  </section>
+</div>
+
+<style>
+  .primal-a11y {
+    --primal-a11y-blue: #005ea8;
+    --primal-a11y-ink: #102a43;
+    --primal-a11y-surface: #ffffff;
+    --primal-a11y-border: #64748b;
+    position: relative;
+    z-index: 1000001;
+  }
+
+  .primal-a11y *,
+  .primal-a11y *::before,
+  .primal-a11y *::after {
+    box-sizing: border-box;
+  }
+
+  .primal-a11y__launcher {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 36px;
+    min-width: 0;
+    height: 64px;
+    min-height: 64px;
+    padding: 0;
+    border: 2px solid #ffffff;
+    border-radius: 12px 0 0 12px;
+    background: var(--primal-a11y-blue);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.28);
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    transform: translateY(-50%);
+  }
+
+  .primal-a11y__launcher:hover,
+  .primal-a11y__launcher:focus-visible {
+    background: #003e73;
+    width: auto;
+    padding: 0 14px;
+  }
+
+  .primal-a11y__launcher-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .primal-a11y__launcher:hover .primal-a11y__launcher-label,
+  .primal-a11y__launcher:focus-visible .primal-a11y__launcher-label {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+  }
+
+  .primal-a11y__icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+  }
+
+  .primal-a11y__panel {
+    position: fixed;
+    top: 50%;
+    right: 58px;
+    bottom: auto;
+    left: auto;
+    width: min(360px, calc(100vw - 74px));
+    max-height: min(560px, calc(100vh - 32px));
+    overflow-y: auto;
+    padding: 18px;
+    border: 2px solid var(--primal-a11y-border);
+    border-radius: 14px;
+    background: var(--primal-a11y-surface);
+    color: var(--primal-a11y-ink);
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.24);
+    transform: translateY(-50%);
+  }
+
+  .primal-a11y__header,
+  .primal-a11y__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .primal-a11y__header h2 {
+    margin: 0;
+    color: inherit;
+    font: inherit;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .primal-a11y__intro {
+    margin: 8px 0 14px;
+    color: inherit;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .primal-a11y__close {
+    display: inline-grid;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    place-items: center;
+    border: 1px solid var(--primal-a11y-border);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .primal-a11y__controls {
+    display: grid;
+    gap: 8px;
+  }
+
+  .primal-a11y__controls button,
+  .primal-a11y__reset,
+  .primal-a11y__footer a {
+    min-height: 44px;
+    padding: 9px 12px;
+    border: 1px solid var(--primal-a11y-border);
+    border-radius: 8px;
+    background: #f8fafc;
+    color: var(--primal-a11y-ink);
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .primal-a11y__controls button {
+    text-align: left;
+  }
+
+  .primal-a11y__controls button[aria-pressed="true"] {
+    border-color: var(--primal-a11y-blue);
+    background: #dbeafe;
+    box-shadow: inset 0 0 0 1px var(--primal-a11y-blue);
+  }
+
+  .primal-a11y__footer {
+    margin-top: 14px;
+    align-items: stretch;
+  }
+
+  .primal-a11y__footer a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .primal-a11y button:focus-visible,
+  .primal-a11y a:focus-visible {
+    outline: 3px solid #003e73 !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 5px #ffffff !important;
+  }
+
+  html.primal-a11y-large body {
+    zoom: 1.14;
+  }
+
+  @supports not (zoom: 1) {
+    html.primal-a11y-large {
+      font-size: 112.5%;
+    }
+  }
+
+  html.primal-a11y-contrast,
+  html.primal-a11y-contrast body {
+    background: #000000 !important;
+    color-scheme: dark;
+  }
+
+  html.primal-a11y-contrast body *:not(.primal-a11y):not(.primal-a11y *) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: none !important;
+  }
+
+  html.primal-a11y-contrast body [data-primal-a11y-bg]:not(.primal-a11y):not(.primal-a11y *) {
+    background-color: #000000 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+  }
+
+  html.primal-a11y-contrast body :is(h1, h2, h3, h4, h5, h6, p, li, dt, dd, th, td, label, legend, a, button, [role="button"], input, select, textarea):not(.primal-a11y):not(.primal-a11y *) {
+    background-color: #000000 !important;
+  }
+
+  html.primal-a11y-contrast body a:not(.primal-a11y):not(.primal-a11y *),
+  html.primal-a11y-contrast body a:not(.primal-a11y):not(.primal-a11y *) * {
+    color: #ffff00 !important;
+    -webkit-text-fill-color: #ffff00 !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px !important;
+    text-underline-offset: 2px !important;
+  }
+
+  html.primal-a11y-contrast body button:not(.primal-a11y):not(.primal-a11y *),
+  html.primal-a11y-contrast body [role="button"]:not(.primal-a11y):not(.primal-a11y *),
+  html.primal-a11y-contrast body input[type="submit"]:not(.primal-a11y):not(.primal-a11y *),
+  html.primal-a11y-contrast body input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not(.primal-a11y):not(.primal-a11y *),
+  html.primal-a11y-contrast body select:not(.primal-a11y):not(.primal-a11y *),
+  html.primal-a11y-contrast body textarea:not(.primal-a11y):not(.primal-a11y *) {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+  }
+
+  html.primal-a11y-contrast body option {
+    background: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  html.primal-a11y-contrast body ::placeholder {
+    color: #e5e7eb !important;
+    -webkit-text-fill-color: #e5e7eb !important;
+    opacity: 1 !important;
+  }
+
+  html.primal-a11y-contrast body [data-primal-a11y-glow~="before"]::before,
+  html.primal-a11y-contrast body [data-primal-a11y-glow~="after"]::after {
+    background-image: none !important;
+  }
+
+  html.primal-a11y-contrast body svg[data-primal-a11y-icon="mono"]:not(.primal-a11y):not(.primal-a11y *) {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  html.primal-a11y-contrast body [data-primal-a11y-fg="transparent"] {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  html.primal-a11y-contrast body *:focus-visible:not(.primal-a11y):not(.primal-a11y *) {
+    outline: 3px solid #ffff00 !important;
+    outline-offset: 2px !important;
+  }
+
+  html.primal-a11y-links body a:not(.primal-a11y *) {
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+  }
+
+  html.primal-a11y-motion *,
+  html.primal-a11y-motion *::before,
+  html.primal-a11y-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  @media screen and (max-width: 479px) {
+    .primal-a11y__panel {
+      right: 52px;
+      left: auto;
+      width: min(360px, calc(100vw - 64px));
+    }
+
+    .primal-a11y__launcher {
+      right: 0;
+      left: auto;
+    }
+  }
+</style>

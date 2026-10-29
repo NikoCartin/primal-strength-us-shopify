@@ -1,0 +1,375 @@
+{% comment %}
+  GAIA - FAQ Section
+  This section works with adding in FAQs (and FAQ Categories) via Shopify's metaobjects:
+
+  FAQ Category Metaobject:
+  Name: FAQ Category (faq_category)
+  Fields:
+    - Category Name (faq_category.category_name) - Single line text - One value - Required Field
+    - Category Label (faq_category.category_label) - Single line text - One value
+      Desc: Use this field if you want tabs to show a different name than in 'Category Name'.
+    - Homepage ID - do not touch (faq_category.homepage_id) - Single line text - One value - Limit to preset choices (homepage) -
+      Desc: Please note: This is for homepage use.You won't need to fill this field out on other FAQ categories.
+
+  FAQ Metaobject
+  Name: FAQ (faq)
+  Fields:
+    - Question (faq.question) - Single line text - One value - Required field
+    - Answer (faq.answer) - Rich Text - Required field
+    - FAQ Category (faq.faq_category) - Metaobject - List of entries - Select the 'FAQ Category' Metaobject you just set up - Required field
+    - Order (faq.order) - Integer - One value - Desc: FAQs with a lower order number will be displayed higher up the list.
+{% endcomment %}
+
+{% render 'load-css', stylesheet: 'section-faq', inline: true %}
+{% render 'load-css', stylesheet: 'component-button', inline: true %}
+
+{% if section.settings.anchor != blank %}
+  <span class="faq-anchor" aria-hidden="true" id="{{ section.settings.anchor }}"></span>
+{% endif %}
+<div
+  class="faq-section-container {% unless template contains 'faq'%}faq-section-container--sidebar{% endunless %} {{ section.settings.top_padding }} {{ section.settings.bottom_padding }} {{section.settings.top_padding_mobile}} {{section.settings.bottom_padding_mobile}}"
+  id="FaqSection--{{ section.id }}"
+>
+  {%- if request.page_type == 'page' -%}
+    {% assign page_faq_meta = page.metafields.custom.faq_category.value %}
+  {%- endif -%}
+
+  {%- if request.page_type == 'product' -%}
+    {% assign page_faq_meta = product.metafields.custom.faq_category.value %}
+  {%- endif -%}
+
+  {%- if section.settings.use_popup_form
+    and section.settings.shared_popup_id != blank
+    and section.settings.button_text != blank
+  -%}
+    {% render 'component-heading',
+      heading: section.settings.heading,
+      heading_class: 'heading-lg',
+      class: 'dark',
+      tag: 'h2',
+      overline: section.settings.overline,
+      button_quaternary: true,
+      cta_size: 'lg',
+      button_background_dark_or_light: 'dark',
+      button_primary_outline: false,
+      cta_link: '#',
+      cta_label: section.settings.button_text,
+      full_width: true,
+      add_overline_container: true,
+      alt_arrow: true
+    %}
+    {%- comment -%}Hidden trigger button that PopupForm detects — do not remove{%- endcomment -%}
+    <button
+      type="button"
+      class="open-popup"
+      data-id="{{ section.settings.shared_popup_id }}"
+      style="display:none;"
+      aria-hidden="true"
+    ></button>
+  {%- else -%}
+    {% render 'component-heading',
+      heading: section.settings.heading,
+      heading_class: 'heading-lg',
+      class: 'dark',
+      tag: 'h2',
+      overline: section.settings.overline,
+      button_quaternary: true,
+      cta_size: 'lg',
+      button_background_dark_or_light: 'dark',
+      button_primary_outline: false,
+      cta_link: section.settings.button_link,
+      cta_label: section.settings.button_text,
+      full_width: true,
+      add_overline_container: true,
+      alt_arrow: true
+    %}
+  {%- endif -%}
+
+  <div class="faq-nav-questions-wrapper">
+    <div class="faq-nav medium-down--hide " id="FAQNav--{{section.id}}"></div>
+    {% comment %} <select class="faq-nav--mobile medium-up--hide h3" id="FAQNav-Mob--{{section.id}}"></select> {% endcomment %}
+    <div
+      class="faq-questions__wrapper {% if request.page_type != 'index' or template contains 'faq' %}medium-down--hide{% endif %}"
+    >
+      {% comment %} Homepage FAQs {% endcomment %}
+      {% if request.page_type == 'index' %}
+        {% assign faq_categories = shop.metaobjects.faq_category.values %}
+
+        {% for faq_category in faq_categories %}
+          {% if faq_category.homepage_id == 'homepage' %}
+            {% assign currentCategory = faq_category.category_name %}
+
+            {% for faq in shop.metaobjects.faq.values %}
+              {% assign show_faq = false %}
+              {% assign matched_category = '' %}
+
+              {% for current_faq_category in faq.faq_category.value %}
+                {% if current_faq_category.category_name == currentCategory %}
+                  {% assign show_faq = true %}
+                  {% assign matched_category = current_faq_category.category_name %}
+                {% endif %}
+              {% endfor %}
+
+              {% if show_faq %}
+                {% render 'component-faq',
+                  currentCategory: currentCategory,
+                  faq_categories: faq.faq_category.value,
+                  question: faq.question,
+                  answer: faq.answer,
+                  faq_order: faq.order
+                %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+
+        {% comment %} FAQ Page FAQs {% endcomment %}
+      {% elsif template contains 'faq' %}
+        {% for faq_category in page_faq_meta %}
+          {% assign currentCategory = faq_category.category_name %}
+          {% for faq in shop.metaobjects.faq.values %}
+            {% assign show_faq = false %}
+            {% assign matched_category = '' %}
+
+            {% for current_faq_category in faq.faq_category.value %}
+              {% if current_faq_category.category_name == currentCategory %}
+                {% assign show_faq = true %}
+                {% assign matched_category = current_faq_category.category_name %}
+              {% endif %}
+            {% endfor %}
+
+            {% if show_faq %}
+              <h3
+                class="h3 category-subheading"
+                data-category="{{ currentCategory | replace: '&', '' | replace: ' ', '' | downcase }}"
+              >
+                {{ matched_category.category_label }}
+              </h3>
+              {% render 'component-faq',
+                currentCategory: currentCategory,
+                faq_categories: faq.faq_category.value,
+                question: faq.question,
+                answer: faq.answer,
+                faq_order: faq.order
+              %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+
+      {% else %}
+        {% comment %} Shopify Standard Page or Product FAQs {% endcomment %}
+        {% for faq_category in page_faq_meta %}
+          {% assign currentCategory = faq_category.category_name %}
+          {% for faq in shop.metaobjects.faq.values %}
+            {% assign show_faq = false %}
+            {% assign matched_category = '' %}
+            {% for current_faq_category in faq.faq_category.value %}
+              {% if current_faq_category.category_name == currentCategory %}
+                {% assign show_faq = true %}
+                {% assign matched_category = current_faq_category.category_name %}
+              {% endif %}
+            {% endfor %}
+            {% if show_faq %}
+              {% render 'component-faq',
+                currentCategory: currentCategory,
+                faq_categories: faq.faq_category.value,
+                question: faq.question,
+                answer: faq.answer,
+                faq_order: faq.order
+              %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% if request.page_type == 'index' %}
+  {% assign show_sidebar = true %}
+{% endif %}
+
+{% render 'faq-js', page_faq_meta: page_faq_meta, show_sidebar: true %}
+{% if section.settings.faq_anim == true %}
+  <script defer="defer">
+    getScript('{{ 'accordion.min.js' | asset_url }}', () => {
+      document.querySelectorAll('#FaqSection--{{ section.id }} details').forEach((el) => {
+        new Accordion(el);
+      });
+    });
+  </script>
+{% endif %}
+
+{% if section.settings.enable_faq_schema %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- assign faq_count = 0 -%}
+        {%- paginate shop.metaobjects.faq.values by 250 -%}
+          {%- for faq in shop.metaobjects.faq.values -%}
+            {%- assign faq_categories = faq.faq_category.value | map: 'system' | map: 'handle' -%}
+            {%- for faq_category in faq_categories -%}
+              {%- if active_categories contains faq_category -%}
+                {%- if faq_count > 0 -%},{% endif -%}
+                {
+                  "@type": "Question",
+                  "name": {{ faq.question | metafield_text | json }},
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": {{ faq.answer | metafield_text | strip_html | strip_newlines | json }}
+                  }
+                }
+                {%- assign faq_count = faq_count | plus: 1 -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        {%- endpaginate -%}
+      ]
+    }
+  </script>
+{% endif %}
+
+{%- if section.settings.use_popup_form and section.settings.shared_popup_id != blank -%}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var faqSection = document.getElementById('FaqSection--{{ section.id }}');
+      if (!faqSection) return;
+      var ctaLink = faqSection.querySelector('.section-heading-container a, .section-heading-container button');
+      var hiddenTrigger = faqSection.querySelector('.open-popup[data-id="{{ section.settings.shared_popup_id }}"]');
+      if (!ctaLink || !hiddenTrigger) return;
+      ctaLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        hiddenTrigger.click();
+      });
+    });
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "FAQs (Advanced)",
+  "class": "section section__transparent-nav",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Notes"
+    },
+    {
+      "type": "paragraph",
+      "content": "Please note: FAQ categories need to be selected on the page/product/collection admin pages. This section will then pull through all FAQs in the select FAQ categories."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Your queries",
+      "label": "t:sections.slideshow.blocks.slide.settings.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline",
+      "default": "Knowledge library"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_popup_form",
+      "label": "Use button to open popup form",
+      "default": false,
+      "info": "When enabled, the button will open a popup form instead of linking to a URL."
+    },
+    {
+      "type": "text",
+      "id": "shared_popup_id",
+      "label": "Shared popup ID",
+      "info": "If set, this button opens the standalone Popup Form section with this ID."
+    },
+    {
+      "type": "checkbox",
+      "id": "faq_anim",
+      "default": false,
+      "label": "Include FAQ accordion animation?",
+      "info": "Please note: including this animation may impact site performance."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_faq_schema",
+      "label": "Enable FAQ schema?",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor",
+      "info": "Ensure this is unique to this section and handlised. This is used to link to this section from other parts of the site."
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "select",
+      "id": "top_padding",
+      "label": "Top padding (Desktop)",
+      "default": "global-sect-pad-top-md",
+      "options": [
+        { "label": "None", "value": "global-sect-pad-top-none" },
+        { "label": "Half", "value": "global-sect-pad-top-half" },
+        { "label": "Full", "value": "global-sect-pad-top-md" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "bottom_padding",
+      "label": "Bottom padding (Desktop)",
+      "default": "global-sect-pad-bottom-md",
+      "options": [
+        { "label": "None", "value": "global-sect-pad-bottom-none" },
+        { "label": "Half", "value": "global-sect-pad-bottom-half" },
+        { "label": "Full", "value": "global-sect-pad-bottom-md" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "top_padding_mobile",
+      "label": "Top padding (Mobile)",
+      "default": "global-sect-pad-top-md-mobile",
+      "options": [
+        { "label": "None", "value": "global-sect-pad-top-none-mobile" },
+        { "label": "Half", "value": "global-sect-pad-top-half-mobile" },
+        { "label": "Full", "value": "global-sect-pad-top-md-mobile" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "bottom_padding_mobile",
+      "label": "Bottom padding (Mobile)",
+      "default": "global-sect-pad-bottom-md-mobile",
+      "options": [
+        { "label": "None", "value": "global-sect-pad-bottom-none-mobile" },
+        { "label": "Half", "value": "global-sect-pad-bottom-half-mobile" },
+        { "label": "Full", "value": "global-sect-pad-bottom-md-mobile" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQs (Advanced)",
+      "category": "Main"
+    }
+  ]
+}
+{% endschema %}

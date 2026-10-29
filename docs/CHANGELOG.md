@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.0, October 29, 2026
+
+**Author:** Nicolas Cartin Reyes, Lead Developer
+
+Released the ADA / WCAG 2.2 AA remediation to live theme `142304510051`. The scoped push contained 10 approved files, followed by `assets/component-image-with-text.css` to raise the mobile Contact phone and email link targets to at least 24px. A full backup theme was created first, and every file was pulled back and matched the approved source.
+
+Adds the accessibility options launcher and fixes the HappyFox iframe title, nested interactive controls (video poster, Contact FAQ), sort dropdown roles, compare-at price contrast, and gallery and Contact target sizes. Live axe-core 4.10.3 QA: 0 violations on 18 of 18 route and viewport checks. The accessibility statement page and footer link remain unpublished. Third-party identifiers in `layout/theme.liquid` are redacted in this repository.
+
 ## 1.6.0, October 27, 2026
 
 **Author:** Nicolas Cartin Reyes, Lead Developer

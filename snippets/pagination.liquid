@@ -1,0 +1,85 @@
+{% comment %}
+  Renders a set of links for paginated results. Must be used within paginate tags.
+
+  Usage:
+  {% paginate results by 2 %}
+    {% render 'pagination', paginate: paginate, anchor: '#yourID' %}
+  {% endpaginate %}
+
+  Accepts:
+  - paginate: {Object}
+  - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
+{% endcomment %}
+
+{% render 'load-css', stylesheet: 'component-pagination', inline: true, defer: true %}
+
+{%- if paginate.parts.size > 0 -%}
+  <div class="pagination-wrapper">
+    <nav
+      class="pagination"
+      role="navigation"
+      aria-labelledby="pagination"
+      aria-label="{{ 'general.pagination.label' | t }}"
+    >
+      <h2 id="pagination" class="visually-hidden">Pagination</h2>
+      <div class="pagination-control pagination-prev {% if paginate.previous.url == blank %} pagination-control--disabled{% endif %}">
+        <a
+          href="{%- assign prev_url = paginate.previous.url -%}{%- assign _p1 = prev_url | split: '?page=1' | last -%}{% if prev_url contains '?page=1' and _p1 == '' %}{{ prev_url | remove: '?page=1' }}{{ anchor }}{% else %}{{ prev_url }}{{ anchor }}{% endif %}"
+          class="pagination-item icon-arrow-button-wrapper pagination-item--prev pagination-item--arrow"
+          aria-label="{{ 'general.pagination.previous' | t }}"
+          {% if paginate.previous.url == blank %}
+            aria-hidden="true"
+            tabindex="-1"
+          {% endif %}
+        >
+          {%- render 'icon-arrow' -%}
+        </a>
+      </div>
+      <ul class="pagination-list" role="list">
+        {%- for part in paginate.parts -%}
+          <li>
+            {%- if part.is_link -%}
+              <a
+                href="{%- assign page_url = part.url -%}{%- assign _p1 = page_url | split: '?page=1' | last -%}{% if page_url contains '?page=1' and _p1 == '' %}{{ page_url | remove: '?page=1' }}{{ anchor }}{% else %}{{ page_url }}{{ anchor }}{% endif %}"
+                class="pagination-item"
+                aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+              >
+                {{- part.title -}}
+              </a>
+            {%- else -%}
+              {%- if part.title == paginate.current_page -%}
+                <a
+                  role="link"
+                  aria-disabled="true"
+                  class="pagination-item pagination-item--active"
+                  aria-current="page"
+                  aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+                >
+                  {{- part.title -}}
+                </a>
+              {%- else -%}
+                <span class="pagination-item">{{ part.title }}</span>
+              {%- endif -%}
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+      <div class="pagination-control pagination-next {% if paginate.next.url == blank %} pagination-control--disabled{% endif %}">
+        <a
+          href="{%- assign next_url = paginate.next.url -%}{%- assign _p1 = next_url | split: '?page=1' | last -%}{% if next_url contains '?page=1' and _p1 == '' %}{{ next_url | remove: '?page=1' }}{{ anchor }}{% else %}{{ next_url }}{{ anchor }}{% endif %}"
+          class="pagination-item icon-arrow-button-wrapper pagination-item--next pagination-item--arrow"
+          aria-label="{{ 'general.pagination.next' | t }}"
+          {% if paginate.next.url == blank %}
+            aria-hidden="true"
+            tabindex="-1"
+          {% endif %}
+        >
+          {%- render 'icon-arrow' -%}
+        </a>
+      </div>
+      <div aria-live="polite" aria-atomic="true" class="visually-hidden">
+        Page {{ paginate.current_page }} of {{ paginate.parts.size }}
+      </div>
+    </nav>
+  </div>
+{%- endif -%}
