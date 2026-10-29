@@ -123,7 +123,7 @@ The production deployment was intentionally scoped to those two theme files with
 
 Fixed every automated WCAG 2.2 AA failure on the key storefront routes and added an accessibility options launcher (text size, high contrast, underline links, readable font, reduce motion). Fixes cover the HappyFox chat iframe title, nested interactive elements in the video poster and Contact FAQ, the collection sort dropdown roles, compare-at price contrast, and 24px touch targets for gallery dots and Contact links.
 
-Released to live on October 29, 2026 with a scoped push of 11 files, after a full backup theme. Live QA with axe-core 4.10.3 returned 0 violations on 18 of 18 route and viewport checks. The accessibility statement page and its footer link are not published yet.
+Released to live on October 29, 2026 with a scoped push of 11 files, after a full backup theme. Live QA with axe-core 4.10.3 returned 0 violations on 18 of 18 route and viewport checks. The [accessibility statement page](https://us.primalstrength.com/pages/accessibility-statement) went live the same day. Its footer link is still pending.
 
 In `layout/theme.liquid`, third-party identifiers are replaced with placeholders in this repository.
 
@@ -160,6 +160,7 @@ Changes include:
 │   └── theme.liquid                   # Launcher render (third-party IDs redacted)
 ├── sections/
 │   ├── faq.liquid                     # ADA: native details/summary FAQ
+│   ├── main-accessibility-statement.liquid # Accessibility statement page section
 │   ├── gsa-government-purchasing.liquid # GSA purchasing page section
 │   ├── image-with-text-new.liquid     # ADA: video poster button
 │   └── header.liquid                  # Split Echelon and PRIMAL logo links

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.1, October 29, 2026
+
+Published the Accessibility Statement page at /pages/accessibility-statement with `templates/page.accessibility-statement.json` and `sections/main-accessibility-statement.liquid`. Live axe-core 4.10.3 QA: 0 violations on desktop and mobile. The footer Legal link is still pending.
+
 ## 1.7.0, October 29, 2026
 
 **Author:** Nicolas Cartin Reyes, Lead Developer

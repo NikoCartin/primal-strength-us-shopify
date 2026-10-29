@@ -1,0 +1,51 @@
+{% render 'load-css', stylesheet: 'section-main-page', inline: true, defer: true %}
+{% render 'load-css', stylesheet: 'component-rte', inline: true, defer: true %}
+
+<div class="background--{{ section.settings.color_scheme }}">
+  <div class="page-width page-width--small padding-top--small padding-bottom--small">
+    <h1 class="main-page-title page-title h0">
+      {{ page.title | escape }}
+    </h1>
+    <div class="rte">
+      {{ page.content | replace: '[calculator]', '' }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Accessibility statement",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "black",
+          "label": "Primal Black"
+        },
+        {
+          "value": "grey",
+          "label": "Primal Grey"
+        },
+        {
+          "value": "white",
+          "label": "Primal White"
+        },
+        {
+          "value": "smoke",
+          "label": "Primal Smoke"
+        }
+      ],
+      "default": "white",
+      "label": "Background Colour"
+    }
+  ]
+}
+{% endschema %}

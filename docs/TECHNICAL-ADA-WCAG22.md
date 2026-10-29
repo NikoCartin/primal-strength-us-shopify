@@ -79,11 +79,14 @@ b6e501a6e5ae2c8608607feb8e50eab323c55764a0c15939973b253463cfae74  assets/compone
 - HappyFox iframe title verified in production.
 - Full report: [QA-ADA-WCAG22-LIVE-DEPLOYMENT.pdf](QA-ADA-WCAG22-LIVE-DEPLOYMENT.pdf)
 
-## Not included in this release
+## Accessibility statement page (October 29, 2026)
 
-- The Shopify page "Accessibility Statement" is still an unpublished draft, so `/pages/accessibility-statement` returns 404.
-- No footer link to the statement has been added.
-- Both are Shopify Admin and navigation actions, not theme code.
+- Live at https://us.primalstrength.com/pages/accessibility-statement (HTTP 200). The "Accessibility statement" link in the Accessibility options panel now opens it.
+- Template `templates/page.accessibility-statement.json` uses a new section, `sections/main-accessibility-statement.liquid`: a single `<h1>` (page title) and the page body in `.rte`.
+- Content: commitment, conformance standard (WCAG 2.2 AA), what we are doing, known limitations (third-party content), and feedback and assistance (Primal Support phone, email and contact form). Last updated October 29, 2026.
+- Live QA (axe-core 4.10.3, same tags, 1440 x 900 and 390 x 844): 0 violations. One `<h1>`, then `<h2>` sections in order. `lang="en"`. Phone, email and contact links are 24px tall.
+- Open: no "Accessibility" link in the footer Legal column yet.
+- Site-wide note (not specific to this page): at 390px the document is 405px wide, so mobile pages scroll sideways by 15px. This also happens on the homepage and Contact.
 
 ## Rollback
 
