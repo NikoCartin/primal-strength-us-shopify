@@ -14,14 +14,14 @@ Bring the key Primal Strength US storefront pages to 0 automated WCAG 2.2 AA vio
 
 | WCAG rule | Where | Issue | Fix |
 |---|---|---|---|
-| frame-title (4.1.2) | All pages | HappyFox chat iframe had no `title` | Script in `layout/theme.liquid` sets `title="Chat with Primal Strength support"` when the late-loading iframe appears |
-| nested-interactive (4.1.2) | Home | Video poster button contained focusable children and had an empty label | `sections/image-with-text-new.liquid`, `assets/component-image-with-text.css` |
+| frame-title (4.1.2) | All pages | HappyFox chat iframe had no `title` | `assets/accessibility-launcher.js` sets `title="Chat with Primal Strength support"` when the late-loading iframe appears |
+| nested-interactive (4.1.2) | Home | Video poster button contained focusable children and had an empty label | `sections/image-with-text-new.liquid`: decorative poster content marked `aria-hidden`, label from image alt or section heading |
 | nested-interactive (4.1.2) | Contact FAQ | `<details role="tab">` with focusable content and duplicate `id`s | `sections/faq.liquid`, `snippets/component-faq.liquid`: native details/summary, unique ids |
 | target-size (2.5.8) | Contact | Phone and email links under 24px | `assets/component-image-with-text.css`: contact-link targets at least 24px |
 | aria-required-children (1.3.1) | Collections | Sort dropdown `<details role="listbox">` contained a `summary` | `snippets/facets.liquid` |
-| color-contrast (1.4.3) | Product pages | Compare-at price below 4.5:1 | `assets/main-product.css`, `assets/global.css` |
-| target-size (2.5.8) | Product pages, mobile | 8px gallery pagination dots | `assets/main-product.css`, `snippets/pagination.liquid` |
-| Accessibility launcher | Site | No accessibility options button | `snippets/accessibility-launcher.liquid`, `assets/accessibility-launcher.js`, rendered once before `</body>` in `layout/theme.liquid` |
+| color-contrast (1.4.3) | Product pages | Compare-at price below 4.5:1 | `assets/main-product.css`: `.price-compare` set to `#595959` |
+| target-size (2.5.8) | Product pages, mobile | 8px gallery pagination dots | `assets/global.css`: 8px dot with 8px padding gives a 24px target on mobile |
+| Accessibility launcher | Site | No accessibility options button | `snippets/accessibility-launcher.liquid` and `assets/accessibility-launcher.js`, rendered once before `</body>` in `layout/theme.liquid`. `snippets/pagination.liquid` was also part of the approved release |
 
 ## Theme files (11)
 

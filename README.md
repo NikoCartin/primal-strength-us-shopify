@@ -151,13 +151,13 @@ Changes include:
 
 ```
 ├── assets/
-│   ├── accessibility-launcher.js      # Accessibility options panel behavior
+│   ├── accessibility-launcher.js      # Accessibility panel, HappyFox iframe title
 │   ├── component-image-with-text.css  # ADA fixes (video poster, contact targets)
 │   ├── gaia-product-form.min.js       # JavaScript form validation fix
-│   ├── global.css                     # ADA contrast fixes
-│   └── main-product.css               # ADA contrast and target-size fixes
+│   ├── global.css                     # ADA: gallery dot target size
+│   └── main-product.css               # ADA: compare-at price contrast
 ├── layout/
-│   └── theme.liquid                   # Launcher render, HappyFox iframe title (IDs redacted)
+│   └── theme.liquid                   # Launcher render (third-party IDs redacted)
 ├── sections/
 │   ├── faq.liquid                     # ADA: native details/summary FAQ
 │   ├── gsa-government-purchasing.liquid # GSA purchasing page section
@@ -171,7 +171,7 @@ Changes include:
 │   ├── component-faq.liquid           # ADA: unique FAQ ids
 │   ├── facets.liquid                  # ADA: sort dropdown roles
 │   ├── financing-widget.liquid        # PDP promotional financing widget
-│   ├── pagination.liquid              # ADA: pagination targets
+│   ├── pagination.liquid              # Included in the ADA release
 │   └── product-video.liquid           # Dynamic hosted or YouTube/Vimeo product video
 ├── templates/
 │   ├── order-confirmation-email.html  # Customized order confirmation email
