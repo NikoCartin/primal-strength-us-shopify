@@ -1,5 +1,13 @@
 # Changelog
 
+## November 4, 2026: ChargeAfter Dev implementation and provider branding
+
+**Author:** Nicolas Cartin Reyes, Lead Developer
+
+Added the approved, unpublished-theme ChargeAfter PDP positioning source, a minimal default-product block-order patch, and the all-black Primal Financing SVG and transparent PNG. The helper retains the split-payment app's existing controls and handlers. Desktop and mobile positioning and sandbox display were verified; no financing application, order or payment was submitted.
+
+Added the consolidated consumer-financing technical record and corrected the README's outdated merchant-configuration status. ChargeAfter remains the consumer financing path; Ascentium remains the commercial financing path. Production credentials and gateway activation are pending. This repository update does not publish the Dev changes to the live theme.
+
 ## 1.7.2, October 29, 2026
 
 Added `Accessibility` to the live `ux-footer-menu` under Legal, immediately after CCPA Privacy Policy, linked to `/pages/accessibility-statement`. Desktop and 390px mobile verification confirmed the footer link renders, is keyboard focusable, and opens the published statement page. The separate mobile footer-width remediation remains unpublished.

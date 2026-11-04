@@ -1,0 +1,14 @@
+--- a/templates/product.json
++++ b/templates/product.json
+@@ -147,10 +147,10 @@
+         "promo_tags_X6PMUM",
+         "text_content_qxQjAF",
+         "tiered_cart_discount_PAgxtz",
++        "custom_finance_box_Rby47m",
+         "buy_buttons",
+         "complete_your_setup",
+         "quote_bulk_order_box_Q8Uqnj",
+-        "custom_finance_box_Rby47m",
+         "8121d7ea-22ed-4eed-89f4-781a9df324d3",
+         "1e9038f2-561f-4505-81c3-3869bd0cb089",
+         "68f9ae2a-1b08-4672-938b-717db6f8b65d",

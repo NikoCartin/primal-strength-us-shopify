@@ -1,0 +1,32 @@
+{%- liquid
+  if template contains 'group'
+    assign finance_value = collections[product.metafields.attributes.product_group_collection].products | map: 'price' | sort | first
+  elsif template contains 'product'
+    assign finance_value = current_variant.price
+  elsif template contains 'cart'
+    assign finance_value = cart.total_price
+  endif
+-%}
+
+{%- if finance_value >= 30000 and product.vendor contains 'Primal' -%}
+  {% if pdp == true %}
+    <div class="product-block-box">
+      <div
+        class="ca-promotional-widget"
+        style="font-size: 1.1em; margin: 8px 0;"
+        data-widget-type="default-template"
+        data-widget-mode="price-focus"
+        data-widget-item-sku="{{ product.selected_or_first_available_variant.sku }}"
+        data-widget-item-price="
+          {%- if product.compare_at_price > product.price -%}
+            {{ product.price | money_without_currency | remove: ',' }}
+          {%- else -%}
+            {{ product.selected_or_first_available_variant.price | money_without_currency | remove: ',' }}
+          {%- endif -%}
+        "
+        data-widget-financing-page-url="https://us.primalstrength.com/pages/finance"
+      ></div>
+    </div>
+    <script src="{{ 'chargeafter-pdp-position.js' | asset_url }}" defer="defer"></script>
+  {% endif %}
+{%- endif -%}

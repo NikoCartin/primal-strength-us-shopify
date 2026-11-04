@@ -24,6 +24,7 @@ This repository contains the custom Liquid snippets, JavaScript assets, and emai
 The repository tracks theme source and technical documentation. Store-level Admin changes, such as channel publication and collection ordering, are identified separately so they are not mistaken for theme-code changes.
 
 **Latest release:** [ADA / WCAG 2.2 AA remediation](docs/TECHNICAL-ADA-WCAG22.md)
+**Latest development update:** [ChargeAfter consumer financing and approved provider branding](docs/TECHNICAL-CHARGEAFTER-CONSUMER-FINANCING.md), November 4, 2026. The positioning changes remain in an unpublished Dev theme; production activation is pending.
 
 ---
 
@@ -33,7 +34,7 @@ The repository tracks theme source and technical documentation. Store-level Admi
 
 Resolved an issue where products were incorrectly displaying as "Sold Out" and preventing users from adding items to the cart, despite having inventory available in the US distribution center.
 
-**Root Cause:** Products were stocked in the "USA - BNB DISTRIBUTIONS" location, which was not enabled for online order fulfillment in Shopify Settings. Once the location was enabled, the following code fixes ensured the storefront accurately reflected product availability.
+**Root Cause:** The US inventory location was not enabled for online order fulfillment in Shopify Settings. Once the location was enabled, the following code fixes ensured the storefront accurately reflected product availability.
 
 **Files modified:**
 
@@ -47,18 +48,20 @@ Resolved an issue where products were incorrectly displaying as "Sold Out" and p
 
 ### 2. ChargeAfter Financing Integration
 
-Implemented the ChargeAfter promotional widget to display dynamic monthly payment options on product detail pages, consistent with the integration used on `echelonfit.com`.
+ChargeAfter provides consumer and home-use financing. Ascentium remains the approved commercial financing tool. The approved ChargeAfter PDP changes are saved in unpublished theme `189336289379`: financing below the short description and above Payment options, with the split-payment app's existing controls preserved.
 
-**Files added:**
+**Current source and references:**
 
 | File | Description |
 |------|-------------|
-| `snippets/charge-after-widget.liquid` | Contains the ChargeAfter SDK initialization script. Included globally via `layout/theme.liquid` |
-| `snippets/financing-widget.liquid` | Contains the `ca-promotional-widget` HTML structure, dynamically passing the product SKU and price to the ChargeAfter API |
+| `snippets/finance.liquid` | Existing promotional markup, SKU, price and eligibility, plus the positioning-helper include |
+| `assets/chargeafter-pdp-position.js` | Repositions the existing split-payment control after financing without replacing its event handlers |
+| `examples/chargeafter/product-block-order.patch` | Minimal default-template ordering change; unrelated product content is not duplicated |
+| `assets/primal-financing-black.svg` and `assets/primal-financing-black-transparent.png` | Approved all-black, transparent provider branding |
 
-**Note:** The ChargeAfter integration requires a valid merchant API key authorized for the `us.primalstrength.com` domain. The current API key is scoped to Echelon's merchant account and will not render on the Primal domain until a separate ChargeAfter merchant account is established.
+**Status:** Sandbox display and desktop/mobile positioning were verified. No application, order or payment was submitted. Production credentials and activation remain pending; these changes have not been published to the live theme. Theme previews do not isolate Shopify's store-wide payment-provider settings.
 
-The existing `snippets/finance.liquid` was also refactored to remove UK-specific references (Klarna, V12 Finance) and integrate the new US financing widget.
+The historical UK-to-US financing refactor remains separate from this update. See the [technical implementation and validation record](docs/TECHNICAL-CHARGEAFTER-CONSUMER-FINANCING.md) for source scope, branding and production prerequisites.
 
 ---
 
