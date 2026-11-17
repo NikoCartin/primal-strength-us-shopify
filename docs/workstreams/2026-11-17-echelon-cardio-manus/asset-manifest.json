@@ -1,0 +1,542 @@
+{
+  "prepared_at": "2026-11-17",
+  "images": [
+    {
+      "model": "Connect EX-Pro",
+      "sku": "ECH01-EX-PRO-24",
+      "source_product_url": "https://echelonfit.com/products/echelon-ex-pro",
+      "source_position": 1,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/products/connect-ex-pro-ech01-ex-pro-24-2980299.jpg?v=1786399752",
+      "width": 1200,
+      "height": 1200,
+      "source_alt": "Connect EX-Pro - Echelon Fit US",
+      "proposed_status": "Hero candidate; visually verify exact model and revision."
+    },
+    {
+      "model": "Connect EX-Pro",
+      "sku": "ECH01-EX-PRO-24",
+      "source_product_url": "https://echelonfit.com/products/echelon-ex-pro",
+      "source_position": 2,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/products/connect-ex-pro-ech01-ex-pro-24-1859012.jpg?v=1786399752",
+      "width": 1024,
+      "height": 683,
+      "source_alt": "Connect EX-Pro - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Connect EX-Pro",
+      "sku": "ECH01-EX-PRO-24",
+      "source_product_url": "https://echelonfit.com/products/echelon-ex-pro",
+      "source_position": 3,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/products/connect-ex-pro-ech01-ex-pro-24-9618358.jpg?v=1786399752",
+      "width": 1024,
+      "height": 683,
+      "source_alt": "Connect EX-Pro - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Connect EX-Pro",
+      "sku": "ECH01-EX-PRO-24",
+      "source_product_url": "https://echelonfit.com/products/echelon-ex-pro",
+      "source_position": 4,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/products/connect-ex-pro-ech01-ex-pro-24-7931055.jpg?v=1786399752",
+      "width": 1024,
+      "height": 683,
+      "source_alt": "Connect EX-Pro - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Connect EX-Pro",
+      "sku": "ECH01-EX-PRO-24",
+      "source_product_url": "https://echelonfit.com/products/echelon-ex-pro",
+      "source_position": 5,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/products/connect-ex-pro-ech01-ex-pro-24-4754088.jpg?v=1786399752",
+      "width": 2040,
+      "height": 2040,
+      "source_alt": "Connect EX-Pro - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 1,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/4a1ef39b-4da4-43b7-b148-ddadc9843e50_4798d48e-3dc2-4448-a133-68efd9d6a8a4.png?v=1793661201",
+      "width": 1333,
+      "height": 1333,
+      "source_alt": "Echelon Connect EX-5s-22 black bike product image",
+      "proposed_status": "Hero candidate; visually verify exact model and revision."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 2,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-fitness-ex-5s-connect-bike-in-mossy-oak-country-dna-ech01-ex5s-moc-4207169.png?v=1786399530",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Fitness EX-5s Connect Bike In Mossy Oak Country DNA - Echelon Fit US",
+      "proposed_status": "EXCLUDE by default: Mossy Oak color/model label conflicts with regular SKU."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 3,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-fitness-ex-5s-connect-bike-in-mossy-oak-country-dna-ech01-ex5s-moc-7899966.png?v=1786399530",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Fitness EX-5s Connect Bike In Mossy Oak Country DNA - Echelon Fit US",
+      "proposed_status": "EXCLUDE by default: Mossy Oak color/model label conflicts with regular SKU."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 4,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-fitness-ex-5s-connect-bike-in-mossy-oak-country-dna-ech01-ex5s-moc-3962907.png?v=1786399530",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Fitness EX-5s Connect Bike In Mossy Oak Country DNA - Echelon Fit US",
+      "proposed_status": "EXCLUDE by default: Mossy Oak color/model label conflicts with regular SKU."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 5,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-fitness-ex-5s-connect-bike-in-mossy-oak-country-dna-ech01-ex5s-moc-2068553.png?v=1786399530",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Fitness EX-5s Connect Bike In Mossy Oak Country DNA - Echelon Fit US",
+      "proposed_status": "EXCLUDE by default: Mossy Oak color/model label conflicts with regular SKU."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 6,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-fitness-ex-5s-connect-bike-in-mossy-oak-country-dna-ech01-ex5s-moc-3287243.png?v=1786399530",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Fitness EX-5s Connect Bike In Mossy Oak Country DNA - Echelon Fit US",
+      "proposed_status": "EXCLUDE by default: Mossy Oak color/model label conflicts with regular SKU."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 7,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-fitness-ex-5s-connect-bike-in-mossy-oak-country-dna-ech01-ex5s-moc-8112638.png?v=1786399530",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Fitness EX-5s Connect Bike In Mossy Oak Country DNA - Echelon Fit US",
+      "proposed_status": "EXCLUDE by default: Mossy Oak color/model label conflicts with regular SKU."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 8,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/connect-ex-5s-22-ech01-ex5s-8697681.jpg?v=1786399757",
+      "width": 2000,
+      "height": 2000,
+      "source_alt": "Connect EX-5s-22 - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 9,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/connect-ex-5s-22-ech01-ex5s-9356181.jpg?v=1786399757",
+      "width": 2000,
+      "height": 2000,
+      "source_alt": "Connect EX-5s-22 - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 10,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/connect-ex-5s-22-ech01-ex5s-1286386.jpg?v=1786399757",
+      "width": 2000,
+      "height": 2000,
+      "source_alt": "Connect EX-5s-22 - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 11,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/connect-ex-5s-22-ech01-ex5s-5880184.jpg?v=1786399757",
+      "width": 2000,
+      "height": 2000,
+      "source_alt": "Connect EX-5s-22 - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "sku": "ECH01-EX5s",
+      "source_product_url": "https://echelonfit.com/products/echelon-smart-connect-bike-ex5s-w-free-membership",
+      "source_position": 12,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/connect-ex-5s-22-ech01-ex5s-4241884.jpg?v=1786399758",
+      "width": 2000,
+      "height": 1999,
+      "source_alt": "Connect EX-5s-22 - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Stride-9s Pro",
+      "sku": "JUSTSTRIDE-9s",
+      "source_product_url": "https://echelonfit.com/products/echelon-stride-9s-pro",
+      "source_position": 1,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-stride-9s-pro-juststride-9s-5976550.png?v=1786399519",
+      "width": 3168,
+      "height": 3168,
+      "source_alt": "Echelon Stride-9s Pro - Echelon Fit US",
+      "proposed_status": "Hero candidate; visually verify exact model and revision."
+    },
+    {
+      "model": "Echelon Stride-9s Pro",
+      "sku": "JUSTSTRIDE-9s",
+      "source_product_url": "https://echelonfit.com/products/echelon-stride-9s-pro",
+      "source_position": 2,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-stride-9s-pro-juststride-9s-1698710.png?v=1786399518",
+      "width": 2018,
+      "height": 1298,
+      "source_alt": "Echelon Stride-9s Pro - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 1,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/shops_echelon-store.myshopify.com_sessions_moby_vy76ynthgtb3_images_stride-aspirational-runner.png?v=1789665298",
+      "width": 2048,
+      "height": 2560,
+      "source_alt": null,
+      "proposed_status": "Hero candidate; visually verify exact model and revision."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 2,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/stride-8s-certified-open-box-ech-stride-8s-22-9782835.png?v=1786399516",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Stride-8s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "EXCLUDE pending reconciliation: visually shows 300 lb max/220.4 lb product weight; current PDP says 400 lb max."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 3,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/stride-8s-certified-open-box-ech-stride-8s-22-5355403.jpg?v=1786399516",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Stride-8s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "HOLD: open-box label; verify same new hardware, no promotional overlay, rewrite alt."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 4,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/stride-8s-certified-open-box-ech-stride-8s-22-2571297.jpg?v=1786399516",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Stride-8s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "HOLD: open-box label; verify same new hardware, no promotional overlay, rewrite alt."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 5,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/stride-8s-certified-open-box-ech-stride-8s-22-3968527.png?v=1786399516",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Stride-8s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "HOLD: open-box label; verify same new hardware, no promotional overlay, rewrite alt."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 6,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/stride-8s-certified-open-box-ech-stride-8s-22-2506060.jpg?v=1786399515",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Stride-8s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "HOLD: open-box label; verify same new hardware, no promotional overlay, rewrite alt."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 7,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/stride-8s-certified-open-box-ech-stride-8s-22-1008339.png?v=1786399516",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Stride-8s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "HOLD: open-box label; verify same new hardware, no promotional overlay, rewrite alt."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 8,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/stride-8s-certified-open-box-ech-stride-8s-22-1284239.png?v=1786399516",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Stride-8s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "HOLD: open-box label; verify same new hardware, no promotional overlay, rewrite alt."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 9,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/stride-8s-certified-open-box-ech-stride-8s-22-4096077.png?v=1786399517",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Stride-8s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "HOLD: open-box label; verify same new hardware, no promotional overlay, rewrite alt."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 10,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/stride-8s-certified-open-box-ech-stride-8s-22-5918034.png?v=1786399516",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Stride-8s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "HOLD: open-box label; verify same new hardware, no promotional overlay, rewrite alt."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 11,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-stride-8s-commercial-smart-treadmill-ech-stride-8s-22-6611353.jpg?v=1786399520",
+      "width": 2438,
+      "height": 1625,
+      "source_alt": "Echelon Stride-8s™ Commercial Smart Treadmill - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "sku": "ECH-STRIDE-8s-22",
+      "source_product_url": "https://echelonfit.com/products/stride-8s",
+      "source_position": 12,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-stride-8s-commercial-smart-treadmill-ech-stride-8s-22-5610503.jpg?v=1786399520",
+      "width": 385,
+      "height": 256,
+      "source_alt": "Echelon Stride-8s™ Commercial Smart Treadmill - Echelon Fit US",
+      "proposed_status": "Small asset: do not use as a desktop hero; prefer higher resolution."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 1,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/rower-modern-worlds.png?v=1789849786",
+      "width": 2048,
+      "height": 2048,
+      "source_alt": null,
+      "proposed_status": "Hero candidate; visually verify exact model and revision."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 2,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-smart-rowing-machine-ech-rows-6892660.png?v=1786399529",
+      "width": 1080,
+      "height": 1080,
+      "source_alt": "Echelon Row-s Smart Rowing Machine - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 3,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-smart-rowing-machine-ech-rows-9284712.png?v=1786399529",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Row-s Smart Rowing Machine - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 4,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-smart-rowing-machine-ech-rows-8861308.png?v=1786399529",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Row-s Smart Rowing Machine - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 5,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-smart-rowing-machine-ech-rows-2928593.png?v=1786399529",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Row-s Smart Rowing Machine - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 6,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-certified-open-box-ech-rows-7793384.jpg?v=1786399516",
+      "width": 2000,
+      "height": 2000,
+      "source_alt": "Echelon Row-s (Certified Open Box) - Echelon Fit US",
+      "proposed_status": "HOLD: open-box label; verify same new hardware, no promotional overlay, rewrite alt."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 7,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-smart-rowing-machine-ech-rows-4817762.png?v=1786399529",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Row-s Smart Rowing Machine - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 8,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-smart-rowing-machine-ech-rows-1758318.png?v=1786399529",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Row-s Smart Rowing Machine - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 9,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-smart-rowing-machine-ech-rows-7552706.png?v=1786399529",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Row-s Smart Rowing Machine - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 10,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-smart-rowing-machine-ech-rows-1185983.png?v=1786399529",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Row-s Smart Rowing Machine - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 11,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/image-d3a4070c-3b11-42ec-91c1-b4aeb30fe77f.png?v=1789849511",
+      "width": 2544,
+      "height": 1694,
+      "source_alt": null,
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "sku": "ECH-ROWs",
+      "source_product_url": "https://echelonfit.com/products/echelon-row-s-connected-rowing-machine-for-bundles",
+      "source_position": 12,
+      "url": "https://cdn.shopify.com/s/files/1/2422/9487/files/echelon-row-s-smart-rowing-machine-ech-rows-2199948.jpg?v=1786399529",
+      "width": 1500,
+      "height": 1500,
+      "source_alt": "Echelon Row-s Smart Rowing Machine - Echelon Fit US",
+      "proposed_status": "Gallery candidate; verify exact model and contents."
+    }
+  ],
+  "videos": [
+    {
+      "model": "Connect EX-5s-22",
+      "url": "https://echelonfit.com/cdn/shop/videos/c/vp/4ea8516713714f3f8a5da2b99e21d17a/4ea8516713714f3f8a5da2b99e21d17a.HD-720p-1.6Mbps-16410937.mp4?v=0",
+      "shared": false
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "url": "https://echelonfit.com/cdn/shop/videos/c/vp/2a9cef354f854979ae4ff08b1d8fd788/2a9cef354f854979ae4ff08b1d8fd788.HD-1080p-3.3Mbps-47106180.mp4?v=0",
+      "shared": true
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "url": "https://echelonfit.com/cdn/shop/videos/c/vp/31529e00b4794a60a410d45d3d82c860/31529e00b4794a60a410d45d3d82c860.HD-1080p-4.8Mbps-39649536.mp4?v=0",
+      "shared": false
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "url": "https://echelonfit.com/cdn/shop/videos/c/vp/2a9cef354f854979ae4ff08b1d8fd788/2a9cef354f854979ae4ff08b1d8fd788.HD-1080p-3.3Mbps-47106180.mp4?v=0",
+      "shared": true
+    },
+    {
+      "model": "Echelon Stride-8s™ Commercial Smart Treadmill",
+      "url": "https://cdn.shopify.com/videos/c/o/v/1a9c2759c380430dbcc78b2468d416e6.mp4",
+      "shared": false
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "url": "https://echelonfit.com/cdn/shop/videos/c/vp/0c79046976ca4dbd86d7c0e4e93080e7/0c79046976ca4dbd86d7c0e4e93080e7.HD-720p-1.6Mbps-28792720.mp4?v=0",
+      "shared": false
+    },
+    {
+      "model": "Echelon Row-s Smart Rowing Machine",
+      "url": "https://echelonfit.com/cdn/shop/videos/c/vp/2a9cef354f854979ae4ff08b1d8fd788/2a9cef354f854979ae4ff08b1d8fd788.HD-1080p-3.3Mbps-47106180.mp4?v=0",
+      "shared": true
+    }
+  ],
+  "manuals": [
+    {
+      "model": "Connect EX-Pro",
+      "support_page": "https://support.echelonfit.com/kb/article/153-connect-ex-pro-bike-manual/",
+      "pdf": "https://hf-files-oregon.s3.amazonaws.com/hdpechelonfit_kb_attachments/2025/07-21/8e6177f1-0a97-4491-91dc-18861d515be0/EXPRO_IM_Trilingual_LR.pdf"
+    },
+    {
+      "model": "Connect EX-5s-22",
+      "support_page": "https://support.echelonfit.com/kb/article/158-connect-ex-5s-22-manual/",
+      "pdf": "https://hf-files-oregon.s3.amazonaws.com/hdpechelonfit_kb_attachments/2025/07-21/083f6423-b96a-49dc-96ce-e69e87b367f9/EX5s22_Manual.pdf"
+    },
+    {
+      "model": "Stride-9s Pro",
+      "support_page": "https://support.echelonfit.com/kb/article/88-stride-9s-pro/?section_id=46",
+      "pdf": "https://hf-files-oregon.s3.amazonaws.com/hdpechelonfit_kb_attachments/2026/11-03/68c208d7-4cff-4e88-88ae-681051cf76ce/Stride-9sPro_NewAssembly.pdf"
+    },
+    {
+      "model": "Stride-8s",
+      "support_page": "https://support.echelonfit.com/kb/article/87-stride-8s-manual/",
+      "pdf": "https://cdn.reflectgateway.com/pdfs/ed8dace7-3928-4f9e-8055-f10a601b0ccc.pdf"
+    },
+    {
+      "model": "Row-s",
+      "support_page": "https://support.echelonfit.com/kb/article/80-row-s/",
+      "pdf": "https://cdn.reflectgateway.com/pdfs/6a7c0fac-d7e3-4171-9bf8-ab8a40cebe2b.pdf"
+    }
+  ]
+}
