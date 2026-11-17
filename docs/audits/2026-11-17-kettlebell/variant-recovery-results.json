@@ -1,0 +1,23 @@
+{
+  "testScope": "Local mocked failure-path test of exact pulled live methods, not a live browser test",
+  "sourceSha256": "7d2a320fe8fc910fc1ba173b412caadb14f99f3550950dd96099035447a33438",
+  "results": [
+    {
+      "mode": "success",
+      "disabledAfterSettling": false,
+      "unhandledErrors": []
+    },
+    {
+      "mode": "pending",
+      "disabledAfterSettling": true,
+      "unhandledErrors": []
+    },
+    {
+      "mode": "rejection",
+      "disabledAfterSettling": true,
+      "unhandledErrors": [
+        "Simulated section request network failure"
+      ]
+    }
+  ]
+}
