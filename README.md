@@ -24,7 +24,9 @@ This repository contains the custom Liquid snippets, JavaScript assets, and emai
 The repository tracks theme source and technical documentation. Store-level Admin changes, such as channel publication and collection ordering, are identified separately so they are not mistaken for theme-code changes.
 
 **Latest release:** [ADA / WCAG 2.2 AA remediation](docs/TECHNICAL-ADA-WCAG22.md)
-**Latest development update:** [ChargeAfter consumer financing and approved provider branding](docs/TECHNICAL-CHARGEAFTER-CONSUMER-FINANCING.md), November 4, 2026. The positioning changes remain in an unpublished Dev theme; production activation is pending.
+**Latest development update:** [Full Primal development summary and Premier implementation](docs/workstreams/2026-11-19-primal-premier/README.md), November 19, 2026. Premier checkout protection is active with runtime-failure blocking; all five cardio products and three plans remain Draft. Membership access operations and commercial launch are not verified.
+
+Historical sections below describe earlier milestones. Use the dated summary for current status; do not treat its technical completion as product publication.
 
 ---
 

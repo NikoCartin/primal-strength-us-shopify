@@ -1,5 +1,12 @@
 # Changelog
 
+## November 19, 2026: consolidated Primal development and Premier record
+
+**Lead Developer:** Nicolas Cartin Reyes
+
+Added the full English development summary and matching PDF, covering cardio product preparation, specifications, inventory reconciliation, financing information, DEV selectors and protected cart behavior, independent custom-app benefits, first-month and annual shipping rules, approved Black Friday combinations, and server-side membership validation. Premier Membership Required is registered and active with runtime-failure blocking. All eight products remain Draft, membership theme safeguards remain DEV-only, and access/billing operations plus eligible checkout acceptance still gate launch. The record includes the verified tests and a historical appendix on catalog, pricing, CRO, accessibility, GSA, tax and shipping work. This commit is documentation-only; private derivative app source, credentials, identifiers, preview links and customer data are not published.
+
+
 ## November 4, 2026: ChargeAfter Dev implementation and provider branding
 
 **Author:** Nicolas Cartin Reyes, Lead Developer
