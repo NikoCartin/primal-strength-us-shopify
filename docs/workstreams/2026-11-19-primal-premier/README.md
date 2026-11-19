@@ -69,12 +69,12 @@ Released server-side validation checks eligible equipment, allowed membership pr
 
 Latest integrated evidence records:
 
-- **100/100 integrated administrative checks**, including 72 validation-controller scenarios, passed.
-- **215/215 selector checks** and **42/42 cart checks** passed.
-- **479/479 Rust validation scenarios** and **479/479 official-build WASM scenarios** passed using Shopify's official runner, not a JavaScript substitute.
-- **10/10 desktop/mobile product-page checks** passed across five models.
-- **2/2 real missing-JavaScript or missing-asset checks** passed with purchasing blocked and no purchase requests.
-- **13/13 DEV file readback comparisons** matched the tested implementation.
+- **100 of 100 integrated administrative checks**, including 72 validation-controller scenarios, passed.
+- **215 of 215 selector checks** and **42 of 42 cart checks** passed.
+- **479 of 479 Rust validation scenarios** and **479 of 479 official-build WASM scenarios** passed using Shopify's official runner, not a JavaScript substitute.
+- **10 of 10 desktop/mobile product-page checks** passed across five models.
+- **2 of 2 real missing-JavaScript or missing-asset checks** passed with purchasing blocked and no purchase requests.
+- **13 of 13 DEV file readback comparisons** matched the tested implementation.
 - Ordinary anonymous cart addition, quantity adjustment and removal passed in DEV and live baseline, with financing information preserved. A fresh live-cart regression after rule activation also passed all three actions and retained ChargeAfter; the anonymous cart was cleared and checkout was not opened.
 
 Local scenarios and synthetic equipment-variant fixtures verify logic, not purchases. Preview isolation of a blocking external script was a test measure, not a production change. Normal carts showed preexisting 15 px mobile document overflow in both live and DEV. Functional success does not mean this visual issue passed responsive QA.
