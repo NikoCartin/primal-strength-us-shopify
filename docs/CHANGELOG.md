@@ -1,5 +1,11 @@
 # Changelog
 
+## November 20, 2026: exclude Echelon from additional Primal Black Friday tiers
+
+Following Harrison's stacking report and Nico's instruction to resolve it, both existing 10%/$500 and 15%/$1,500 discounts now target an automated eligible collection excluding Echelon Cardio and Echelon Premier tags. Item prices, thresholds, dates and combination settings are preserved. Excluded equipment and membership lines do not receive or qualify for Primal tiers; Premier Functions and the storefront theme were not changed. All 15 cardio/plan carts showed no extra Primal tier with correct equipment/membership prices, three EX-5s-22 checkout entries were checked, and annual/two-year FREE shipping was observed at the authorized public Texas address. Primal-only/mixed control interruptions are documented separately, not counted as passes. No payment or order was submitted.
+
+The [current-policy addendum](workstreams/2026-11-19-primal-premier/Black_Friday_Echelon_Exclusion_Addendum_2026-11-20.md), historical-summary notices, amended complete PDF, SOP and sanitized evidence supersede the November 19 all-product scope as current policy while preserving dated history.
+
 ## November 19, 2026: approved cardio, Premier and pre-cart LIVE release
 
 **Lead developer:** Nicolas Cartin Reyes

@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-20",
+  "store": "primal-strength-us.myshopify.com",
+  "correction_live": true,
+  "collection_id": "gid://shopify/Collection/514488369251",
+  "collection_handle": "primal-bf-tier-eligible",
+  "excluded_tags": [
+    "Echelon Cardio",
+    "Echelon Premier"
+  ],
+  "excluded_equipment_products": 5,
+  "excluded_membership_products": 3,
+  "equipment_plan_cart_checks": {
+    "passed": 15,
+    "total": 15
+  },
+  "EX5s_checkout_entry_checks": 3,
+  "shipping_observations": {
+    "plans": [
+      "1-Year",
+      "2-Year"
+    ],
+    "equipment": "EX-5s-22",
+    "destination_scope": "Authorized public Texas test address",
+    "shipping": "FREE",
+    "Premier_shipping_discount_visible": true,
+    "Primal_BF_tier_absent": true
+  },
+  "control_test_result": "Primal-only and mixed-cart controls unverified: sold-out initial candidate, HTTP 429 and final navigation timeouts retained.",
+  "payment_entered": false,
+  "orders_submitted": false,
+  "app_theme_catalog_changed": false,
+  "cases": [
+    {
+      "name": "echelon-connect-ex-pro-0",
+      "plan_index": 0,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-connect-ex-pro-1",
+      "plan_index": 1,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-connect-ex-pro-2",
+      "plan_index": 2,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-connect-ex-5s-22-0",
+      "plan_index": 0,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-connect-ex-5s-22-1",
+      "plan_index": 1,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-connect-ex-5s-22-2",
+      "plan_index": 2,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-stride-9s-pro-0",
+      "plan_index": 0,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-stride-9s-pro-1",
+      "plan_index": 1,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-stride-9s-pro-2",
+      "plan_index": 2,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-stride-8s-0",
+      "plan_index": 0,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-stride-8s-1",
+      "plan_index": 1,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-stride-8s-2",
+      "plan_index": 2,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-row-s-0",
+      "plan_index": 0,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-row-s-1",
+      "plan_index": 1,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    },
+    {
+      "name": "echelon-row-s-2",
+      "plan_index": 2,
+      "pass": true,
+      "no_extra_BF_tier": true,
+      "equipment_price_preserved": true,
+      "membership_price_preserved": true
+    }
+  ]
+}

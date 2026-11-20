@@ -2,7 +2,7 @@
 
 **Owner:** Nicolas Cartin Reyes  
 **Store:** Primal Strength US  
-**Version:** 1.0, November 19, 2026  
+**Version:** 1.1, November 20, 2026  
 **Scope:** Validated product, theme, discount and cart work. Not a certification of recurring billing, access fulfillment, payment processing or freight operations.
 
 ## 1. Purpose and release boundaries
@@ -55,6 +55,8 @@ Keep failed and interrupted harness attempts as diagnostic evidence. Wrong selec
 ## 7. Verify benefits without creating an order
 
 Monthly has a $39.99 base price. First Month Free provides 100% off exactly one qualifying Monthly unit, not equipment and not every additional Monthly unit. The 1-Year and 2-Year plans are eligible for Premier free shipping. Existing Black Friday tiers remain 10% at $500 and 15% at $1,500, and must combine according to the approved policy. Do not claim the general shipping policy changed merely because the Premier discount is active.
+
+**Current policy from November 20:** Both Primal tier discounts target `primal-bf-tier-eligible`, excluding the `Echelon Cardio` and `Echelon Premier` tags through AND rules. Excluded equipment and membership lines neither receive tiers nor contribute to tier minimums. Test eligible-only and mixed carts using eligible product subtotals, preserve equipment prices and Monthly/annual/two-year benefits, and retain any interrupted control checks as diagnostics. The [corrective addendum](Black_Friday_Echelon_Exclusion_Addendum_2026-11-20.md) distinguishes established results from pending controls. Do not restore all-product eligibility without explicit approval; doing so reintroduces the reported stacking.
 
 If address-based rates are authorized, use synthetic contact details and a verified public non-personal test address. Observe the shipping line and named discount after rates load. Stop before payment or order submission. An annual or two-year result at one destination is not proof for every destination, quantity, carrier or freight profile. Do not infer a final Monthly shipping result while its rate label is incomplete.
 

@@ -4,6 +4,8 @@
 **Lead developer:** Nicolas Cartin Reyes  
 **Current status:** Five Echelon cardio products, three Premier plans, tested cart fixes and the approved pre-cart repair are deployed live. Real purchases are enabled. This record does not claim a payment, order, subscription renewal or access activation was tested.
 
+**November 20 correction:** The all-product Black Friday tier scope and stacked-discount observations in this November 19 record are historical. The five Echelon cardio products and three Premier plans are now excluded from the additional Primal tiers; only eligible product subtotals qualify. Item prices and Premier benefits are preserved. Read the [verified correction and evidence](Black_Friday_Echelon_Exclusion_Addendum_2026-11-20.md) for current policy. The complete PDF places that correction before this historical record.
+
 ## 1. Executive release summary
 
 The approved release moved the five cardio products from UNLISTED to ACTIVE/listed and retained the three ACTIVE digital Premier plans. Each equipment product now has two approved native images and the live cardio template. The homepage has a dedicated Echelon Black Friday row, while existing promotion percentages, minimums, prices and inventory were preserved.
