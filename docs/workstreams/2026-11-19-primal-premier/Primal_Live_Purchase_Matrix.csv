@@ -1,0 +1,16 @@
+Model,Plan,Two lines,Monthly free when applicable,Visible checkout,Checkout first screen,Checkout opened,Result,Targeted recheck
+echelon-connect-ex-pro,Monthly,True,True,1,True,True,PASS,False
+echelon-connect-ex-pro,1-Year,True,True,1,True,True,PASS,False
+echelon-connect-ex-pro,2-Year,True,True,1,True,True,PASS,False
+echelon-connect-ex-5s-22,Monthly,True,True,1,True,True,PASS,False
+echelon-connect-ex-5s-22,1-Year,True,True,1,True,True,PASS,False
+echelon-connect-ex-5s-22,2-Year,True,True,1,True,True,PASS,True
+echelon-stride-9s-pro,Monthly,True,True,1,True,True,PASS,False
+echelon-stride-9s-pro,1-Year,True,True,1,True,True,PASS,False
+echelon-stride-9s-pro,2-Year,True,True,1,True,True,PASS,False
+echelon-stride-8s,Monthly,True,True,1,True,True,PASS,False
+echelon-stride-8s,1-Year,True,True,1,True,True,PASS,False
+echelon-stride-8s,2-Year,True,True,1,True,True,PASS,False
+echelon-row-s,Monthly,True,True,1,True,True,PASS,False
+echelon-row-s,1-Year,True,True,1,True,True,PASS,False
+echelon-row-s,2-Year,True,True,1,True,True,PASS,False

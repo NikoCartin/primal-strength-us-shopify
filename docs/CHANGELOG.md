@@ -1,5 +1,13 @@
 # Changelog
 
+## November 19, 2026: approved cardio, Premier and pre-cart LIVE release
+
+**Lead developer:** Nicolas Cartin Reyes
+
+Published all five Echelon cardio products as ACTIVE/listed, attached two approved native images each, assigned the reusable live cardio template, and added the exact five products to the Black Friday homepage row. Deployed the tested selector, required-membership cart protection, compact responsive cards, Clear your cart and one immediate mobile checkout. Released only the separate Primal app version that removes the temporary completion block; required membership and failure blocking remain active. Approved pre-cart repair is live with a crisp small native thumbnail, one mobile content scroller, visible cart/close actions and background gesture containment. The retained DEV default cardio route now also renders memberships.
+
+Verified 15 purchase/navigation combinations to checkout entry, with a targeted consent-aware retry retained; three independent plan-removal rejections; five public PDP mobile checks; and five DEV/five live popup viewports. Annual/two-year free shipping appeared alongside Black Friday at the authorized public-address test. No payment/order, subscription renewal or access activation was tested. Full summary, PDF, SOP, sanitized matrix/receipts and screenshots are updated in [the workstream](workstreams/2026-11-19-primal-premier/README.md). Private derivative app source/configuration and credentials are excluded. Earlier Draft/DEV-only notes below remain dated history, superseded by this entry.
+
 ## November 19, 2026: consolidated Primal development and Premier record
 
 **Lead Developer:** Nicolas Cartin Reyes

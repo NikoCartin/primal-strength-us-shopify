@@ -1,0 +1,240 @@
+{
+  "date": "2026-11-19",
+  "live_theme": "142304510051",
+  "catalog": [
+    {
+      "handle": "echelon-connect-ex-pro",
+      "status": "ACTIVE",
+      "native_images": 2
+    },
+    {
+      "handle": "echelon-connect-ex-5s-22",
+      "status": "ACTIVE",
+      "native_images": 2
+    },
+    {
+      "handle": "echelon-stride-9s-pro",
+      "status": "ACTIVE",
+      "native_images": 2
+    },
+    {
+      "handle": "echelon-stride-8s",
+      "status": "ACTIVE",
+      "native_images": 2
+    },
+    {
+      "handle": "echelon-row-s",
+      "status": "ACTIVE",
+      "native_images": 2
+    },
+    {
+      "handle": "echelon-premier-30-day-access",
+      "status": "ACTIVE",
+      "native_images": 1
+    },
+    {
+      "handle": "echelon-premier-1-year-access",
+      "status": "ACTIVE",
+      "native_images": 1
+    },
+    {
+      "handle": "echelon-premier-2-year-access",
+      "status": "ACTIVE",
+      "native_images": 1
+    }
+  ],
+  "purchase_flows": [
+    {
+      "model": "echelon-connect-ex-pro",
+      "plan": "Monthly",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-connect-ex-pro",
+      "plan": "1-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-connect-ex-pro",
+      "plan": "2-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-connect-ex-5s-22",
+      "plan": "Monthly",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-connect-ex-5s-22",
+      "plan": "1-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-connect-ex-5s-22",
+      "plan": "2-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": true
+    },
+    {
+      "model": "echelon-stride-9s-pro",
+      "plan": "Monthly",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-stride-9s-pro",
+      "plan": "1-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-stride-9s-pro",
+      "plan": "2-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-stride-8s",
+      "plan": "Monthly",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-stride-8s",
+      "plan": "1-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-stride-8s",
+      "plan": "2-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-row-s",
+      "plan": "Monthly",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-row-s",
+      "plan": "1-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    },
+    {
+      "model": "echelon-row-s",
+      "plan": "2-Year",
+      "two_lines": true,
+      "monthly_free": true,
+      "checkout_opened": true,
+      "purchase_flow_pass": true,
+      "targeted_recheck": null
+    }
+  ],
+  "membership_locks": [
+    {
+      "plan": "Monthly",
+      "pass": true,
+      "http_rejection": 422
+    },
+    {
+      "plan": "1-Year",
+      "pass": true,
+      "http_rejection": 422
+    },
+    {
+      "plan": "2-Year",
+      "pass": true,
+      "http_rejection": 422
+    }
+  ],
+  "popup": [
+    {
+      "width": 320,
+      "height": 568,
+      "pass": true
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "pass": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "pass": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "pass": true
+    }
+  ],
+  "app_tests": {
+    "rust_passed": 577,
+    "representative_official_runner_passed": 36
+  },
+  "orders_created": false,
+  "payment_submitted": false,
+  "operationally_unverified": [
+    "Premier access provisioning and renewal",
+    "certified logistics/freight",
+    "payment/financing transactions",
+    "purchase-event delivery",
+    "real Safari/embedded iPhone gestures"
+  ]
+}
