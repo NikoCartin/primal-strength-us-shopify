@@ -1,0 +1,42 @@
+{
+  "count": 9,
+  "approval": "Nico20:52UTC apply the rest; latest20:55UTC official Echelon comparisons",
+  "files": [
+    {
+      "path": "sections/bf-product-row.liquid",
+      "sha256": "3a600e3d362729f635ed4fc7c9ff195cb628ba51b54b74ada2b170226eecad8b"
+    },
+    {
+      "path": "sections/bf-tier-banner.liquid",
+      "sha256": "5b1145259d26c4ab2847d2f192004577fb5007fb1b31db54df4d893d7a138837"
+    },
+    {
+      "path": "sections/cart-notification-product.liquid",
+      "sha256": "651cd7ab5fd9279752f8023c3c490934221aa0a4c6fa16abebe974dbda281cdc"
+    },
+    {
+      "path": "sections/main-cart-items.liquid",
+      "sha256": "de99ecd4ac7cba1e51d15826ae7fc86f69fc234639a59e0e4e1aca59a62ebddb"
+    },
+    {
+      "path": "sections/main-product.liquid",
+      "sha256": "d2b1bdefd1facea0ad020e50db91c394c510f0338000e8d89c21e89d69d599ad"
+    },
+    {
+      "path": "snippets/card-product.liquid",
+      "sha256": "471bf4501ff39d50476f3ef6e0b0f20e135de3ec607790162f53e0499164a25a"
+    },
+    {
+      "path": "snippets/cart-drawer.liquid",
+      "sha256": "b5a48d7d5cd0fd824bd3d77f2283b1acf12768f91e06c5ef4eea98d15511471b"
+    },
+    {
+      "path": "snippets/primal-bf-cardio-savings.liquid",
+      "sha256": "64d218b2daa2d3cd9253094cc0a331ce28e938b3f7583510a266d1b95d85d715"
+    },
+    {
+      "path": "snippets/primal-membership-selector.liquid",
+      "sha256": "528b9fcef3b025ed8574fa3d40dd5e5bd164136538ae5f7ebc41260df9c65f6b"
+    }
+  ]
+}

@@ -2,82 +2,64 @@
 
 **Owner:** Nicolas Cartin Reyes  
 **Store:** Primal Strength US  
-**Version:** 1.2, November 20, 2026  
-**Scope:** Validated product, theme, discount and cart work. Not a certification of recurring billing, access fulfillment, payment processing or freight operations.
+**Version:** 1.3, November 20, 2026
+**Scope:** Product, theme, discount and paired-cart safeguards; not certification of payment, recurring billing, provisioning or freight operations.
+**Backend release:** `primal-stride8-any-plan-shipping-20261120` (LIVE; released 2026-11-20 21:09:51 UTC).
 
-## 1. Purpose and release boundaries
+## 1. Current authority and release boundary
 
-Use this procedure to reproduce the working Echelon cardio purchase presentation on Primal, maintain equipment-plus-membership relationships, validate benefits, and release focused cart improvements without overwriting unrelated production changes. The live theme is 142304510051. DEV Premier Cardio Test is 189874339939. A DEV theme is not a separate store: product publication, Functions, automatic discounts and checkout rules affect the merchant store, not just a theme.
+Use the [current official-pricing and shipping addendum](Primal_Official_Echelon_Pricing_and_Stride8_Shipping_2026-11-20.md), not temporary sheet comparisons or historical PDFs, for present status. The user selected official Echelon comparison authority. Current LIVE USD sale / compare-at / included savings are Stride-8s **\$2,195.99 / \$2,999.99 / \$804**, EX-5s-22 BLACK **\$999.99 / \$1,699.99 / \$700**, and Row-s **\$799.99 / \$1,799.99 / \$1,000**. Savings are already included, not another checkout discount.
 
-The independent Primal Premier Membership app must retain its own identity and existing extension mappings. Never deploy a Primal adaptation through the Echelon source app. Never copy or publish credentials, app configuration, signed installation links, customer records or operational location data.
+Harrison's latest email resolved commercial confirmation: EX-Pro **\$4,599.99** and Stride-9s Pro **\$6,399.99** remain unchanged, compare-at null and no Black Friday label. Do not retain confirmation as pending or infer a sale from commercial pricing.
 
-## 2. Working-version history
+This SOP records the authorized current release. Future release procedures require authorization and must not be mistaken for completed results. Preserve historical Markdown bodies and dated PDFs; prepend current addenda to the consolidated record. Never publish private app configuration, secrets, vendor-internal dealer data, full sheets, checkout addresses or contact records.
 
-| Stage | Outcome | Boundary |
-| --- | --- | --- |
-| Draft catalog and private selector | Five equipment records and three digital plan records; populated specifications and approved previews | Drafts could not support a real public cart test |
-| Independent custom app | First Month Free, Premier Free Shipping and Premier Membership Required Functions | No subscription or activation service was created |
-| Controlled public testing | Equipment was temporarily UNLISTED; plans ACTIVE; test-only completion guard protected purchases | Unlisted does not mean private or non-purchasable |
-| Responsive DEV cart | Compact Premier card, paired mutation protection, Clear your cart, one immediately visible mobile checkout | Tested DEV, not a production claim at that stage |
-| Approved live release | All five equipment products ACTIVE/listed; native images; live cardio template; Black Friday row and cart fixes | Real purchases authorized, payment not submitted during QA |
-| Live app version | `primal-premier-live-20261119` removes only the temporary completion prohibition | Mandatory-member validation and technical-failure blocking stay enabled |
-| Approved pre-cart repair | Crisp native thumbnail, one mobile content scroller, visible actions, background scroll lock | Real iPhone Safari and embedded-browser gestures still need device validation |
-| DEV route parity correction | Default cardio template now renders membership cards in the retained preview session too | Plain public URLs can still be affected by preview cookies |
+## 2. Preserve catalog and purchase safeguards
 
-## 3. Verify data before changing the storefront
+The five equipment products and three plans remain ACTIVE/listed and real purchases enabled. Required equipment-plus-plan validation and technical-failure blocking remain active. Preserve exact product/variant identities, ordered `custom.pdp_individual_product` references, matched quantities and association properties. Do not copy Echelon's optional-membership policy into Primal.
 
-**Retail pricing and message guard, November 20:** Use verified public USA retail BF price and Compare-at pairs from Harrison's file, not the internal dealer tab. Current verified pairs are Stride-8s $1,999.99/$2,249.99, EX-5s-22 $999.99/$1,299.99 and Row-s $799.99/$1,299.99. Only those three exact handles, with positive selling price and a higher comparison price, may show included Black Friday savings. Suppress labels for quote-only, zero-price, unrelated and Premier plan products. EX-Pro/Stride-9s Pro retain neutral tier exclusions until their public BF pairs are confirmed. Message deployment: DEV only, awaiting direction on blocked mobile/cart QA. Preserve interrupted QA as non-passing evidence. Read the [pricing correction](Primal_Black_Friday_Pricing_and_Included_Savings_2026-11-20.md).
+Premier base prices remain \$39.99 Monthly, \$399.99 annual and \$699.99 two-year. Plans remain digital/non-shipping. First Month Free discounts one qualifying Monthly unit, not equipment or every additional unit. Do not invent renewal, provisioning, gifts or apparel-credit promises.
 
-Read back the exact equipment and plan records. Confirm statuses, Online Store publication, template suffix, approved prices/compare-at prices, SKU, inventory, native media and the ordered equipment metafield `custom.pdp_individual_product`. The three referenced plans must belong to Primal, be available, remain digital/non-shipping, and retain their base prices of $39.99, $399.99 and $699.99.
+Quote-only products must display no price or direct purchase route; zero-priced products receive no sale claim. Optional sections omit missing data. Preserve SKU, inventory, native media, financing and stock behavior. Existing PDP description language suggesting optional membership is an explicit follow-up; do not change product bodies in this documentation task.
 
-Keep the selector and optional product sections data-driven. Do not show an optional section with missing data. Do not show a price or a direct purchase action for a quote-template product. Do not invent freight weights, dimensions, gifts, apparel credits, subscriptions or fulfillment behavior. Native media belongs to the product and should be used for catalog cards, pre-cart, cart and checkout; a theme-only fallback is not proof that catalog media exists.
+## 3. Tier policy and storefront copy
 
-## 4. Back up and rebase the theme
+All five equipment products and three plans are excluded from additional Primal 10%/15% tiers and threshold subtotal. The prior hidden `primal-bf-tier-eligible` collection exclusion is LIVE and unchanged, using AND exclusions for Echelon Cardio and Echelon Premier. Only eligible product subtotals qualify toward \$500/\$1,500; preserve percentages, dates and approved combinations. Do not restore all-product eligibility without explicit approval.
 
-Pull only the files affected by the planned change from the current live theme. Compare them against the tested DEV versions. Rebase intended changes onto the fresh live files rather than copying an old whole-theme snapshot. Preserve existing financing, quote-only behavior, homepage sections, settings, navigation and unrelated product templates.
+Only the three verified sale models show sale/compare-at/included-savings labels. Commercial models receive neutral tier-exclusion copy, not Black Friday labels. Stride-8s alone shows “Shipping included with any Premier plan (contiguous US)” and Monthly “First Month Free + Free Shipping.” Other Monthly models show “First Month Free” only; annual/two-year shipping benefits remain preserved.
 
-For this release, the initial push contained 37 exact files, including one additional Echelon Black Friday homepage row. The pre-cart follow-up changed only `snippets/cart-notification.liquid`, `sections/cart-notification-product.liquid` and `assets/component-cart-notification.css`. Private backups and per-file readback evidence remain in the task workspace.
+## 4. Theme scope and safe release procedure
 
-## 5. Test the theme before live release
+LIVE theme is `142304510051`; DEV Premier Cardio Test is `189874339939`. DEV is not a separate store: catalog, Functions, automatic discounts and checkout rules are store-wide.
 
-Deploy the exact allowlist to DEV with `--only`, `--nodelete` and the existing theme ID. Shopify CLI can require `--force` when the local directory is intentionally a partial theme. It is not permission to upload unrelated files. Run JavaScript syntax checks and the relevant selector, cart, controller and Function regressions before a live push.
+The nine-file pricing/copy update is already LIVE and in DEV parity, with fresh live pull byte-matched. Existing 110 offline checks and 31 targeted offer checks passed. Required pairing, purchase guards and JSON scripts remain unchanged. Actual My Browser desktop visual review passed on all three LIVE sale PDPs, not preview; saved two-item user cart was untouched.
 
-For pre-cart, test 320 x 568, 375 x 667, 390 x 844, 430 x 932 and 1440 x 1000. Confirm an actual equipment thumbnail, approximately 70 px visual width, correct aspect and sharp 70/140/210 px responsive image sources. Confirm the close control and View my cart are reachable. On mobile, use one content scroller and prevent gestures from scrolling the background when the overlay is open, including when recommendations have not yet loaded or all content fits. A once-per-page inline gesture guard contains vertical wheel/touch movement at the scroll boundaries while retaining taps, horizontal swipes and multi-touch zoom. Closing the overlay must restore normal page interaction.
+For a separately authorized change, pull fresh affected live files, back up, and rebase only approved edits. Push an exact allowlist using scoped `--only`/`--nodelete` flags; use `--allow-live` only for authorized production work. Never publish a whole DEV theme or overwrite unrelated live work. Read back exact bytes; account explicitly for generated JSON formatting where relevant. Check actual theme/preview state rather than assuming a plain URL proves production.
 
-For the full cart, maintain the previously tested 320 to 1920 px responsive range, a compact approximately 72 px Premier image, no horizontal overflow, read-only associated membership quantities, a visible Clear your cart action and exactly one visible checkout action. On mobile the actual sticky action is `.cart-mobile-checkout__button`; the desktop `.cart__checkout-button` is intentionally hidden.
+Preserve compact membership cards, native thumbnails, Clear your cart, paired removal/quantity protection and the single visible mobile checkout action. Use fresh anonymous QA contexts, not the user's retained cart. For separately authorized pre-cart QA, check 320 × 568, 375 × 667, 390 × 844, 430 × 932 and desktop; verify one content scroller, reachable close/cart controls and background-scroll containment. Do not infer real-device Safari gestures from Chromium.
 
-## 6. Validate equipment-plus-plan purchasing
+## 5. Backend shipping boundary and current status
 
-Use fresh anonymous contexts rather than the merchant's existing cart. For each of the five models, select Monthly, 1-Year and 2-Year in separate carts. Resolve the native cookie consent choice without granting marketing consent merely to test. Click the real Add to cart control, wait for the native notification or deliberate cart redirect to finish, then follow View my cart and the visible checkout control. Do not navigate away while the add or notification rendering is still pending.
+The previous audited shipping Function was annual/two-year only; a valid Stride-8s Monthly fixture produced `operations: []`. Parent verification on the ORIGINAL app passed 108 shipping Rust tests and 108 official CLI-built compiled-WASM shipping fixtures (function-runner 9.2.2), plus 577 unchanged required-membership validator tests, 30 unchanged First Month Free tests and 100 app-home tests. The build passed. These local results support the runtime change but are not checkout-rate acceptance.
 
-Verify two lines with matched quantities, a preserved equipment base price, correct selected plan, no duplicate additions, a visible membership-required message, clear-cart functionality and checkout entry. Test independent membership removal through both the UI and a controlled cart mutation. The correct live lock marker is `data-primal-cart-state="locked"`: the quantity must be read-only and separate removal absent; the server must reject invalid removal and preserve the valid pair.
+The minimal patch is LIVE in the ORIGINAL independent Primal app as version `primal-stride8-any-plan-shipping-20261120`, created 2026-11-20 21:08:05 UTC and released 2026-11-20 21:09:51 UTC. Fresh CLI readback shows the version ACTIVE; the prior `primal-premier-live-20261119` version is inactive and retained as the reviewed rollback target. Preserve original app identity and extension mappings, validator, First Month Free and real-purchase/failure-blocking policy; never deploy the isolated test shell.
 
-Keep failed and interrupted harness attempts as diagnostic evidence. Wrong selectors, premature navigation, an unresolved first-visit cookie banner and incomplete rate-loading results must not be mislabeled as storefront defects or silently converted into passes. A targeted recheck may supersede a specific timeout while retaining the original result and its scope.
+Fresh pre/post-release Admin readback confirmed the shipping automatic discount remained ACTIVE, with the same identity, function mapping, configuration and combination settings. Fully loaded My Browser App Home confirmed both benefits ACTIVE and required validation ACTIVE with blockOnFailure true. All original non-shipping source fingerprints were unchanged; no rates or profiles were edited.
 
-## 7. Verify benefits without creating an order
+Approved policy is Stride-8s with any valid required Premier plan. The new Monthly exception targets only nonempty delivery groups consisting entirely of valid Stride-8s equipment lines. Separate unrelated/other-model Monthly/quote groups are excluded; shared groups containing those items fail closed for the exception. The original annual/two-year all-groups behavior is unchanged. See the [shipping policy](SHIPPING_POLICY_2026-11-20.md). Discount an offered rate only; do not create profiles, missing rates or destinations.
 
-Monthly has a $39.99 base price. First Month Free provides 100% off exactly one qualifying Monthly unit, not equipment and not every additional Monthly unit. The 1-Year and 2-Year plans are eligible for Premier free shipping. Existing Black Friday tiers remain 10% at $500 and 15% at $1,500, and must combine according to the approved policy. Do not claim the general shipping policy changed merely because the Premier discount is active.
+For any future backend release, build/test the original app, verify compiled runtime, inspect the version and reject unintended extension/configuration changes before release. The current release record is the parent-verified version above. A backend release alone does not close shipping checkout QA.
 
-**Current policy from November 20:** Both Primal tier discounts target `primal-bf-tier-eligible`, excluding the `Echelon Cardio` and `Echelon Premier` tags through AND rules. Excluded equipment and membership lines neither receive tiers nor contribute to tier minimums. Test eligible-only and mixed carts using eligible product subtotals, preserve equipment prices and Monthly/annual/two-year benefits, and retain any interrupted control checks as diagnostics. The [corrective addendum](Black_Friday_Echelon_Exclusion_Addendum_2026-11-20.md) distinguishes established results from pending controls. Do not restore all-product eligibility without explicit approval; doing so reintroduces the reported stacking.
+## 6. QA limits and remaining acceptance
 
-If address-based rates are authorized, use synthetic contact details and a verified public non-personal test address. Observe the shipping line and named discount after rates load. Stop before payment or order submission. An annual or two-year result at one destination is not proof for every destination, quantity, carrier or freight profile. Do not infer a final Monthly shipping result while its rate label is incomplete.
+The first anonymous 390 × 844 attempt loaded the correct LIVE PDP but did not populate its cart. A post-release response-aware native test then passed Stride-8s + 30-Day add-to-cart (HTTP 200): equipment \$2,195.99, Monthly first month \$0, exactly one immediately visible mobile checkout action and no horizontal PDP/cart overflow. The checkout click timed out; testing stopped without a retry, shipping-rate observation, payment or order. This is a mobile PDP/cart pass for that pair, not a checkout/shipping pass. Earlier acceptance matrices remain historical only.
 
-## 8. Release the app and theme safely
+Remaining fresh multi-plan mobile/checkout acceptance; Stride-8s all-three-plan checks against paid offered shipping rates; other-model Monthly controls; annual/two-year regression; First Month Free and invalid-pair rejection; and Primal-only/mixed-tier controls remain pending. Free store rates alone do not prove discount execution. When independently authorized, observe fully loaded shipping rates without submitting payment/orders, and keep failed/interrupted attempts as non-passing evidence.
 
-Build the separate Primal app; retain existing Function UIDs and all three extensions. Upload a non-released version first and inspect it. Release the approved version without allowing extension removal. For commercial activation, remove only the temporary test-completion condition, not required-member validation or technical-failure blocking.
+Paid purchase, recurring billing, access provisioning, cancellation/refund operations, financing transactions, freight/destination coverage and real-device acceptance remain untested or open. Do not publish test addresses/contact fields or treat a single destination as universal coverage.
 
-Push the exact theme allowlist to the live theme with `--only`, `--nodelete` and `--allow-live`. Never publish an entire DEV theme merely to release a few files. Update only the five authorized equipment statuses/template assignments and their approved native media. Verify channel publication separately from ACTIVE status. The Black Friday merchandise row references the exact five existing products without creating duplicates or changing discount percentages and thresholds.
+## 7. Documentation and rollback
 
-## 9. Readback and public-session verification
+Link the current addendum, shipping policy and this SOP from README/CHANGELOG. Prepend conspicuous superseded notices to earlier summaries and corrections without rewriting historical bodies. Preserve dated PDFs as history and update the consolidated PDF with the current addendum first. Maintain GitHub, the existing tracker and the stable Drive file without changing its link or sharing.
 
-Pull each deployed file back and compare exact bytes. For JSON templates, compare parsed JSON because Shopify can add a generated header or change indentation. Read back product statuses, native image counts, prices, stock and active discount settings. Recheck the actual public URLs in a fresh browser context with no preview parameters.
-
-Also test the merchant's retained preview session. Shopify can persist a DEV theme selection even when a subsequent URL has no `preview_theme_id` parameter. Confirm the preview bar and actual theme rather than assuming the address bar proves the live theme. Exit preview to inspect production, and keep the DEV default route in parity so navigation from a preview does not hide memberships.
-
-## 10. Documentation, rollout and rollback
-
-Update the existing GitHub workstream README, complete development summary, CHANGELOG, this SOP, reviewed screenshots and sanitized verification receipts. Do not publish private derivative app source or configuration to the public repository. Update existing Drive tracker tasks in their established ten-column format; preserve prior comments, owners, dependencies, formatting and status validation. Replace the existing summary PDF in place so its Drive link stays stable. Verify the remote commit, tracker rows and PDF content after saving.
-
-For a theme rollback, restore only affected files from the fresh pre-release backup with the same scoped push flags, then read back and retest. Do not overwrite an entire theme or remove native product media as an incidental rollback. If checkout safety requires a rollback, select a previously reviewed Primal app version while retaining Function mappings; obtain approval before changing product publication, purchase permission or the failure policy. State explicitly whether real purchases remain enabled.
-
-Remaining operational follow-ups must stay open: Premier access provisioning, intended renewal/billing and cancellation/refund handling; two-year apparel-credit mapping before any promise; certified packaging/weights and negotiated freight validation; payment and financing transactions; analytics purchase-event delivery; real-device Safari/embedded browser acceptance. Local tests and checkout entry do not close these dependencies.
+If separately authorized, rollback only affected theme files from their fresh backup and verify readback; do not incidentally change catalog/media or tier scope. A backend rollback must use an actually reviewed prior Primal version while preserving mappings and safety policy, with its result documented. State whether real purchases remain enabled. Do not replace pending QA with hypothetical success wording.

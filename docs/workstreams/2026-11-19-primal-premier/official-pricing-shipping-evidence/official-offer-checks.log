@@ -1,0 +1,32 @@
+PASS official saving: echelon-stride-8s
+PASS shipping note scoped: echelon-stride-8s
+PASS one compact note, no CTA: echelon-stride-8s
+PASS official saving: echelon-connect-ex-5s-22
+PASS shipping note scoped: echelon-connect-ex-5s-22
+PASS one compact note, no CTA: echelon-connect-ex-5s-22
+PASS official saving: echelon-row-s
+PASS shipping note scoped: echelon-row-s
+PASS one compact note, no CTA: echelon-row-s
+PASS three unchanged selectable plans: echelon-stride-8s
+PASS monthly shipping exception only8s: echelon-stride-8s
+PASS annual benefits preserved: echelon-stride-8s
+PASS quote selector suppressed: echelon-stride-8s
+PASS three unchanged selectable plans: echelon-connect-ex-5s-22
+PASS monthly shipping exception only8s: echelon-connect-ex-5s-22
+PASS annual benefits preserved: echelon-connect-ex-5s-22
+PASS quote selector suppressed: echelon-connect-ex-5s-22
+PASS three unchanged selectable plans: echelon-row-s
+PASS monthly shipping exception only8s: echelon-row-s
+PASS annual benefits preserved: echelon-row-s
+PASS quote selector suppressed: echelon-row-s
+PASS three unchanged selectable plans: echelon-connect-ex-pro
+PASS monthly shipping exception only8s: echelon-connect-ex-pro
+PASS annual benefits preserved: echelon-connect-ex-pro
+PASS quote selector suppressed: echelon-connect-ex-pro
+PASS three unchanged selectable plans: echelon-stride-9s-pro
+PASS monthly shipping exception only8s: echelon-stride-9s-pro
+PASS annual benefits preserved: echelon-stride-9s-pro
+PASS quote selector suppressed: echelon-stride-9s-pro
+PASS membership guard and JSON scripts byte-identical
+PASS radio/control attributes unchanged
+TOTAL 31 official-offer/selector offline checks passed. No checkout or mobile pass implied.

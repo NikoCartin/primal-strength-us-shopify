@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-20",
+  "browser": "My Browser",
+  "dev_preview_exited": true,
+  "live_theme_id": "142304510051",
+  "products": [
+    {
+      "handle": "echelon-stride-8s",
+      "observed_price": "2195.99",
+      "observed_compare_at": "2999.99",
+      "savings": "804.00",
+      "shipping_note": "Shipping included with any Premier plan (contiguous US).",
+      "monthly_benefit": "First Month Free + Free Shipping"
+    },
+    {
+      "handle": "echelon-connect-ex-5s-22",
+      "observed_price": "999.99",
+      "observed_compare_at": "1699.99",
+      "savings": "700.00",
+      "monthly_benefit": "First Month Free"
+    },
+    {
+      "handle": "echelon-row-s",
+      "observed_price": "799.99",
+      "observed_compare_at": "1799.99",
+      "savings": "1000.00",
+      "monthly_benefit": "First Month Free"
+    }
+  ],
+  "all_have_already_included_and_tier_exclusion_copy": true,
+  "desktop_visual_review": "PASSED; no visible overlap or missing price note",
+  "user_saved_cart_item_count_unchanged": 2,
+  "user_cart_mutated": false,
+  "mobile_checkout_acceptance": "Not implied by desktop visual review"
+}

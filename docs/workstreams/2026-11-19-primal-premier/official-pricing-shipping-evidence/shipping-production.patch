@@ -1,0 +1,386 @@
+--- a/extensions/primal-premier-free-shipping/Cargo.toml
++++ b/extensions/primal-premier-free-shipping/Cargo.toml
+@@ -6,7 +6,6 @@
+ [dependencies]
+ shopify_function = "2.1.0"
+ 
+-[dev-dependencies]
+ serde_json = "1"
+ 
+ [profile.release]
+--- a/extensions/primal-premier-free-shipping/src/cart_delivery_options_discounts_generate_run.graphql
++++ b/extensions/primal-premier-free-shipping/src/cart_delivery_options_discounts_generate_run.graphql
+@@ -1,18 +1,28 @@
+ query Input {
+   cart {
+     lines {
++      id
++      quantity
+       merchandise {
+         __typename
+         ... on ProductVariant {
+           id
+           product {
+             id
++            offer: metafield(namespace: "custom", key: "pdp_individual_product") {
++              value
++            }
+           }
+         }
+       }
++      related: attribute(key: "_bundle_related_product") { value }
++      main: attribute(key: "_bundle_main_product") { value }
++      bundle: attribute(key: "_bundle") { value }
++      annual: attribute(key: "_annual") { value }
+     }
+     deliveryGroups {
+       id
++      cartLines { id }
+     }
+   }
+   discount {
+--- a/extensions/primal-premier-free-shipping/src/cart_delivery_options_discounts_generate_run.rs
++++ b/extensions/primal-premier-free-shipping/src/cart_delivery_options_discounts_generate_run.rs
+@@ -6,6 +6,7 @@
+ 
+ #[derive(Default)]
+ pub struct DiscountConfiguration {
++    stride_monthly_enabled: bool,
+     eligible_product_or_variant_ids: Vec<String>,
+     excluded_product_or_variant_ids: Vec<String>,
+ }
+@@ -16,6 +17,7 @@
+     fn from_json(value: Option<&JsonValue>) -> Self {
+         let Some(JsonValue::Object(object)) = value else {
+             return Self {
++                stride_monthly_enabled: false,
+                 eligible_product_or_variant_ids: vec![],
+                 excluded_product_or_variant_ids: vec![MONTHLY_PRODUCT_ID.to_string()],
+             };
+@@ -43,6 +45,7 @@
+         };
+ 
+         Self {
++            stride_monthly_enabled: approved_stride_configuration(object),
+             eligible_product_or_variant_ids,
+             excluded_product_or_variant_ids,
+         }
+@@ -63,6 +66,102 @@
+         .iter()
+         .any(|id| id == variant_id || id == product_id);
+     merchandise_is_configured && !merchandise_is_excluded
++}
++
++mod required_pairing;
++const STRIDE_PRODUCT_ID: &str = "gid://shopify/Product/15489196458083";
++const STRIDE_VARIANT_ID: &str = "gid://shopify/ProductVariant/67950451818595";
++
++// This exception is enabled only by the existing, exact approved configuration.
++// Do not globally allow Monthly, infer IDs, or treat missing config as approval.
++fn approved_stride_configuration(object: &std::collections::BTreeMap<String, JsonValue>) -> bool {
++    fn exact(values: Option<&JsonValue>, approved: &[&str]) -> bool {
++        let Some(JsonValue::Array(values)) = values else {
++            return false;
++        };
++        values.len() == approved.len()
++            && approved.iter().all(|id| {
++                values
++                    .iter()
++                    .filter(|value| matches!(value, JsonValue::String(value) if value == id))
++                    .count()
++                    == 1
++            })
++    }
++    exact(
++        object.get("eligibleProductOrVariantIds"),
++        &[
++            "gid://shopify/Product/15492256628835",
++            "gid://shopify/Product/15492256661603",
++        ],
++    ) && exact(
++        object.get("excludedProductOrVariantIds"),
++        &[
++            MONTHLY_PRODUCT_ID,
++            "gid://shopify/ProductVariant/67964183445603",
++        ],
++    )
++}
++
++fn eligible_stride_line_ids(
++    input: &schema::cart_delivery_options_discounts_generate_run::Input,
++    configuration: &DiscountConfiguration,
++) -> Vec<String> {
++    if !configuration.stride_monthly_enabled {
++        return vec![];
++    }
++    let lines: Vec<required_pairing::Line<'_>> = input
++        .cart()
++        .lines()
++        .iter()
++        .filter_map(|line| {
++            let Merchandise::ProductVariant(variant) = line.merchandise() else {
++                return None;
++            };
++            Some(required_pairing::Line {
++                variant: variant.id(),
++                product: variant.product().id(),
++                quantity: *line.quantity(),
++                offer: variant
++                    .product()
++                    .offer()
++                    .map(|field| field.value().as_str()),
++                related: line
++                    .related()
++                    .and_then(|attr| attr.value())
++                    .map(String::as_str),
++                main: line
++                    .main()
++                    .and_then(|attr| attr.value())
++                    .map(String::as_str),
++                bundle: line
++                    .bundle()
++                    .and_then(|attr| attr.value())
++                    .map(String::as_str),
++                annual: line
++                    .annual()
++                    .and_then(|attr| attr.value())
++                    .map(String::as_str),
++            })
++        })
++        .collect();
++    if !required_pairing::valid_cart(&lines) {
++        return vec![];
++    }
++    input
++        .cart()
++        .lines()
++        .iter()
++        .filter_map(|line| match line.merchandise() {
++            Merchandise::ProductVariant(variant)
++                if variant.id() == STRIDE_VARIANT_ID
++                    && variant.product().id() == STRIDE_PRODUCT_ID =>
++            {
++                Some(line.id().clone())
++            }
++            _ => None,
++        })
++        .collect()
+ }
+ 
+ #[shopify_function]
+@@ -98,7 +197,9 @@
+                 _ => false,
+             });
+ 
+-    if !has_eligible_membership {
++    let stride_line_ids = eligible_stride_line_ids(&input, &configuration);
++
++    if !has_eligible_membership && stride_line_ids.is_empty() {
+         return Ok(schema::CartDeliveryOptionsDiscountsGenerateRunResult { operations: vec![] });
+     }
+ 
+@@ -106,6 +207,17 @@
+         .cart()
+         .delivery_groups()
+         .iter()
++        // Preserve the original annual/two-year all-groups contract. Monthly's
++        // exception targets only groups consisting entirely of approved Stride lines.
++        // Shared groups containing unrelated/quote items fail closed, not broadened.
++        .filter(|group| {
++            has_eligible_membership
++                || (!group.cart_lines().is_empty()
++                    && group
++                        .cart_lines()
++                        .iter()
++                        .all(|line| stride_line_ids.contains(line.id())))
++        })
+         .map(|delivery_group| {
+             schema::DeliveryDiscountCandidateTarget::DeliveryGroup(schema::DeliveryGroupTarget {
+                 id: delivery_group.id().clone(),
+@@ -153,7 +265,7 @@
+         context.finalize_output_and_return().expect("valid output")
+     }
+ 
+-    fn assert_fixture(name: &str) {
++    pub(super) fn assert_fixture(name: &str) {
+         let manifest: Value = serde_json::from_str(include_str!("../fixtures/manifest.json"))
+             .expect("valid fixture manifest");
+         let case = manifest["cases"]
+@@ -246,3 +358,6 @@
+         assert_fixture("emptyconfig");
+     }
+ }
++
++#[cfg(test)]
++mod stride_exception_tests;
+--- /dev/null
++++ b/extensions/primal-premier-free-shipping/src/cart_delivery_options_discounts_generate_run/required_pairing.rs
+@@ -0,0 +1,168 @@
++// Pure pairing checks copied from the current required-membership validator.
++// The original validator and real-purchase behavior are not changed.
++use std::collections::BTreeMap;
++
++/// Lead Dev Nicolas. Static approval scope, not vendor or future-product discovery.
++const EQUIPMENT_PRODUCTS: [&str; 5] = [
++    "gid://shopify/Product/15489196359779",
++    "gid://shopify/Product/15489196392547",
++    "gid://shopify/Product/15489196425315",
++    "gid://shopify/Product/15489196458083",
++    "gid://shopify/Product/15489196490851",
++];
++
++/// Exact (product, variant) pairs in Primal, never Echelon catalog identifiers.
++const PLANS: [(&str, &str); 3] = [
++    (
++        "gid://shopify/Product/15492256596067",
++        "gid://shopify/ProductVariant/67964183445603",
++    ),
++    (
++        "gid://shopify/Product/15492256628835",
++        "gid://shopify/ProductVariant/67964183478371",
++    ),
++    (
++        "gid://shopify/Product/15492256661603",
++        "gid://shopify/ProductVariant/67964183511139",
++    ),
++];
++
++#[derive(Clone, Copy)]
++pub(super) struct Line<'a> {
++    pub(super) variant: &'a str,
++    pub(super) product: &'a str,
++    pub(super) quantity: i32,
++    pub(super) offer: Option<&'a str>,
++    pub(super) related: Option<&'a str>,
++    pub(super) main: Option<&'a str>,
++    pub(super) bundle: Option<&'a str>,
++    pub(super) annual: Option<&'a str>,
++}
++
++struct Equipment<'a> {
++    product: &'a str,
++    quantity: i64,
++    member_quantity: i64,
++    offered_plans: u8,
++}
++
++/// Private Ajax attributes must be canonical numeric variant IDs. Do not coerce
++/// arbitrary strings, GIDs, whitespace, leading zeros or partially parsed IDs.
++fn numeric_id(value: &str) -> Option<&str> {
++    if value.is_empty() || value.starts_with('0') || !value.bytes().all(|b| b.is_ascii_digit()) {
++        return None;
++    }
++    value.parse::<u64>().ok().filter(|id| *id > 0)?;
++    Some(value)
++}
++
++fn gid_numeric<'a>(value: &'a str, prefix: &str) -> Option<&'a str> {
++    numeric_id(value.strip_prefix(prefix)?)
++}
++
++/// Parse the entire list.product_reference value, not quoted-ID substrings.
++/// A missing/empty/malformed value, mixed JSON types or invalid GIDs fails closed.
++fn offered_plans(value: Option<&str>) -> Option<u8> {
++    let products: Vec<String> = serde_json::from_str(value?).ok()?;
++    if products.is_empty()
++        || products
++            .iter()
++            .any(|id| gid_numeric(id, "gid://shopify/Product/").is_none())
++    {
++        return None;
++    }
++    let mask = PLANS
++        .iter()
++        .enumerate()
++        .fold(0, |mask, (index, (product, _))| {
++            mask | if products.iter().any(|id| id == product) {
++                1 << index
++            } else {
++                0
++            }
++        });
++    (mask != 0).then_some(mask)
++}
++
++/// Validate the resulting cart, never the order of an attempted change. This
++/// applies in every buyerJourney step. Empty carts and atomic pair removals can
++/// repair old invalid carts without a CART_INTERACTION bypass.
++pub(super) fn valid_cart(lines: &[Line<'_>]) -> bool {
++    let mut equipment: BTreeMap<&str, Equipment<'_>> = BTreeMap::new();
++
++    // First pass groups equipment across distinct cart lines by actual variant.
++    for line in lines {
++        if !EQUIPMENT_PRODUCTS.contains(&line.product) {
++            continue;
++        }
++        let Some(variant) = gid_numeric(line.variant, "gid://shopify/ProductVariant/") else {
++            return false;
++        };
++        if line.quantity <= 0 || PLANS.iter().any(|(_, id)| *id == line.variant) {
++            return false;
++        }
++        let Some(mask) = offered_plans(line.offer) else {
++            return false;
++        };
++        let group = equipment.entry(variant).or_insert(Equipment {
++            product: line.product,
++            quantity: 0,
++            member_quantity: 0,
++            offered_plans: mask,
++        });
++        if group.product != line.product {
++            return false;
++        }
++        group.offered_plans &= mask;
++        let Some(quantity) = group.quantity.checked_add(i64::from(line.quantity)) else {
++            return false;
++        };
++        group.quantity = quantity;
++    }
++
++    // Any known membership product OR variant is in scope, preventing a wrong
++    // product/variant combination from being silently treated as unrelated.
++    for line in lines {
++        if !PLANS
++            .iter()
++            .any(|(product, variant)| *product == line.product || *variant == line.variant)
++        {
++            continue;
++        }
++        let Some(plan_index) = PLANS
++            .iter()
++            .position(|(product, variant)| *product == line.product && *variant == line.variant)
++        else {
++            return false;
++        };
++        if line.quantity <= 0 {
++            return false;
++        }
++        let Some(own_variant) = gid_numeric(line.variant, "gid://shopify/ProductVariant/") else {
++            return false;
++        };
++        if line.main != Some(own_variant) || line.bundle != Some(own_variant) {
++            return false;
++        }
++        let Some(related) = line.related.and_then(numeric_id) else {
++            return false;
++        };
++        if line.annual != Some(related) {
++            return false;
++        }
++        let Some(group) = equipment.get_mut(related) else {
++            return false;
++        };
++        if group.offered_plans & (1 << plan_index) == 0 {
++            return false;
++        }
++        let Some(quantity) = group.member_quantity.checked_add(i64::from(line.quantity)) else {
++            return false;
++        };
++        group.member_quantity = quantity;
++    }
++
++    equipment
++        .values()
++        .all(|group| group.quantity == group.member_quantity)
++}

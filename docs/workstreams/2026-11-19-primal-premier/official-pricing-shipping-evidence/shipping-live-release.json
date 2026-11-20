@@ -1,0 +1,13 @@
+{
+  "existing_app": "Primal Premier Membership",
+  "active_version": "primal-stride8-any-plan-shipping-20261120",
+  "active_version_status": "active",
+  "created_at": "2026-11-20 21:08:05",
+  "rollback_version": "primal-premier-live-20261119",
+  "other_source_components_unchanged": true,
+  "shipping_discount_configuration_changed": false,
+  "shipping_profiles_or_rates_changed": false,
+  "release_confirmed": true,
+  "orders_placed": false,
+  "checkout_acceptance_not_implied": true
+}

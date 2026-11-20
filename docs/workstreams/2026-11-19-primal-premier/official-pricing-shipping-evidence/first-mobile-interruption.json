@@ -1,0 +1,29 @@
+{
+  "userCartTouched": false,
+  "anonymousContexts": true,
+  "ordersPlaced": false,
+  "paymentEntered": false,
+  "contactIsSynthetic": true,
+  "country": "US",
+  "region": "TX",
+  "cases": [
+    {
+      "plan": "30-Day",
+      "pass": false,
+      "phase": "cart",
+      "pdpStatus": 200,
+      "theme": "142304510051",
+      "savingsNote": "Black Friday price \u00b7 Save $804.00\nSavings already included. Extra Primal 10%/15% offers excluded.\nShipping included with any Premier plan (contiguous US).",
+      "pdpOverflow": false,
+      "cart": {
+        "items": [],
+        "discounts": []
+      },
+      "visibleCheckoutCount": 0,
+      "error": "locator.boundingBox: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.cart__checkout-button:visible, .cart-mobile-checkout__button:visible').first()\u001b[22m\n"
+    }
+  ],
+  "completedAt": "2026-11-20T21:03:29.035Z",
+  "stoppedOnInterruption": true,
+  "interruptionClassification": "Corrected mobile PDP loaded HTTP200 with no overflow, but anonymous add/cart did not populate. No checkout or shipping rate observed. Not classified as HTTP429."
+}

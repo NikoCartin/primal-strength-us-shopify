@@ -1,0 +1,66 @@
+{
+  "kind": "Parent ORIGINAL-app regression/build and active release verified; checkout-rate acceptance still pending",
+  "latest_saved_release": "primal-premier-live-20261119",
+  "saved_discount_readback": {
+    "title": "Premier Membership Free Shipping",
+    "status": "ACTIVE",
+    "discountClasses": [
+      "SHIPPING"
+    ],
+    "combinesWith": {
+      "orderDiscounts": true,
+      "productDiscounts": true,
+      "shippingDiscounts": false
+    },
+    "configuration": {
+      "eligibleProductOrVariantIds": [
+        "gid://shopify/Product/15492256628835",
+        "gid://shopify/Product/15492256661603"
+      ],
+      "excludedProductOrVariantIds": [
+        "gid://shopify/Product/15492256596067",
+        "gid://shopify/ProductVariant/67964183445603"
+      ]
+    }
+  },
+  "current_compiled_stride_monthly_output": {
+    "operations": []
+  },
+  "production_files_changed": [
+    "Cargo.toml",
+    "src/cart_delivery_options_discounts_generate_run.graphql",
+    "src/cart_delivery_options_discounts_generate_run.rs",
+    "src/cart_delivery_options_discounts_generate_run/required_pairing.rs"
+  ],
+  "unchanged_files": [
+    "shopify.app.toml",
+    "shopify.extension.toml",
+    "Cargo.lock",
+    "schema.graphql",
+    "first-month-free extension",
+    "required-membership extension",
+    "app-home shipping config"
+  ],
+  "tests": {
+    "baseline_shipping": 19,
+    "proposal_shipping": 108,
+    "required_validator": 577,
+    "first_month_free": 30,
+    "apphome": 100,
+    "compiled_wasm": {
+      "passed": 108,
+      "failed": 0,
+      "runner": "function-runner 9.2.2",
+      "sha256": "649a00ebbb5c1b7405b37add9c41ebe7d0cda52e8ff86dc42fada31c44ade141"
+    }
+  },
+  "source_integrity_all_passed": true,
+  "scope_caveat": "Monthly targets only all-Stride delivery groups. A shared group with unrelated/quote items gets no new exception. Annual/two-year keeps existing all-groups behavior; invalid annual pairing is still stopped by unchanged validator.",
+  "no_credentials_private_app_config_or_operational_identity_copied": true,
+  "active_version": "primal-stride8-any-plan-shipping-20261120",
+  "post_release_validator": {
+    "active": true,
+    "blockOnFailure": true
+  },
+  "post_release_discount_config_unchanged": true
+}

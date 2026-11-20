@@ -1,0 +1,30 @@
+{
+  "current_prices": {
+    "Stride-8s": [
+      "2195.99",
+      "2999.99",
+      "804.00"
+    ],
+    "EX-5s-22 BLACK": [
+      "999.99",
+      "1699.99",
+      "700.00"
+    ],
+    "Row-s": [
+      "799.99",
+      "1799.99",
+      "1000.00"
+    ]
+  },
+  "theme_live": true,
+  "dev_parity": true,
+  "backend_active_version": "primal-stride8-any-plan-shipping-20261120",
+  "mobile_monthly_pdp_cart_passed": true,
+  "mobile_checkout_click": "Timed out; stopped",
+  "fresh_shipping_rates_observed": false,
+  "all_plan_checkout_acceptance": "Pending",
+  "extra_tiers_excluded": true,
+  "commercial_confirmation": "Resolved; unchanged retail, no BF labels",
+  "orders_placed": false,
+  "user_cart_mutated": false
+}

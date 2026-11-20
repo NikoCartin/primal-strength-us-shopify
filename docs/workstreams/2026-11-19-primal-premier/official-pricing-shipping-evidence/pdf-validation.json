@@ -1,0 +1,15 @@
+{
+  "current_addendum_pages": 3,
+  "complete_pages": 27,
+  "historical_pages_retained_in_order": 24,
+  "all_currency_and_release_checks_passed": true,
+  "history_text_preserved": true,
+  "visual_pages_reviewed": [
+    1,
+    2,
+    3
+  ],
+  "visual_layout": "Readable, no clipping",
+  "current_pdf_sha256": "8445bd5811575f5e4e86ebee5500256da9aeb8c33ae7b65105cc7270d9f8e268",
+  "complete_pdf_md5": "5f85e2101323fadbbb1e55308d2684af"
+}

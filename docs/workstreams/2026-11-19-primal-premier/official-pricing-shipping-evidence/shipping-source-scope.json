@@ -1,0 +1,9 @@
+{
+  "only_shipping_source_changed": true,
+  "changed_existing_files": [
+    "extensions/primal-premier-free-shipping/Cargo.toml",
+    "extensions/primal-premier-free-shipping/src/cart_delivery_options_discounts_generate_run.graphql",
+    "extensions/primal-premier-free-shipping/src/cart_delivery_options_discounts_generate_run.rs"
+  ],
+  "unexpected": []
+}

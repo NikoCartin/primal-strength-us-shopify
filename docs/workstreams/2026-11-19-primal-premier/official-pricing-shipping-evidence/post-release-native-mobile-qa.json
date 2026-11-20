@@ -1,0 +1,40 @@
+{
+  "kind": "Post-release native journey; response-aware harness",
+  "userCartTouched": false,
+  "anonymousContexts": true,
+  "ordersPlaced": false,
+  "paymentEntered": false,
+  "country": "US",
+  "region": "TX",
+  "cases": [
+    {
+      "plan": "30-Day",
+      "pass": false,
+      "phase": "cart",
+      "pdpStatus": 200,
+      "theme": "142304510051",
+      "savingsNote": "Black Friday price · Save $804.00\nSavings already included. Extra Primal 10%/15% offers excluded.\nShipping included with any Premier plan (contiguous US).",
+      "pdpOverflow": false,
+      "cartAddStatus": 200,
+      "cart": {
+        "items": [
+          {
+            "variantId": 67964183445603,
+            "finalPrice": 0
+          },
+          {
+            "variantId": 67950451818595,
+            "finalPrice": 219599
+          }
+        ],
+        "discounts": []
+      },
+      "visibleCheckoutCount": 1,
+      "checkoutImmediatelyVisible": true,
+      "cartOverflow": false,
+      "error": "locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.cart__checkout-button:visible, .cart-mobile-checkout__button:visible').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"/checkout\" aria-describedby=\"CartMobileCheckout-Note-template--27817775792227__cart-footer\" class=\"cart-mobile-checkout__button button button-seco"
+    }
+  ],
+  "stoppedOnInterruption": true,
+  "completedAt": "2026-11-20T21:12:36.408Z"
+}

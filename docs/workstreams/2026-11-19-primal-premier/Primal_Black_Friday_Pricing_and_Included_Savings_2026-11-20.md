@@ -1,3 +1,7 @@
+> **SUPERSEDED SHEET-PRICING CORRECTION — November 20, 2026.** The entire original body below is preserved as dated history; its sheet authority, prices/comparisons, DEV-only status, pending commercial confirmation and QA interruptions are not the current record. The user selected official Echelon comparison authority. LIVE USD sale / compare-at / savings: Stride-8s \$2,195.99 / \$2,999.99 / \$804; EX-5s-22 BLACK \$999.99 / \$1,699.99 / \$700; Row-s \$799.99 / \$1,799.99 / \$1,000. Harrison resolved commercial confirmation: EX-Pro \$4,599.99 and Stride-9s Pro \$6,399.99 remain unchanged, compare-at null, no Black Friday label. All five equipment products and three plans remain excluded from extra tiers and threshold subtotal. Read the [current official-pricing and shipping addendum](Primal_Official_Echelon_Pricing_and_Stride8_Shipping_2026-11-20.md).
+>
+> **Backend release:** `primal-stride8-any-plan-shipping-20261120` (LIVE; released 2026-11-20 21:09:51 UTC). Nine-file theme copy is LIVE, with live desktop visual passes; backend release is LIVE; fresh checkout shipping-rate QA remains pending. Latest anonymous mobile PDP returned HTTP 200 with correct prices/copy and no overflow, but cart empty, zero checkout buttons and no checkout rates reached. No new mobile checkout pass is claimed; historical PDFs are unchanged.
+
 # Primal Black Friday: verified sale prices and included savings
 
 **Date:** November 20, 2026  

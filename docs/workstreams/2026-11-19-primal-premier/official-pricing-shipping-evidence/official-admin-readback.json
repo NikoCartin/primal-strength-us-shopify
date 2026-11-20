@@ -1,0 +1,164 @@
+{
+  "success": true,
+  "result": {
+    "topLevelField": "nodes",
+    "extensions": {
+      "cost": {
+        "requestedQueryCost": 2,
+        "actualQueryCost": 2,
+        "throttleStatus": {
+          "maximumAvailable": 20000,
+          "currentlyAvailable": 19998,
+          "restoreRate": 1000
+        }
+      }
+    },
+    "data": {
+      "nodes": [
+        {
+          "id": "gid://shopify/ProductVariant/67950451818595",
+          "price": "2195.99",
+          "compareAtPrice": "2999.99",
+          "sku": "ECH-STRIDE-8s-22",
+          "taxable": true,
+          "product": {
+            "id": "gid://shopify/Product/15489196458083",
+            "handle": "echelon-stride-8s",
+            "title": "Echelon Stride-8s Smart Treadmill",
+            "tags": [
+              "cardio-preview-pending",
+              "Echelon Cardio",
+              "fulfillment-review-required",
+              "homecardio",
+              "pricing-review-required"
+            ]
+          }
+        },
+        {
+          "id": "gid://shopify/ProductVariant/67950451753059",
+          "price": "999.99",
+          "compareAtPrice": "1699.99",
+          "sku": "ECH01-EX5s",
+          "taxable": true,
+          "product": {
+            "id": "gid://shopify/Product/15489196392547",
+            "handle": "echelon-connect-ex-5s-22",
+            "title": "Echelon Connect EX-5s-22 Bike",
+            "tags": [
+              "cardio-preview-pending",
+              "Echelon Cardio",
+              "fulfillment-review-required",
+              "homecardio"
+            ]
+          }
+        },
+        {
+          "id": "gid://shopify/ProductVariant/67950451851363",
+          "price": "799.99",
+          "compareAtPrice": "1799.99",
+          "sku": "ECH-ROWs",
+          "taxable": true,
+          "product": {
+            "id": "gid://shopify/Product/15489196490851",
+            "handle": "echelon-row-s",
+            "title": "Echelon Row-s Smart Rowing Machine",
+            "tags": [
+              "cardio-preview-pending",
+              "Echelon Cardio",
+              "fulfillment-review-required",
+              "homecardio",
+              "pricing-review-required"
+            ]
+          }
+        },
+        {
+          "id": "gid://shopify/ProductVariant/67950451720291",
+          "price": "4599.99",
+          "compareAtPrice": null,
+          "sku": "ECH01-EX-PRO-24",
+          "taxable": true,
+          "product": {
+            "id": "gid://shopify/Product/15489196359779",
+            "handle": "echelon-connect-ex-pro",
+            "title": "Echelon Connect EX-Pro Commercial Bike",
+            "tags": [
+              "cardio-preview-pending",
+              "Echelon Cardio",
+              "fulfillment-review-required",
+              "homecardio"
+            ]
+          }
+        },
+        {
+          "id": "gid://shopify/ProductVariant/67950451785827",
+          "price": "6399.99",
+          "compareAtPrice": null,
+          "sku": "JUSTSTRIDE-9s",
+          "taxable": true,
+          "product": {
+            "id": "gid://shopify/Product/15489196425315",
+            "handle": "echelon-stride-9s-pro",
+            "title": "Echelon Stride-9s Pro Commercial Treadmill",
+            "tags": [
+              "cardio-preview-pending",
+              "Echelon Cardio",
+              "fulfillment-review-required",
+              "homecardio"
+            ]
+          }
+        },
+        {
+          "id": "gid://shopify/ProductVariant/67964183445603",
+          "price": "39.99",
+          "compareAtPrice": null,
+          "sku": "Echelon Monthly Premier",
+          "taxable": true,
+          "product": {
+            "id": "gid://shopify/Product/15492256596067",
+            "handle": "echelon-premier-30-day-access",
+            "title": "Echelon Premier 30-Day Access",
+            "tags": [
+              "Echelon Premier",
+              "membership-fulfillment-review-required",
+              "membership-launch-pending"
+            ]
+          }
+        },
+        {
+          "id": "gid://shopify/ProductVariant/67964183478371",
+          "price": "399.99",
+          "compareAtPrice": null,
+          "sku": "Echelon United Yearly Plan",
+          "taxable": true,
+          "product": {
+            "id": "gid://shopify/Product/15492256628835",
+            "handle": "echelon-premier-1-year-access",
+            "title": "Echelon Premier 1-Year Access",
+            "tags": [
+              "Echelon Premier",
+              "membership-fulfillment-review-required",
+              "membership-launch-pending"
+            ]
+          }
+        },
+        {
+          "id": "gid://shopify/ProductVariant/67964183511139",
+          "price": "699.99",
+          "compareAtPrice": null,
+          "sku": "UNITED2Y",
+          "taxable": true,
+          "product": {
+            "id": "gid://shopify/Product/15492256661603",
+            "handle": "echelon-premier-2-year-access",
+            "title": "Echelon Premier 2-Year Access",
+            "tags": [
+              "Echelon Premier",
+              "membership-fulfillment-review-required",
+              "membership-launch-pending"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
