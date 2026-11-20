@@ -1,0 +1,26 @@
+[
+  {
+    "handle": "echelon-connect-ex-5s-22",
+    "product": "Echelon Connect EX-5s-22 Bike",
+    "sku": "ECH01-EX5s",
+    "price": "999.99",
+    "compare_at": "1299.99",
+    "savings": "300.00"
+  },
+  {
+    "handle": "echelon-stride-8s",
+    "product": "Echelon Stride-8s Smart Treadmill",
+    "sku": "ECH-STRIDE-8s-22",
+    "price": "1999.99",
+    "compare_at": "2249.99",
+    "savings": "250.00"
+  },
+  {
+    "handle": "echelon-row-s",
+    "product": "Echelon Row-s Smart Rowing Machine",
+    "sku": "ECH-ROWs",
+    "price": "799.99",
+    "compare_at": "1299.99",
+    "savings": "500.00"
+  }
+]

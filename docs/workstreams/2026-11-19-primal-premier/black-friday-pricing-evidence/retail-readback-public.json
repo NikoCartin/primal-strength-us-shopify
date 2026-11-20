@@ -1,0 +1,17 @@
+{
+  "readback_verified": true,
+  "date": "2026-11-20",
+  "currency": "USD",
+  "source": "Shopify Admin exact variant readback after the approved retail-price correction",
+  "variants": [
+    {"handle": "echelon-connect-ex-pro", "sku": "ECH01-EX-PRO-24", "price": "4599.99", "compare_at_price": null},
+    {"handle": "echelon-connect-ex-5s-22", "sku": "ECH01-EX5s", "price": "999.99", "compare_at_price": "1299.99"},
+    {"handle": "echelon-stride-9s-pro", "sku": "JUSTSTRIDE-9s", "price": "6399.99", "compare_at_price": null},
+    {"handle": "echelon-stride-8s", "sku": "ECH-STRIDE-8s-22", "price": "1999.99", "compare_at_price": "2249.99"},
+    {"handle": "echelon-row-s", "sku": "ECH-ROWs", "price": "799.99", "compare_at_price": "1299.99"},
+    {"handle": "echelon-premier-30-day-access", "price": "39.99", "compare_at_price": null},
+    {"handle": "echelon-premier-1-year-access", "price": "399.99", "compare_at_price": null},
+    {"handle": "echelon-premier-2-year-access", "price": "699.99", "compare_at_price": null}
+  ],
+  "data_boundary": "No dealer prices, internal costs, credentials, customer records or payment fields included."
+}

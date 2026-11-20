@@ -1,5 +1,11 @@
 # Changelog
 
+## November 20, 2026: retail BF pricing and included-savings clarity
+
+Reconciled the three exact retail model matches against Harrison's full 108-row USA consumer tab: Stride-8s now $1,999.99 with $2,249.99 comparison, EX-5s-22 $999.99/$1,299.99 and Row-s $799.99/$1,299.99. The earlier $2,195.99 Stride example remains dated history. Extra Primal tiers stay excluded; commercial models remain unchanged because no public BF pair is supplied. Asked Harrison, John and Lou for the missing sale and comparison prices, with no dealer data used or published.
+
+Eight scoped Liquid files implement sale-price comparisons and clear already-included savings. Presentation is DEV only, awaiting direction on blocked mobile/cart QA. 108 offline checks and the actual desktop DEV visual review passed; sandbox mobile/cart checks were interrupted by timeouts and HTTP429, not counted as passes. No payment/order or user-cart mutation. Existing quote-only controls, pairing, stock, financing and checkout buttons are preserved. See the [current correction](workstreams/2026-11-19-primal-premier/Primal_Black_Friday_Pricing_and_Included_Savings_2026-11-20.md); full PDF and tracker retain history and pending work.
+
 ## November 20, 2026: exclude Echelon from additional Primal Black Friday tiers
 
 Following Harrison's stacking report and Nico's instruction to resolve it, both existing 10%/$500 and 15%/$1,500 discounts now target an automated eligible collection excluding Echelon Cardio and Echelon Premier tags. Item prices, thresholds, dates and combination settings are preserved. Excluded equipment and membership lines do not receive or qualify for Primal tiers; Premier Functions and the storefront theme were not changed. All 15 cardio/plan carts showed no extra Primal tier with correct equipment/membership prices, three EX-5s-22 checkout entries were checked, and annual/two-year FREE shipping was observed at the authorized public Texas address. Primal-only/mixed control interruptions are documented separately, not counted as passes. No payment or order was submitted.

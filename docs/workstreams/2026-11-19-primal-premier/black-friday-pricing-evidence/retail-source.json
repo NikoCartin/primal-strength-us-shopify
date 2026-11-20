@@ -1,0 +1,35 @@
+{
+  "source": "https://docs.google.com/spreadsheets/d/170PsuYiUuVt4LyFooVwktbxgzuwwlWbT7HqoBGxu66s/edit",
+  "tab": "USA",
+  "email_message_id": "1a1f49b74e99a3ec",
+  "rows": [
+    {
+      "row": 8,
+      "product": "Echelon Stride 8s 22\"",
+      "sku": "ECH-STRIDE-8s-22",
+      "bf_price": "$1,999.99",
+      "compare_at": "$2,249.99"
+    },
+    {
+      "row": 48,
+      "product": "Echelon Rower with 21.5 Tablet Mount",
+      "sku": "ECH-ROWs",
+      "bf_price": "$799.99",
+      "compare_at": "$1,299.99"
+    },
+    {
+      "row": 49,
+      "product": "Echelon Smart Connect Bike EX5S-22",
+      "sku": "ECH01-EX5s",
+      "bf_price": "$999.99",
+      "compare_at": "$1,299.99"
+    }
+  ],
+  "unverified_public_bf_prices": [
+    "EX-Pro",
+    "Stride-9s Pro"
+  ],
+  "dealer_prices_used": false,
+  "usa_populated_rows_checked": 108,
+  "missing_commercial_retail_prices": "No matching public retail BF price in full USA tab; user requested confirmation with John, Lou and Harrison"
+}

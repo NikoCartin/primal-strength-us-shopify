@@ -2,7 +2,7 @@
 
 **Owner:** Nicolas Cartin Reyes  
 **Store:** Primal Strength US  
-**Version:** 1.1, November 20, 2026  
+**Version:** 1.2, November 20, 2026  
 **Scope:** Validated product, theme, discount and cart work. Not a certification of recurring billing, access fulfillment, payment processing or freight operations.
 
 ## 1. Purpose and release boundaries
@@ -25,6 +25,8 @@ The independent Primal Premier Membership app must retain its own identity and e
 | DEV route parity correction | Default cardio template now renders membership cards in the retained preview session too | Plain public URLs can still be affected by preview cookies |
 
 ## 3. Verify data before changing the storefront
+
+**Retail pricing and message guard, November 20:** Use verified public USA retail BF price and Compare-at pairs from Harrison's file, not the internal dealer tab. Current verified pairs are Stride-8s $1,999.99/$2,249.99, EX-5s-22 $999.99/$1,299.99 and Row-s $799.99/$1,299.99. Only those three exact handles, with positive selling price and a higher comparison price, may show included Black Friday savings. Suppress labels for quote-only, zero-price, unrelated and Premier plan products. EX-Pro/Stride-9s Pro retain neutral tier exclusions until their public BF pairs are confirmed. Message deployment: DEV only, awaiting direction on blocked mobile/cart QA. Preserve interrupted QA as non-passing evidence. Read the [pricing correction](Primal_Black_Friday_Pricing_and_Included_Savings_2026-11-20.md).
 
 Read back the exact equipment and plan records. Confirm statuses, Online Store publication, template suffix, approved prices/compare-at prices, SKU, inventory, native media and the ordered equipment metafield `custom.pdp_individual_product`. The three referenced plans must belong to Primal, be available, remain digital/non-shipping, and retain their base prices of $39.99, $399.99 and $699.99.
 

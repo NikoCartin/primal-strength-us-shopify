@@ -1,0 +1,174 @@
+--- a/sections/bf-product-row.liquid
++++ b/sections/bf-product-row.liquid
+@@ -61,6 +61,7 @@
+           {%- endif %}
+         </div>
+       {%- endif -%}
++      {% render 'primal-bf-cardio-savings', products: bf_products, mode: 'exclusions' %}
+     </div>
+ 
+     <slider-component
+--- a/sections/bf-tier-banner.liquid
++++ b/sections/bf-tier-banner.liquid
+@@ -39,7 +39,7 @@
+       {%- if section.settings.cta_label != blank -%}<a class="bf-tier__btn bf-tier__btn--solid" href="{{ section.settings.cta_link | default: '/collections/all' }}">{{ section.settings.cta_label | escape }}</a>{%- endif -%}
+       {%- if section.settings.cta_label_2 != blank -%}<a class="bf-tier__btn bf-tier__btn--outline" href="{{ section.settings.cta_link_2 | default: '/collections/all' }}">{{ section.settings.cta_label_2 | escape }}</a>{%- endif -%}
+     </div>
+-    {%- if section.settings.fine_print != blank -%}<p class="bf-tier__fine">{{ section.settings.fine_print | escape }}</p>{%- endif -%}
++    <p class="bf-tier__fine" data-primal-bf-exclusion="tiers">{%- if section.settings.fine_print != blank -%}{{ section.settings.fine_print | escape }} {% endif %}Echelon cardio and Premier memberships are excluded from extra Primal 10%/15% offers. Selected Echelon Black Friday prices are shown on individual products.</p>
+   </div>
+ </section>
+ {% schema %}
+--- a/sections/cart-notification-product.liquid
++++ b/sections/cart-notification-product.liquid
+@@ -14,6 +14,7 @@
+         <dl>
+           <div class="product-option">
+             {% render 'price', product: item.variant %}
++            {% render 'primal-bf-cardio-savings', product: item.product, variant: item.variant, price: item.original_price, mode: 'compact' %}
+           </div>
+           {%- unless item.product.has_only_default_variant -%}
+             {%- for option in item.options_with_values -%}
+--- a/sections/main-cart-items.liquid
++++ b/sections/main-cart-items.liquid
+@@ -849,6 +849,7 @@
+                         </span>
+                       </div>
+                     {%- endif -%}
++                    {% render 'primal-bf-cardio-savings', product: item.product, variant: item.variant, price: item.original_price, mode: 'compact' %}
+                     {%- assign short_description = product.metafields.attributes.short_description_plain
+                       | newline_to_br
+                       | strip_newlines
+--- a/sections/main-product.liquid
++++ b/sections/main-product.liquid
+@@ -92,6 +92,7 @@
+                 {%- if variant.compare_at_price != blank and variant.compare_at_price != variant.price -%}
+                   <s class="price-compare body-md">{{ variant.compare_at_price | money }}</s>
+                 {%- endif -%}
++                {% render 'primal-bf-cardio-savings', product: product, variant: variant %}
+ 
+                 {% if bundle_template == true %}
+                   {% render 'bundle_pricing' %}
+--- a/snippets/card-product.liquid
++++ b/snippets/card-product.liquid
+@@ -325,6 +325,7 @@
+               {% comment %} Contact us for a quote {% endcomment %}
+             {% else %}
+               {% render 'price', product: card_product, price_class: '', custom_inventory: custom_inventory, card_price: true, is_card: true %}
++              {% render 'primal-bf-cardio-savings', product: card_product, mode: 'card' %}
+             {% endif %}
+             {% comment %}label{% endcomment %}
+             {% comment %}
+--- a/snippets/cart-drawer.liquid
++++ b/snippets/cart-drawer.liquid
+@@ -138,13 +138,18 @@
+                             {{- item.product.title | escape -}}
+                           </a>
+ 
+-                          {%- if item.original_price != item.final_price -%}
++                          {%- capture primal_bf_drawer_sale -%}{%- render 'primal-bf-cardio-savings', product: item.product, variant: item.variant, price: item.original_price, mode: 'scope' -%}{%- endcapture -%}
++                          {%- if item.original_price != item.final_price or primal_bf_drawer_sale == 'true' -%}
+                             <div class="cart-item__discounted-prices">
+                               <span class="visually-hidden">
+                                 {{ 'products.product.price.regular_price' | t }}
+                               </span>
+                               <s class="cart-item__old-price product-option">
+-                                {{- item.original_price | money -}}
++                                {%- if primal_bf_drawer_sale == 'true' -%}
++                                  {{- item.variant.compare_at_price | money -}}
++                                {%- else -%}
++                                  {{- item.original_price | money -}}
++                                {%- endif -%}
+                               </s>
+                               <span class="visually-hidden">
+                                 {{ 'products.product.price.sale_price' | t }}
+@@ -158,6 +163,7 @@
+                               {{ item.original_price | money }}
+                             </div>
+                           {%- endif -%}
++                          {% render 'primal-bf-cardio-savings', product: item.product, variant: item.variant, price: item.original_price, mode: 'compact' %}
+ 
+                           {% if item.product.metafields.short_description != blank %}
+                             <div class="product-description">
+@@ -580,4 +586,4 @@
+               -%}
+   to: "{%- render 'finance' with cart, cart: cart -%}"
+   position: 27304..27350
+-{% endcomment %}
+\ No newline at end of file
++{% endcomment %}
+--- /dev/null
++++ b/snippets/primal-bf-cardio-savings.liquid
+@@ -0,0 +1,72 @@
++{%- comment -%}
++  Verified Black Friday equipment scope: Stride 8s, Connect EX-5s-22, Row-S only.
++  Accepts product, variant, price (optional cart unit price), and mode:
++  - full (default): price-adjacent savings and tier exclusion copy.
++  - card: select the same lowest positive available variant as card price rendering,
++    falling back to the lowest positive variant if none are available.
++  - compact: a short cart-line note, without adding a CTA or summary block.
++  - scope: output 'true' only for an eligible verified sale, for compare-at markup.
++  - exclusions: separate BF row caveat when products contains any of the five
++    Echelon equipment handles. This mode makes no product savings claim.
++  EX-Pro and Stride 9s Pro may receive neutral tier exclusions on PDP/cards only.
++  No prices are hardcoded. A sale note requires positive price and compare-at
++  above that price. Quote-only products never receive price-adjacent messaging.
++{%- endcomment -%}
++{%- liquid
++  assign bf_verified_handles = 'echelon-stride-8s,echelon-connect-ex-5s-22,echelon-row-s' | split: ','
++  assign bf_excluded_handles = 'echelon-connect-ex-pro,echelon-connect-ex-5s-22,echelon-stride-9s-pro,echelon-stride-8s,echelon-row-s' | split: ','
++  assign bf_neutral_handles = 'echelon-connect-ex-pro,echelon-stride-9s-pro' | split: ','
++  assign bf_mode = mode | default: 'full'
++  assign bf_variant = variant
++  assign bf_show_exclusions = false
++
++  if bf_mode == 'exclusions'
++    for bf_product in products
++      if bf_excluded_handles contains bf_product.handle
++        assign bf_show_exclusions = true
++        break
++      endif
++    endfor
++  elsif bf_excluded_handles contains product.handle and product.template_suffix != 'quote'
++    if bf_mode == 'card'
++      assign bf_available_variant = nil
++      assign bf_fallback_variant = nil
++      for bf_card_variant in product.variants
++        if bf_card_variant.price > 0
++          if bf_fallback_variant == nil or bf_card_variant.price < bf_fallback_variant.price
++            assign bf_fallback_variant = bf_card_variant
++          endif
++          if bf_card_variant.available
++            if bf_available_variant == nil or bf_card_variant.price < bf_available_variant.price
++              assign bf_available_variant = bf_card_variant
++            endif
++          endif
++        endif
++      endfor
++      assign bf_variant = bf_available_variant | default: bf_fallback_variant
++    endif
++    assign bf_price = price | default: bf_variant.price
++    assign bf_compare_at = bf_variant.compare_at_price
++  endif
++-%}
++{%- if bf_mode == 'exclusions' -%}
++  {%- if bf_show_exclusions -%}
++    <p class="primal-bf-cardio-exclusions" data-primal-bf-exclusion="row" style="margin:8px 0 0;font-size:13px;line-height:1.35;">Selected offers are shown on individual products. Echelon cardio and Premier memberships are excluded from extra Primal 10%/15% offers.</p>
++  {%- endif -%}
++{%- elsif bf_verified_handles contains product.handle and product.template_suffix != 'quote' and bf_variant.price > 0 and bf_price > 0 and bf_compare_at > bf_price -%}
++  {%- if bf_mode == 'scope' -%}
++    true
++  {%- elsif bf_mode == 'compact' -%}
++    <small class="primal-bf-cardio-savings" data-primal-bf-savings="compact" style="display:block;margin:0;font-size:12px;line-height:1.2;">Black Friday savings included</small>
++  {%- else -%}
++    {%- assign bf_saving = bf_compare_at | minus: bf_price -%}
++    <div class="primal-bf-cardio-savings" data-primal-bf-savings="full" style="display:block;width:100%;flex-basis:100%;margin-top:4px;font-size:13px;line-height:1.35;">
++      <strong>Black Friday price &middot; Save {{ bf_saving | money }}</strong>
++      <span style="display:block;">Savings already included. Extra Primal 10%/15% offers excluded.</span>
++    </div>
++  {%- endif -%}
++{%- elsif bf_neutral_handles contains product.handle and product.template_suffix != 'quote' and bf_variant.price > 0 and bf_price > 0 -%}
++  {%- if bf_mode == 'full' or bf_mode == 'card' -%}
++    <small class="primal-bf-cardio-exclusions" data-primal-bf-exclusion="product" style="display:block;width:100%;flex-basis:100%;margin-top:4px;font-size:13px;line-height:1.35;">Echelon cardio is excluded from extra Primal 10%/15% offers.</small>
++  {%- endif -%}
++{%- endif -%}

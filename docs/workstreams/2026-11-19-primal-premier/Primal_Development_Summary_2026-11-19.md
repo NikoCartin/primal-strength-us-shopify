@@ -1,5 +1,7 @@
 # Primal Strength US: Complete Development and Live Release Summary
 
+**Current retail price correction, November 20:** Harrison's full USA file is the retail source. Stride-8s is $1,999.99 (compare-at $2,249.99), EX-5s-22 $999.99 (compare-at $1,299.99), and Row-s $799.99 (compare-at $1,299.99). The older Stride-8s $2,195.99 example is historical. EX-Pro and Stride-9s Pro have no verified retail BF pair in that file; no dealer pricing or invented sale label is used. Savings-message presentation is DEV only, awaiting direction on blocked mobile/cart QA. Missing public sale/compare-at prices were requested from Harrison, John and Lou. See the [current pricing correction](Primal_Black_Friday_Pricing_and_Included_Savings_2026-11-20.md).
+
 **Reporting date:** November 19, 2026  
 **Lead developer:** Nicolas Cartin Reyes  
 **Current status:** Five Echelon cardio products, three Premier plans, tested cart fixes and the approved pre-cart repair are deployed live. Real purchases are enabled. This record does not claim a payment, order, subscription renewal or access activation was tested.

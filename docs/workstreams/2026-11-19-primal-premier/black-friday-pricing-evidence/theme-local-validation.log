@@ -1,0 +1,109 @@
+PASS strict Liquid syntax: sections/bf-product-row.liquid
+PASS JSON schema: sections/bf-product-row.liquid
+PASS unchanged section schema: sections/bf-product-row.liquid
+PASS unchanged controls/scripts <script: sections/bf-product-row.liquid
+PASS unchanged controls/scripts <button: sections/bf-product-row.liquid
+PASS unchanged controls/scripts <quantity-input: sections/bf-product-row.liquid
+PASS unchanged controls/scripts <cart-remove-button: sections/bf-product-row.liquid
+PASS no introduced em dash: sections/bf-product-row.liquid
+PASS strict Liquid syntax: sections/bf-tier-banner.liquid
+PASS JSON schema: sections/bf-tier-banner.liquid
+PASS unchanged section schema: sections/bf-tier-banner.liquid
+PASS unchanged controls/scripts <script: sections/bf-tier-banner.liquid
+PASS unchanged controls/scripts <button: sections/bf-tier-banner.liquid
+PASS unchanged controls/scripts <quantity-input: sections/bf-tier-banner.liquid
+PASS unchanged controls/scripts <cart-remove-button: sections/bf-tier-banner.liquid
+PASS no introduced em dash: sections/bf-tier-banner.liquid
+PASS strict Liquid syntax: sections/cart-notification-product.liquid
+PASS unchanged controls/scripts <script: sections/cart-notification-product.liquid
+PASS unchanged controls/scripts <button: sections/cart-notification-product.liquid
+PASS unchanged controls/scripts <quantity-input: sections/cart-notification-product.liquid
+PASS unchanged controls/scripts <cart-remove-button: sections/cart-notification-product.liquid
+PASS no introduced em dash: sections/cart-notification-product.liquid
+PASS strict Liquid syntax: sections/main-cart-items.liquid
+PASS JSON schema: sections/main-cart-items.liquid
+PASS unchanged section schema: sections/main-cart-items.liquid
+PASS unchanged controls/scripts <script: sections/main-cart-items.liquid
+PASS unchanged controls/scripts <button: sections/main-cart-items.liquid
+PASS unchanged controls/scripts <quantity-input: sections/main-cart-items.liquid
+PASS unchanged controls/scripts <cart-remove-button: sections/main-cart-items.liquid
+PASS no introduced em dash: sections/main-cart-items.liquid
+PASS strict Liquid syntax: sections/main-product.liquid
+PASS JSON schema: sections/main-product.liquid
+PASS unchanged section schema: sections/main-product.liquid
+PASS unchanged controls/scripts <script: sections/main-product.liquid
+PASS unchanged controls/scripts <button: sections/main-product.liquid
+PASS unchanged controls/scripts <quantity-input: sections/main-product.liquid
+PASS unchanged controls/scripts <cart-remove-button: sections/main-product.liquid
+PASS no introduced em dash: sections/main-product.liquid
+PASS strict Liquid syntax: snippets/card-product.liquid
+PASS unchanged controls/scripts <script: snippets/card-product.liquid
+PASS unchanged controls/scripts <button: snippets/card-product.liquid
+PASS unchanged controls/scripts <quantity-input: snippets/card-product.liquid
+PASS unchanged controls/scripts <cart-remove-button: snippets/card-product.liquid
+PASS no introduced em dash: snippets/card-product.liquid
+PASS strict Liquid syntax: snippets/cart-drawer.liquid
+PASS unchanged controls/scripts <script: snippets/cart-drawer.liquid
+PASS unchanged controls/scripts <button: snippets/cart-drawer.liquid
+PASS unchanged controls/scripts <quantity-input: snippets/cart-drawer.liquid
+PASS unchanged controls/scripts <cart-remove-button: snippets/cart-drawer.liquid
+PASS no introduced em dash: snippets/cart-drawer.liquid
+PASS strict Liquid syntax: snippets/primal-bf-cardio-savings.liquid
+PASS no introduced em dash: snippets/primal-bf-cardio-savings.liquid
+PASS verified full message echelon-stride-8s
+PASS single compact cart message echelon-stride-8s
+PASS card message echelon-stride-8s
+PASS drawer exact scope signal echelon-stride-8s
+PASS zero price suppressed echelon-stride-8s
+PASS equal compare suppressed echelon-stride-8s
+PASS lower compare suppressed echelon-stride-8s
+PASS blank compare suppressed echelon-stride-8s
+PASS quote suppressed echelon-stride-8s
+PASS verified full message echelon-connect-ex-5s-22
+PASS single compact cart message echelon-connect-ex-5s-22
+PASS card message echelon-connect-ex-5s-22
+PASS drawer exact scope signal echelon-connect-ex-5s-22
+PASS zero price suppressed echelon-connect-ex-5s-22
+PASS equal compare suppressed echelon-connect-ex-5s-22
+PASS lower compare suppressed echelon-connect-ex-5s-22
+PASS blank compare suppressed echelon-connect-ex-5s-22
+PASS quote suppressed echelon-connect-ex-5s-22
+PASS verified full message echelon-row-s
+PASS single compact cart message echelon-row-s
+PASS card message echelon-row-s
+PASS drawer exact scope signal echelon-row-s
+PASS zero price suppressed echelon-row-s
+PASS equal compare suppressed echelon-row-s
+PASS lower compare suppressed echelon-row-s
+PASS blank compare suppressed echelon-row-s
+PASS quote suppressed echelon-row-s
+PASS no unverified savings despite compare echelon-connect-ex-pro full
+PASS no unverified savings despite compare echelon-connect-ex-pro card
+PASS no unverified savings despite compare echelon-connect-ex-pro compact
+PASS no unverified savings despite compare echelon-stride-9s-pro full
+PASS no unverified savings despite compare echelon-stride-9s-pro card
+PASS no unverified savings despite compare echelon-stride-9s-pro compact
+PASS no unverified savings despite compare echelon-premier-membership full
+PASS no unverified savings despite compare echelon-premier-membership card
+PASS no unverified savings despite compare echelon-premier-membership compact
+PASS no unverified savings despite compare some-other-product full
+PASS no unverified savings despite compare some-other-product card
+PASS no unverified savings despite compare some-other-product compact
+PASS no unverified savings despite compare echelon-row-s-extra full
+PASS no unverified savings despite compare echelon-row-s-extra card
+PASS no unverified savings despite compare echelon-row-s-extra compact
+PASS neutral exclusion with no compare echelon-connect-ex-pro
+PASS no drawer sale scope for unverified echelon-connect-ex-pro
+PASS neutral zero suppressed echelon-connect-ex-pro
+PASS neutral quote suppressed echelon-connect-ex-pro
+PASS neutral exclusion with no compare echelon-stride-9s-pro
+PASS no drawer sale scope for unverified echelon-stride-9s-pro
+PASS neutral zero suppressed echelon-stride-9s-pro
+PASS neutral quote suppressed echelon-stride-9s-pro
+PASS card skips zero and cheaper unavailable variants
+PASS card lowest-positive unavailable fallback
+PASS all-zero card suppressed
+PASS zero cart unit price suppressed
+PASS all-five row scope without savings claim
+PASS unrelated BF rows unchanged
+TOTAL 108 offline checks passed. Live rendering, mobile height and checkout visibility remain parent QA.
