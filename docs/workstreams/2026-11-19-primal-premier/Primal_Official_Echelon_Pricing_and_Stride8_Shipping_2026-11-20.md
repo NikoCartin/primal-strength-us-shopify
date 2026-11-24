@@ -1,8 +1,11 @@
 # Primal US: Official Echelon Pricing and Stride-8s Shipping Addendum
 
 **Date:** November 20, 2026  
-**Owner:** Nicolas Cartin Reyes  
+**Owner:** Nicolas Cartin Reyes, Lead Dev
+
 **Status:** Pricing and theme presentation LIVE; backend release: `primal-stride8-any-plan-shipping-20261120` (LIVE; released 2026-11-20 21:09:51 UTC).
+
+**Current status:** [November 23 technical handoff](STATUS_AND_HANDOFF_2026-11-23.md). Last technical verification was November 20; the November 23 local / November 24 UTC documentation update includes no fresh store tests or deployment. Readbacks and test results below refer to the November 20 release.
 
 ## Current pricing authority
 
@@ -32,7 +35,7 @@ Required pairing, purchase guards and JSON scripts are unchanged. Real purchases
 
 The audited previous shipping Function was annual/two-year only. A valid Stride-8s plus Monthly fixture returned `operations: []`, demonstrating that the old Function did not implement the newly displayed Monthly exception. A zero-dollar store rate would not independently prove that a shipping discount executed.
 
-Parent verification on the ORIGINAL app passed 108 shipping Rust tests and 108 official CLI-built compiled-WASM shipping fixtures (function-runner 9.2.2), plus 577 unchanged required-membership validator tests, 30 unchanged First Month Free tests and 100 app-home tests. The build passed. These local results support the runtime change but are not checkout-rate acceptance.
+Production-app verification passed 108 shipping Rust tests and 108 official CLI-built compiled-WASM shipping fixtures (function-runner 9.2.2), plus 577 unchanged required-membership validator tests, 30 unchanged First Month Free tests and 100 app-home tests. The build passed. These local results support the runtime change but are not checkout-rate acceptance.
 
 The minimal patch is LIVE in the ORIGINAL independent Primal app as version `primal-stride8-any-plan-shipping-20261120`, created 2026-11-20 21:08:05 UTC and released 2026-11-20 21:09:51 UTC. Fresh CLI readback shows the version ACTIVE; the prior `primal-premier-live-20261119` version is inactive and retained as the reviewed rollback target. This release record does not claim that new checkout shipping rates have passed.
 

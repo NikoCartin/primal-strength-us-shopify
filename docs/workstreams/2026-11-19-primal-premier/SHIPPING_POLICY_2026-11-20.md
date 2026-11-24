@@ -1,7 +1,11 @@
 # Primal Premier Shipping Policy: November 20, 2026
 
+**Author:** Nicolas Cartin Reyes, Lead Dev
+
 **Backend release:** `primal-stride8-any-plan-shipping-20261120` (LIVE; released 2026-11-20 21:09:51 UTC)  
 **Scope:** Sanitized policy and local regression record, not a checkout-rate certification. See the [current pricing and shipping addendum](Primal_Official_Echelon_Pricing_and_Stride8_Shipping_2026-11-20.md).
+
+**Current status:** [November 23 technical handoff](STATUS_AND_HANDOFF_2026-11-23.md). Last technical verification was November 20; the November 23 local / November 24 UTC documentation update includes no fresh store tests or deployment. Readbacks and test results below refer to the November 20 release.
 
 ## Approved policy and release distinction
 
@@ -30,13 +34,13 @@ The Function discounts an offered shipping rate only. It does not create a missi
 
 | Suite | Passed | Evidence scope |
 | --- | ---: | --- |
-| Shipping Rust matrix | 108 | Parent ORIGINAL app |
-| Official compiled-WASM shipping matrix | 108 | Parent ORIGINAL app |
+| Shipping Rust matrix | 108 | Production app |
+| Official compiled-WASM shipping matrix | 108 | Production app |
 | Required-membership validator | 577 | Unchanged validator |
 | First Month Free | 30 | Unchanged benefit |
 | App-home tests | 100 | Existing app-home behavior |
 
-Coverage includes five models and three plans, quantities and split lines, missing or invalid pairing, wrong product/variant identities, malformed references/configuration, orphan companions, and separate/shared unrelated or quote groups. Original annual parsing, exclusion and all-groups expectations are retained. The parent original-app build and release are confirmed; these tests do not close fresh checkout-rate QA.
+Coverage includes five models and three plans, quantities and split lines, missing or invalid pairing, wrong product/variant identities, malformed references/configuration, orphan companions, and separate/shared unrelated or quote groups. Original annual parsing, exclusion and all-groups expectations are retained. The production app build and release are confirmed; these tests do not close fresh checkout-rate QA.
 
 ## Acceptance still open
 

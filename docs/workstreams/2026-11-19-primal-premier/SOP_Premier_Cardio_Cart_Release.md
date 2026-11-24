@@ -1,10 +1,13 @@
 # SOP: Primal Cardio, Premier Memberships and Cart Releases
 
-**Owner:** Nicolas Cartin Reyes  
+**Owner:** Nicolas Cartin Reyes, Lead Dev
+
 **Store:** Primal Strength US  
 **Version:** 1.3, November 20, 2026
 **Scope:** Product, theme, discount and paired-cart safeguards; not certification of payment, recurring billing, provisioning or freight operations.
 **Backend release:** `primal-stride8-any-plan-shipping-20261120` (LIVE; released 2026-11-20 21:09:51 UTC).
+
+**Current status:** [November 23 technical handoff](STATUS_AND_HANDOFF_2026-11-23.md). Last technical verification was November 20; the November 23 local / November 24 UTC documentation update includes no fresh store tests or deployment. Readbacks and test results below refer to the November 20 release.
 
 ## 1. Current authority and release boundary
 
@@ -40,7 +43,7 @@ Preserve compact membership cards, native thumbnails, Clear your cart, paired re
 
 ## 5. Backend shipping boundary and current status
 
-The previous audited shipping Function was annual/two-year only; a valid Stride-8s Monthly fixture produced `operations: []`. Parent verification on the ORIGINAL app passed 108 shipping Rust tests and 108 official CLI-built compiled-WASM shipping fixtures (function-runner 9.2.2), plus 577 unchanged required-membership validator tests, 30 unchanged First Month Free tests and 100 app-home tests. The build passed. These local results support the runtime change but are not checkout-rate acceptance.
+The previous audited shipping Function was annual/two-year only; a valid Stride-8s Monthly fixture produced `operations: []`. Production-app verification passed 108 shipping Rust tests and 108 official CLI-built compiled-WASM shipping fixtures (function-runner 9.2.2), plus 577 unchanged required-membership validator tests, 30 unchanged First Month Free tests and 100 app-home tests. The build passed. These local results support the runtime change but are not checkout-rate acceptance.
 
 The minimal patch is LIVE in the ORIGINAL independent Primal app as version `primal-stride8-any-plan-shipping-20261120`, created 2026-11-20 21:08:05 UTC and released 2026-11-20 21:09:51 UTC. Fresh CLI readback shows the version ACTIVE; the prior `primal-premier-live-20261119` version is inactive and retained as the reviewed rollback target. Preserve original app identity and extension mappings, validator, First Month Free and real-purchase/failure-blocking policy; never deploy the isolated test shell.
 
@@ -48,7 +51,7 @@ Fresh pre/post-release Admin readback confirmed the shipping automatic discount 
 
 Approved policy is Stride-8s with any valid required Premier plan. The new Monthly exception targets only nonempty delivery groups consisting entirely of valid Stride-8s equipment lines. Separate unrelated/other-model Monthly/quote groups are excluded; shared groups containing those items fail closed for the exception. The original annual/two-year all-groups behavior is unchanged. See the [shipping policy](SHIPPING_POLICY_2026-11-20.md). Discount an offered rate only; do not create profiles, missing rates or destinations.
 
-For any future backend release, build/test the original app, verify compiled runtime, inspect the version and reject unintended extension/configuration changes before release. The current release record is the parent-verified version above. A backend release alone does not close shipping checkout QA.
+For any future backend release, build/test the production app, verify compiled runtime, inspect the version and reject unintended extension/configuration changes before release. The current release record is the verified version above. A backend release alone does not close shipping checkout QA.
 
 ## 6. QA limits and remaining acceptance
 

@@ -1,0 +1,97 @@
+{
+  "recorded_by": "Nicolas Cartin Reyes, Lead Dev",
+  "documentation_date": "2026-11-23",
+  "readback_at_utc": "2026-11-24T02:02:36Z",
+  "events": [
+    {
+      "observed_at_utc": "2026-11-21T14:10:34Z",
+      "thread_purpose": "Release announcement",
+      "recipient": "Lou",
+      "notification_type": "Delay",
+      "reported_retry_hours_at_notification": 46,
+      "technical_response": "Temporary System Problem",
+      "human_response": false
+    },
+    {
+      "observed_at_utc": "2026-11-21T21:16:38Z",
+      "thread_purpose": "Pricing and shipping clarification",
+      "recipient": "Harrison",
+      "notification_type": "Delay",
+      "reported_retry_hours_at_notification": 47,
+      "technical_response": "Temporary System Problem",
+      "human_response": false
+    },
+    {
+      "observed_at_utc": "2026-11-21T21:49:50Z",
+      "thread_purpose": "Pricing and shipping clarification",
+      "recipient": "Lou",
+      "notification_type": "Delay",
+      "reported_retry_hours_at_notification": 46,
+      "technical_response": "Temporary System Problem",
+      "human_response": false
+    },
+    {
+      "observed_at_utc": "2026-11-22T15:21:58Z",
+      "thread_purpose": "Release announcement",
+      "recipient": "Lou",
+      "notification_type": "Delay",
+      "reported_retry_hours_at_notification": 21,
+      "technical_response": "Temporary System Problem",
+      "human_response": false
+    },
+    {
+      "observed_at_utc": "2026-11-22T22:07:57Z",
+      "thread_purpose": "Pricing and shipping clarification",
+      "recipient": "Harrison",
+      "notification_type": "Delay",
+      "reported_retry_hours_at_notification": 22,
+      "technical_response": "Temporary System Problem",
+      "human_response": false
+    },
+    {
+      "observed_at_utc": "2026-11-23T00:19:13Z",
+      "thread_purpose": "Pricing and shipping clarification",
+      "recipient": "Lou",
+      "notification_type": "Delay",
+      "reported_retry_hours_at_notification": 20,
+      "technical_response": "Temporary System Problem",
+      "human_response": false
+    },
+    {
+      "observed_at_utc": "2026-11-23T15:17:43Z",
+      "thread_purpose": "Release announcement",
+      "recipient": "John",
+      "notification_type": "Delay",
+      "reported_retry_hours_at_notification": 47,
+      "technical_response": "Temporary System Problem",
+      "human_response": false
+    },
+    {
+      "observed_at_utc": "2026-11-23T22:05:48Z",
+      "thread_purpose": "Pricing and shipping clarification",
+      "recipient": "John",
+      "notification_type": "Delay",
+      "reported_retry_hours_at_notification": 47,
+      "technical_response": "Temporary System Problem",
+      "human_response": false
+    },
+    {
+      "observed_at_utc": "2026-11-23T22:32:56Z",
+      "thread_purpose": "Pricing and shipping clarification",
+      "recipient": "Harrison",
+      "notification_type": "Failure",
+      "reported_retry_hours_at_notification": null,
+      "technical_response": "Temporary System Problem",
+      "human_response": false
+    }
+  ],
+  "status": "Harrison failure notification observed in pricing thread; John/Lou delivery unconfirmed with latest delay notices",
+  "original_outbound_message_correlation": "Not asserted from thread membership alone",
+  "retry_windows": "Recorded as announced, not treated as current countdowns or proof of delivery/failure",
+  "new_human_replies_after_nov20_clarification": false,
+  "new_messages_sent": false,
+  "mail_settings_changed": false,
+  "store_changes_in_documentation_sync": false,
+  "resends_performed_in_documentation_sync": false,
+  "readback_scope": "Two existing release conversations only; not a mailbox-wide delivery audit."
+}
